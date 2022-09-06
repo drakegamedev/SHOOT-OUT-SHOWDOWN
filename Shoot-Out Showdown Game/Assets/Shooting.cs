@@ -66,6 +66,6 @@ public class Shooting : MonoBehaviour
     {
         float rotate = (Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg) - 90f;
 
-        rb.MoveRotation(rotate);
+        transform.rotation = Quaternion.Euler(0, 0, rotate);
     }
 }
