@@ -7,11 +7,13 @@ using UnityEngine.InputSystem;
 public class Shooting : MonoBehaviour
 {
     public Camera Cam;
-    
+    public Gun CurrentGun;
+
     private Rigidbody2D rb;
     private Vector2 direction;
     private Vector2 aimInput;
     private PlayerInput playerInput;
+    
 
     // Start is called before the first frame update
     void Start()
@@ -58,7 +60,7 @@ public class Shooting : MonoBehaviour
     // Shoot Out a Bullet
     public void Shoot(InputAction.CallbackContext context)
     {
-        Debug.Log("Shoot");
+        CurrentGun.Fire();
     }
 
     // Set Player Rotation
