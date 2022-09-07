@@ -61,6 +61,7 @@ public class Shooting : MonoBehaviour
     public void Shoot(InputAction.CallbackContext context)
     {
         CurrentGun.Fire();
+        //SceneLoader.Instance.LoadScene("MainMenuScene");
     }
 
     // Set Player Rotation

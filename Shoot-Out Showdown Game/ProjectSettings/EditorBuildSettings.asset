@@ -6,6 +6,18 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/PersistentScene.unity
+    guid: 90fd7510d717d9842b5c7672cfbf4c15
+  - enabled: 1
+    path: Assets/Scenes/MainMenuScene.unity
+    guid: e8377898831ce2943a8e07ddb582b723
+  - enabled: 1
     path: Assets/Scenes/GameScene.unity
     guid: 2cda990e2423bbf4892e6590ba056729
+  - enabled: 1
+    path: Assets/Scenes/UIScene.unity
+    guid: 26765e702d1060247b0585995dad692b
+  - enabled: 1
+    path: Assets/Scenes/Arenas/Arena1.unity
+    guid: 9fc49bab36a33e74b89d4f241c3854e8
   m_configObjects: {}
