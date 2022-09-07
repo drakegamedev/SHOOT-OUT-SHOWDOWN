@@ -14,6 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Id: Pistol
   Damage: 25
-  Ammo: 4
+  Ammo: 3
   Cooldown: 0.2
   ReloadTime: 1
