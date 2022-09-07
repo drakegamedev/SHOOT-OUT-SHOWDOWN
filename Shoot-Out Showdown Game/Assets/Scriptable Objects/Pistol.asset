@@ -15,5 +15,5 @@ MonoBehaviour:
   Id: Pistol
   Damage: 25
   Ammo: 4
-  Cooldown: 0.5
+  Cooldown: 0.2
   ReloadTime: 1

@@ -5,6 +5,8 @@ using UnityEngine;
 public class Gun : MonoBehaviour
 {
     public GunData GunType;
+    public Transform FirePoint;
+    public float Force;
 
     private int currentAmmo;
     private float reloadTime;
@@ -49,6 +51,13 @@ public class Gun : MonoBehaviour
     {
         if (currentAmmo > 0 && currentShootTime <= 0f)
         {
+            // Get Basic Bullet Prefab from Pool
+            GameObject BulletPrefab = ObjectPooler.Instance.SpawnFromPool("bullet", FirePoint.position, FirePoint.rotation);
+
+            // Add force to the bullet
+            Rigidbody2D rigidBody = BulletPrefab.GetComponent<Rigidbody2D>();
+            rigidBody.AddForce(FirePoint.up * Force, ForceMode2D.Impulse);
+
             currentShootTime = GunType.Cooldown;
             currentAmmo--;
         }

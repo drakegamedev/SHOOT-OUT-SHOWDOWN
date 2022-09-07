@@ -75,7 +75,7 @@ public class ObjectPooler : MonoBehaviour
                 // Spawn object and add poolable component
                 GameObject newObject = Instantiate(objPool.Prefab);
 
-                //newObject.AddComponent<Poolable>();
+                newObject.AddComponent<Poolable>();
 
                 // Set Position and Rotation
                 newObject.transform.position = position;
