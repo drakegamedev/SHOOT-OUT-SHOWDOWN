@@ -6,7 +6,9 @@ public class PlayerData : MonoBehaviour
 {
     public static PlayerData Instance;
 
-    //public int Player
+    public List<string> PlayerNames = new();
+
+    public int[] PlayerScores;
 
     #region Singleton
     void Awake()

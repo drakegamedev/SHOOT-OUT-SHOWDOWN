@@ -4,10 +4,16 @@ using UnityEngine;
 
 public class PlayerHealth : Health
 {
+    public GameObject PlayerGraphic;
+    public string DeathEffectId;
+
+    private PlayerSetup playerSetup;
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        playerSetup = GetComponent<PlayerSetup>();
+        CurrentHealth = DefaultHealth;
     }
 
     public override void TakeDamage(float damage)
@@ -23,6 +29,20 @@ public class PlayerHealth : Health
 
     public override void OnDeath()
     {
-        Debug.Log("Dead");
+        GameManager.Instance.PlayerList.Remove(gameObject);
+        GameManager.Instance.SetGame();
+        
+        StartCoroutine(DeathEffect());
+    }
+
+    IEnumerator DeathEffect()
+    {
+        PlayerGraphic.SetActive(false);
+        playerSetup.PlayerInput.enabled = false;
+        Poolable deathEffect = ObjectPooler.Instance.SpawnFromPool(DeathEffectId, transform.position, Quaternion.identity).GetComponent<Poolable>();
+
+        yield return new WaitForSeconds(1f);
+
+        deathEffect.ReturnToPool();
     }
 }

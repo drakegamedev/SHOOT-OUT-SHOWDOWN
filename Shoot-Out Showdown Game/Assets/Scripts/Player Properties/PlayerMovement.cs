@@ -7,22 +7,22 @@ using UnityEngine.InputSystem;
 public class PlayerMovement : MonoBehaviour
 {
     public float Speed;
-    
-    private Rigidbody2D rb;
+
+    private PlayerSetup playerSetup;
     private float currentSpeed;
     private Vector2 moveInput;
 
     // Start is called before the first frame update
     void Start()
     {
-        rb = GetComponent<Rigidbody2D>();
+        playerSetup = GetComponent<PlayerSetup>();
         currentSpeed = Speed;
     }
 
     // Update is called once per frame
     void Update()
     {
-        currentSpeed = Speed;
+        //currentSpeed = Speed;
     }
 
     // Move Function
@@ -30,6 +30,6 @@ public class PlayerMovement : MonoBehaviour
     {
         moveInput = context.ReadValue<Vector2>();
 
-        rb.velocity = moveInput * currentSpeed;
+        playerSetup.Rb.velocity = moveInput * currentSpeed;
     }
 }

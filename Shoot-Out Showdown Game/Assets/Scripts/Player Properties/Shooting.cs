@@ -6,44 +6,43 @@ using UnityEngine.InputSystem;
 // Executes Shooting Mechanic
 public class Shooting : MonoBehaviour
 {
-    public Camera Cam;
     public Gun CurrentGun;
 
-    private Rigidbody2D rb;
     private Vector2 direction;
     private Vector2 aimInput;
-    private PlayerInput playerInput;
-    
+    private PlayerSetup playerSetup;
+    private Camera cam;
 
     // Start is called before the first frame update
     void Start()
     {
-        rb = GetComponent<Rigidbody2D>();
-        playerInput = GetComponent<PlayerInput>();
+        playerSetup = GetComponent<PlayerSetup>();
+        cam = GameManager.Instance.GameCamera;
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        if (playerSetup.PlayerInput.defaultControlScheme == "Keyboard&Mouse")
+        {
+            direction = aimInput - playerSetup.Rb.position;
+            SetAngle();
+        }
     }
 
     // Aim with Mouse
     public void MouseAim(InputAction.CallbackContext context)
     {
-        if (playerInput.defaultControlScheme == "Keyboard&Mouse")
+        if (playerSetup.PlayerInput.defaultControlScheme == "Keyboard&Mouse")
         {
-            aimInput = Cam.ScreenToWorldPoint(context.ReadValue<Vector2>());
-
-            direction = aimInput - rb.position;
-            SetAngle();
+            aimInput = cam.ScreenToWorldPoint(context.ReadValue<Vector2>());
         }
     }
 
     // Aim with Right Joystick
     public void ControllerAim(InputAction.CallbackContext context)
     {
-        if (playerInput.defaultControlScheme == "Controller")
+        if (playerSetup.PlayerInput.defaultControlScheme == "Controller")
         {
             aimInput = context.ReadValue<Vector2>();
 
@@ -60,8 +59,10 @@ public class Shooting : MonoBehaviour
     // Shoot Out a Bullet
     public void Shoot(InputAction.CallbackContext context)
     {
-        CurrentGun.Fire();
-        //SceneLoader.Instance.LoadScene("MainMenuScene");
+        if (GameManager.Instance.CurrentGameState == GameManager.GameStates.ROUND_START)
+        {
+            CurrentGun.Fire();
+        }
     }
 
     // Set Player Rotation
