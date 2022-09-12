@@ -6,18 +6,16 @@ public class Bullet : MonoBehaviour
 {
     public TrailRenderer BulletTrail;
     
-    private Rigidbody2D rb;
     private BulletHealth bulletHealth;
 
     void OnDisable()
     {
-        BulletTrail.Clear();    
+        BulletTrail.Clear();
     }
 
     // Start is called before the first frame update
     void Start()
     {
-        rb = GetComponent<Rigidbody2D>();
         bulletHealth = GetComponent<BulletHealth>();
     }
 
@@ -34,7 +32,5 @@ public class Bullet : MonoBehaviour
             playerHealth.TakeDamage(1f);
             bulletHealth.OnDeath();
         }
-
-        
     }
 }

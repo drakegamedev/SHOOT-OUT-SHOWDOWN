@@ -8,6 +8,7 @@ public class PlayerHealth : Health
 
     private PlayerSetup playerSetup;
 
+
     // Start is called before the first frame update
     void Start()
     {
@@ -19,12 +20,13 @@ public class PlayerHealth : Health
     {
         CurrentHealth -= damage;
 
+        GameManager.Instance.UiController.UpdateHealth(playerSetup.PlayerNumber, CurrentHealth);
+
         if (CurrentHealth > 0f)
         {
             playerSetup.Animator.SetTrigger("hurt");
         }
-
-        if (CurrentHealth <= 0f)
+        else if (CurrentHealth <= 0f)
         {
             CurrentHealth = 0f;
             OnDeath();
@@ -37,9 +39,16 @@ public class PlayerHealth : Health
         DeathEffect();
     }
 
+
     void DeathEffect()
     {
         gameObject.SetActive(false);
         ObjectPooler.Instance.SpawnFromPool(DeathEffectId, transform.position, Quaternion.identity);
+    }
+
+    public void ResetHealth()
+    {
+        CurrentHealth = DefaultHealth;
+        GameManager.Instance.UiController.UpdateHealth(playerSetup.PlayerNumber, CurrentHealth);
     }
 }

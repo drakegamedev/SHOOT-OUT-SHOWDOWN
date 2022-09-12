@@ -6,6 +6,9 @@ using UnityEngine.InputSystem;
 // Executes Shooting Mechanic
 public class Shooting : MonoBehaviour
 {
+    // FIX SHOOTING BUG LATER
+    // WHEN GENERATING A NEW ARENA, SOME PLAYERS CAN'T SHOOT ANYMORE
+    
     public Gun CurrentGun;
 
     private Vector2 direction;

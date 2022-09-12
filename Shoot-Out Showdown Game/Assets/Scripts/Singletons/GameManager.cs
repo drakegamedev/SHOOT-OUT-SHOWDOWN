@@ -21,7 +21,6 @@ public class GameManager : MonoBehaviour
 
     public GameObject[] PlayerPrefabs;
 
-    public string[] PlayerIds;
 
     public GameStates CurrentGameState;
 
@@ -32,6 +31,11 @@ public class GameManager : MonoBehaviour
     public PlayerInputManager PlayerInputManager;
 
     private string currentSceneId;
+
+    // Spawning Points
+    public List<Transform> PlayerSpawnPoints = new();
+
+    public bool allPlayers { get; private set; }
 
     #region Singleton
     void Awake()
@@ -54,18 +58,23 @@ public class GameManager : MonoBehaviour
         GameCamera = Camera.GetComponent<Camera>();
         CameraController = Camera.GetComponent<CameraController>();
         PlayerInputManager.playerPrefab = PlayerPrefabs[0];
-        StartCoroutine(GenerateArena("Arena1"));
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
         
+        allPlayers = false;
+
+        SceneManager.LoadSceneAsync("UIScene", LoadSceneMode.Additive);
+
+        GenerateArena();
     }
 
     public void Join()
     {
         PlayerInputManager.playerPrefab = PlayerPrefabs[1];
+
+        if (PlayerInputManager.playerCount == PlayerInputManager.maxPlayerCount)
+        {
+            PlayerInputManager.DisableJoining();
+            allPlayers = true;
+        }
     }
 
     public void SetGame()
@@ -73,42 +82,28 @@ public class GameManager : MonoBehaviour
         CurrentGameState = GameStates.ROUND_OVER;
         CameraController.CameraShake();
         EventManager.Instance.PlayerDied.Invoke();
-        StartCoroutine(SetPlayerScore());
     }
 
-    public void SpawnPlayers(Transform position, Transform rotation)
+    
+
+    public void ReactivatePlayers()
     {
-        for (int i = 0; i < PlayerIds.Length; i++)
-        {
-            //ObjectPooler
-        }
-    }
-
-    IEnumerator SetPlayerScore()
-    {
-        yield return new WaitForSeconds(2f);
-
-        // Set Score
-
-        int index = PlayerList[0].GetComponent<PlayerSetup>().PlayerNumber;
-
-        //PlayerData.Instance.PlayerScores[index - 1]++;
-        //UiController.PlayerScoreTexts[index - 1].text = PlayerData.Instance.PlayerScores[index - 1].ToString("0");
-
-
-        yield return new WaitForSeconds(3f);
-
         for (int i = 0; i < PlayerList.Count; i++)
         {
             PlayerList[i].SetActive(true);
-        }
 
-        //SceneLoader.Instance.LoadScene("GameScene");
-        CurrentGameState = GameStates.ROUND_START;
-        StartCoroutine(GenerateArena("Arena1"));
+            PlayerHealth playerHealth = PlayerList[i].GetComponent<PlayerHealth>();
+            playerHealth.ResetHealth();
+        }
     }
 
-    IEnumerator GenerateArena(string arenaId)
+    #region Level Generation
+    public void GenerateArena()
+    {
+        StartCoroutine(InitializeArena("Arena1"));
+    }
+
+    IEnumerator InitializeArena(string arenaId)
     {
         if (currentSceneId != null)
         {
@@ -124,4 +119,5 @@ public class GameManager : MonoBehaviour
 
         currentSceneId = arenaId;
     }
+    #endregion
 }
