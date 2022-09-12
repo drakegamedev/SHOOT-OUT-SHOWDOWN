@@ -18,6 +18,6 @@ EditorBuildSettings:
     path: Assets/Scenes/UIScene.unity
     guid: 26765e702d1060247b0585995dad692b
   - enabled: 1
-    path: Assets/Scenes/Arenas/Arena1.unity
+    path: Assets/Scenes/Arena1.unity
     guid: 9fc49bab36a33e74b89d4f241c3854e8
   m_configObjects: {}

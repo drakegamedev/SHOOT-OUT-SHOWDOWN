@@ -23,26 +23,24 @@ public class Shooting : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (playerSetup.PlayerInput.defaultControlScheme == "Keyboard&Mouse")
-        {
-            direction = aimInput - playerSetup.Rb.position;
-            SetAngle();
-        }
+        SetAngle();
     }
 
     // Aim with Mouse
     public void MouseAim(InputAction.CallbackContext context)
     {
-        if (playerSetup.PlayerInput.defaultControlScheme == "Keyboard&Mouse")
+        if (playerSetup.PlayerInput.currentControlScheme == "Keyboard&Mouse")
         {
             aimInput = cam.ScreenToWorldPoint(context.ReadValue<Vector2>());
+
+            direction = aimInput - playerSetup.Rb.position;
         }
     }
 
     // Aim with Right Joystick
     public void ControllerAim(InputAction.CallbackContext context)
     {
-        if (playerSetup.PlayerInput.defaultControlScheme == "Controller")
+        if (playerSetup.PlayerInput.currentControlScheme == "Controller")
         {
             aimInput = context.ReadValue<Vector2>();
 
@@ -51,7 +49,6 @@ public class Shooting : MonoBehaviour
             if (aimInput.x != 0f && aimInput.y != 0f)
             {
                 direction = aimInput;
-                SetAngle();
             }
         }
     }

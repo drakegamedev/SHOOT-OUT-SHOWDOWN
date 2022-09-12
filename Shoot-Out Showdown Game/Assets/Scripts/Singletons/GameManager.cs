@@ -1,6 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
+using System;
 
 public class GameManager : MonoBehaviour
 {
@@ -16,6 +19,7 @@ public class GameManager : MonoBehaviour
     public Camera GameCamera { get; private set; }
     public CameraController CameraController { get; private set; }
 
+    public GameObject[] PlayerPrefabs;
 
     public string[] PlayerIds;
 
@@ -24,6 +28,10 @@ public class GameManager : MonoBehaviour
     public List<GameObject> PlayerList = new();
 
     public UIController UiController;
+
+    public PlayerInputManager PlayerInputManager;
+
+    private string currentSceneId;
 
     #region Singleton
     void Awake()
@@ -45,12 +53,19 @@ public class GameManager : MonoBehaviour
         CurrentGameState = GameStates.ROUND_START;
         GameCamera = Camera.GetComponent<Camera>();
         CameraController = Camera.GetComponent<CameraController>();
+        PlayerInputManager.playerPrefab = PlayerPrefabs[0];
+        StartCoroutine(GenerateArena("Arena1"));
     }
 
     // Update is called once per frame
     void Update()
     {
         
+    }
+
+    public void Join()
+    {
+        PlayerInputManager.playerPrefab = PlayerPrefabs[1];
     }
 
     public void SetGame()
@@ -77,12 +92,36 @@ public class GameManager : MonoBehaviour
 
         int index = PlayerList[0].GetComponent<PlayerSetup>().PlayerNumber;
 
-        PlayerData.Instance.PlayerScores[index - 1]++;
-        UiController.PlayerScoreTexts[index - 1].text = PlayerData.Instance.PlayerScores[index - 1].ToString("0");
+        //PlayerData.Instance.PlayerScores[index - 1]++;
+        //UiController.PlayerScoreTexts[index - 1].text = PlayerData.Instance.PlayerScores[index - 1].ToString("0");
 
 
         yield return new WaitForSeconds(3f);
 
-        SceneLoader.Instance.LoadScene("GameScene");
+        for (int i = 0; i < PlayerList.Count; i++)
+        {
+            PlayerList[i].SetActive(true);
+        }
+
+        //SceneLoader.Instance.LoadScene("GameScene");
+        CurrentGameState = GameStates.ROUND_START;
+        StartCoroutine(GenerateArena("Arena1"));
+    }
+
+    IEnumerator GenerateArena(string arenaId)
+    {
+        if (currentSceneId != null)
+        {
+            yield return SceneManager.UnloadSceneAsync(currentSceneId);
+        }
+
+        Resources.UnloadUnusedAssets();
+        yield return null;
+        GC.Collect();
+        yield return null;
+
+        yield return SceneManager.LoadSceneAsync(arenaId, LoadSceneMode.Additive);
+
+        currentSceneId = arenaId;
     }
 }

@@ -139,7 +139,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1000898966
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -154,7 +154,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   AdditionScenes:
   - Arena1
-  - UIScene
 --- !u!4 &1000898967
 Transform:
   m_ObjectHideFlags: 0
@@ -180,6 +179,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1123769175}
   - component: {fileID: 1123769174}
+  - component: {fileID: 1123769176}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -200,8 +200,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Camera: {fileID: 1506145636}
+  PlayerPrefabs:
+  - {fileID: 1757604487565575512, guid: 7be5e8558f697df4a96f4c39ad28c39e, type: 3}
+  - {fileID: 2139089778301005592, guid: 9dfa850c5dd81ed4c84bea15decdef31, type: 3}
   PlayerIds: []
   CurrentGameState: 0
+  PlayerList: []
+  UiController: {fileID: 0}
+  PlayerInputManager: {fileID: 1123769176}
 --- !u!4 &1123769175
 Transform:
   m_ObjectHideFlags: 0
@@ -217,6 +223,78 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1123769176
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1123769173}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 621567455fd1c4ceb811cc8a00b6a1a5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_NotificationBehavior: 2
+  m_MaxPlayerCount: 2
+  m_AllowJoining: 1
+  m_JoinBehavior: 1
+  m_PlayerJoinedEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1123769174}
+        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+        m_MethodName: Join
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  m_PlayerLeftEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_JoinAction:
+    m_UseReference: 0
+    m_Action:
+      m_Name: Join
+      m_Type: 0
+      m_ExpectedControlType: 
+      m_Id: 1a6e0db2-5d7a-4dad-bd2e-53901c0e4c74
+      m_Processors: 
+      m_Interactions: 
+      m_SingletonActionBindings:
+      - m_Name: 
+        m_Id: a8f5a3a0-c2f1-49a6-b6f3-6b9c22d53d9e
+        m_Path: <Keyboard>/j
+        m_Interactions: 
+        m_Processors: 
+        m_Groups: 
+        m_Action: Join
+        m_Flags: 0
+      - m_Name: 
+        m_Id: 54aba868-40e3-4892-9d81-68d3d79aaa4e
+        m_Path: <Gamepad>/buttonSouth
+        m_Interactions: 
+        m_Processors: 
+        m_Groups: 
+        m_Action: Join
+        m_Flags: 0
+      m_Flags: 0
+    m_Reference: {fileID: -715698966746071111, guid: 91290a57acd002c4ab7aeb8202845937, type: 3}
+  m_PlayerPrefab: {fileID: 1757604487565575512, guid: 7be5e8558f697df4a96f4c39ad28c39e, type: 3}
+  m_SplitScreen: 0
+  m_MaintainAspectRatioInSplitScreen: 0
+  m_FixedNumberOfSplitScreens: -1
+  m_SplitScreenRect:
+    serializedVersion: 2
+    x: 0
+    y: 0
+    width: 1
+    height: 1
 --- !u!1 &1506145636
 GameObject:
   m_ObjectHideFlags: 0

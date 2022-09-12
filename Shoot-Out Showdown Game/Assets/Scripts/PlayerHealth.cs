@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class PlayerHealth : Health
 {
-    public GameObject PlayerGraphic;
     public string DeathEffectId;
 
     private PlayerSetup playerSetup;
@@ -20,6 +19,11 @@ public class PlayerHealth : Health
     {
         CurrentHealth -= damage;
 
+        if (CurrentHealth > 0f)
+        {
+            playerSetup.Animator.SetTrigger("hurt");
+        }
+
         if (CurrentHealth <= 0f)
         {
             CurrentHealth = 0f;
@@ -29,20 +33,13 @@ public class PlayerHealth : Health
 
     public override void OnDeath()
     {
-        GameManager.Instance.PlayerList.Remove(gameObject);
         GameManager.Instance.SetGame();
-        
-        StartCoroutine(DeathEffect());
+        DeathEffect();
     }
 
-    IEnumerator DeathEffect()
+    void DeathEffect()
     {
-        PlayerGraphic.SetActive(false);
-        playerSetup.PlayerInput.enabled = false;
-        Poolable deathEffect = ObjectPooler.Instance.SpawnFromPool(DeathEffectId, transform.position, Quaternion.identity).GetComponent<Poolable>();
-
-        yield return new WaitForSeconds(1f);
-
-        deathEffect.ReturnToPool();
+        gameObject.SetActive(false);
+        ObjectPooler.Instance.SpawnFromPool(DeathEffectId, transform.position, Quaternion.identity);
     }
 }

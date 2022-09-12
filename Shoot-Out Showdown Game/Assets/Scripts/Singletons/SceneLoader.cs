@@ -34,9 +34,9 @@ public class SceneLoader : MonoBehaviour
 
     private IEnumerator LoadSceneSequence(string sceneId)
     {
-        if (currentSceneId != null)
+        /*if (currentSceneId != null)
         {
-            AdditionalSceneLoader additionalScene = AdditionalSceneLoader.Instance;
+            /*AdditionalSceneLoader additionalScene = AdditionalSceneLoader.Instance;
 
             if (additionalScene)
             {
@@ -45,7 +45,7 @@ public class SceneLoader : MonoBehaviour
 
             yield return SceneManager.UnloadSceneAsync(currentSceneId);
             currentSceneId = null;
-        }
+        }*/
 
         if (currentSceneId != null)
         {
