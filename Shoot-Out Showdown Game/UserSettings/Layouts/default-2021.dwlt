@@ -19,7 +19,7 @@ MonoBehaviour:
     width: 1536
     height: 780.8
   m_ShowMode: 4
-  m_Title: Game
+  m_Title: Hierarchy
   m_RootView: {fileID: 2}
   m_MinSize: {x: 875, y: 350}
   m_MaxSize: {x: 10000, y: 10000}
@@ -118,7 +118,7 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 200}
   m_MaxSize: {x: 24288, y: 16192}
   vertical: 1
-  controlID: 19
+  controlID: 24
 --- !u!114 &6
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -143,7 +143,7 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 200}
   m_MaxSize: {x: 24288, y: 16192}
   vertical: 0
-  controlID: 20
+  controlID: 25
 --- !u!114 &7
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -168,7 +168,7 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 200}
   m_MaxSize: {x: 16192, y: 16192}
   vertical: 1
-  controlID: 95
+  controlID: 26
 --- !u!114 &8
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -193,7 +193,7 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 100}
   m_MaxSize: {x: 16192, y: 8096}
   vertical: 0
-  controlID: 96
+  controlID: 27
 --- !u!114 &9
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -295,8 +295,8 @@ MonoBehaviour:
     y: 0
     width: 306.40002
     height: 730.8
-  m_MinSize: {x: 275, y: 50}
-  m_MaxSize: {x: 4000, y: 4000}
+  m_MinSize: {x: 276, y: 71}
+  m_MaxSize: {x: 4001, y: 4021}
   m_ActualView: {fileID: 20}
   m_Panes:
   - {fileID: 20}
@@ -425,9 +425,9 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: b8630000
+      m_SelectedIDs: 
       m_LastClickedID: 0
-      m_ExpandedIDs: 56fafeff84fefeffc0fefeff5e04ffffd608ffff7418ffffe619ffff2a1affff661afffff220ffffc22affffb431ffff2632ffff0642ffff8e42ffffd242ffff0650ffff6850ffff566cffff2676ffff5e77ffffb877ffff0078ffff6691ffff6891ffff8e93ffff2e95ffff8697ffff1498ffff5098ffff9898ffffcc9bffff5c9cffff9a9cffffe09cffff9e9fffff28a0ffffcaa3ffff54a4fffffca4ffff82a6ffff18a7ffff9ca9ffff2caaffff1eabffffe2abffff42b6ffff4ebaffff44bbffff12c1ffff4ec3ffff30c4fffff4c4ffff30c6ffffd2c7fffffcc9ffff64ccffffaed4ffff72dcffff4cdfffff04e0ffff76e0ffff40e2ffff16e3ffffa8e4fffface4ffffece8ffffb2e9fffffae9ffff0ef2ffff56f2ffff9ef2ffff3cf5ffff02f6ffff76f7ffff22fbffff30a200004aab000004ad00001ead00000ebc000028bc000046f400004cf4000062f4000086f400008cf40000b8f400006efb000084fb0000a8fb0000aefb00003aff000056ff000080ff0000acff0000240e0100
+      m_ExpandedIDs: 22fbffff
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -484,8 +484,8 @@ MonoBehaviour:
       floating: 0
       collapsed: 0
       displayed: 1
-      snapOffset: {x: -100, y: -25.600006}
-      snapOffsetDelta: {x: 0, y: 0}
+      snapOffset: {x: 0, y: 0}
+      snapOffsetDelta: {x: -100, y: -25.600006}
       snapCorner: 3
       id: Tool Settings
       index: 0
@@ -495,7 +495,7 @@ MonoBehaviour:
       floating: 0
       collapsed: 0
       displayed: 1
-      snapOffset: {x: 0, y: 24.8}
+      snapOffset: {x: 0, y: 0}
       snapOffsetDelta: {x: 0, y: 0}
       snapCorner: 0
       id: unity-scene-view-toolbar
@@ -539,7 +539,7 @@ MonoBehaviour:
       floating: 0
       collapsed: 0
       displayed: 1
-      snapOffset: {x: 0, y: 24.8}
+      snapOffset: {x: 0, y: 0}
       snapOffsetDelta: {x: 0, y: 0}
       snapCorner: 0
       id: unity-transform-toolbar
@@ -900,13 +900,13 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Scenes
+    - Assets
     m_Globs: []
     m_OriginalText: 
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets/Scenes
+  - Assets
   m_LastFoldersGridSize: -1
   m_LastProjectPath: C:\Users\Drake Axel Mayo\Desktop\Drake Gamedev Respositories\Shoot-Out
     Showdown Repository\Shoot-Out Showdown Game
@@ -914,9 +914,9 @@ MonoBehaviour:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 35}
-    m_SelectedIDs: 42630000
-    m_LastClickedID: 25410
-    m_ExpandedIDs: 00000000386300003a6300003c6300003e6300004063000042630000446300004663000000ca9a3b
+    m_SelectedIDs: 3c630000
+    m_LastClickedID: 25404
+    m_ExpandedIDs: 000000003c6300003e63000040630000426300004463000046630000486300004a63000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -944,7 +944,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 00000000386300003a6300003c6300003e63000040630000426300004463000046630000
+    m_ExpandedIDs: 000000003c6300003e63000040630000426300004463000046630000486300004a630000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 

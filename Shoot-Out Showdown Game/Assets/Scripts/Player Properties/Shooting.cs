@@ -61,7 +61,10 @@ public class Shooting : MonoBehaviour
     {
         if (GameManager.Instance.CurrentGameState == GameManager.GameStates.ROUND_START)
         {
-            CurrentGun.Fire();
+            if (context.started)
+            {
+                CurrentGun.Fire();
+            }
         }
     }
 
