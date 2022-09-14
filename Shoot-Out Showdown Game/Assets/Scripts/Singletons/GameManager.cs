@@ -15,27 +15,24 @@ public class GameManager : MonoBehaviour
     
     public static GameManager Instance;
 
-    public GameObject Camera;
-    public Camera GameCamera { get; private set; }
-    public CameraController CameraController { get; private set; }
+    [Header("References")]
+    public GameObject Camera;                                                                       // Camera GameObject Reference
+    public PlayerInputManager PlayerInputManager;                                                   // Player Input Manager Reference
+    public GameObject[] PlayerPrefabs;                                                              // Player Prefabs Array
+    public string[] ArenaIds;                                                                       // Arena ID's
+    public GameStates CurrentGameState;                                                             // Current Game State
+    public UIController UiController { get; set; }                                                  // UI Controller Reference
+    public Camera GameCamera { get; private set; }                                                  // Camera Component Reference
+    public CameraController CameraController { get; private set; }                                  // Camera Controller Class Reference
 
-    public GameObject[] PlayerPrefabs;
+    // Lists
+    public List<GameObject> PlayerList { get; set; } = new();                                       // Player List
+    public List<Transform> PlayerSpawnPoints { get; set; } = new();                                 // Player Spawn Points
 
+    public bool allPlayersPresent { get; private set; }                                             // Checks is all players are now present
 
-    public GameStates CurrentGameState;
-
-    public List<GameObject> PlayerList = new();
-
-    public UIController UiController;
-
-    public PlayerInputManager PlayerInputManager;
-
+    // Private Variables
     private string currentSceneId;
-
-    // Spawning Points
-    public List<Transform> PlayerSpawnPoints = new();
-
-    public bool allPlayers { get; private set; }
 
     #region Singleton
     void Awake()
@@ -54,26 +51,33 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        // Initialize Variables
         CurrentGameState = GameStates.ROUND_START;
         GameCamera = Camera.GetComponent<Camera>();
         CameraController = Camera.GetComponent<CameraController>();
         PlayerInputManager.playerPrefab = PlayerPrefabs[0];
-        
-        allPlayers = false;
+        allPlayersPresent = false;
 
+        // Add UI Scene
         SceneManager.LoadSceneAsync("UIScene", LoadSceneMode.Additive);
 
+        // Initial Genration of Arena
         GenerateArena();
     }
 
+    // On Player Joined Event
     public void Join()
     {
-        PlayerInputManager.playerPrefab = PlayerPrefabs[1];
-
+        // Disable Joining if Maximum Players have been Reached
         if (PlayerInputManager.playerCount == PlayerInputManager.maxPlayerCount)
         {
             PlayerInputManager.DisableJoining();
-            allPlayers = true;
+            allPlayersPresent = true;
+        }
+        else
+        {
+            // Change Input Manager Prefab
+            PlayerInputManager.playerPrefab = PlayerPrefabs[1];
         }
     }
 
@@ -85,13 +89,15 @@ public class GameManager : MonoBehaviour
     }
 
     
-
+    // Reset Player Properties
     public void ReactivatePlayers()
     {
         for (int i = 0; i < PlayerList.Count; i++)
         {
+            // Reactivate Player Prefab
             PlayerList[i].SetActive(true);
 
+            // Reset Player Health
             PlayerHealth playerHealth = PlayerList[i].GetComponent<PlayerHealth>();
             playerHealth.ResetHealth();
         }
@@ -100,7 +106,9 @@ public class GameManager : MonoBehaviour
     #region Level Generation
     public void GenerateArena()
     {
-        StartCoroutine(InitializeArena("Arena1"));
+        int randomArena = UnityEngine.Random.Range(0, ArenaIds.Length);
+        
+        StartCoroutine(InitializeArena(ArenaIds[randomArena]));
     }
 
     IEnumerator InitializeArena(string arenaId)

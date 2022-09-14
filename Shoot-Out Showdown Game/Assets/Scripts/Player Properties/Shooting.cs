@@ -23,9 +23,11 @@ public class Shooting : MonoBehaviour
         cam = GameManager.Instance.GameCamera;
     }
 
-    // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
+        if (playerSetup.PlayerInput.currentControlScheme == "Keyboard&Mouse")
+            direction = aimInput - playerSetup.Rb.position;
+           
         SetAngle();
     }
 
@@ -35,7 +37,6 @@ public class Shooting : MonoBehaviour
         if (playerSetup.PlayerInput.currentControlScheme == "Keyboard&Mouse")
         {
             aimInput = cam.ScreenToWorldPoint(context.ReadValue<Vector2>());
-
             direction = aimInput - playerSetup.Rb.position;
         }
     }

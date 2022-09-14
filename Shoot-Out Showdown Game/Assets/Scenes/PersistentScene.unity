@@ -168,8 +168,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PlayerNames:
-  - Drake
-  - Axel
+  - dddddddddd
+  - dddddd
   PlayerScores: 0000000000000000
 --- !u!1 &1148595757
 GameObject:
@@ -209,6 +209,10 @@ MonoBehaviour:
     Prefab: {fileID: 227043704485283423, guid: b757e223ed18d884a8c2738244120671, type: 3}
   - Id: player-2-death-effect
     Prefab: {fileID: 227043704485283423, guid: c6aa72a27a0759e49a7a6ba9c4063182, type: 3}
+  - Id: player-1-score-effect
+    Prefab: {fileID: 3318068301619798016, guid: 1e89c22d20dc2d34ba48e12ead656253, type: 3}
+  - Id: player-2-score-effect
+    Prefab: {fileID: 3318068301619798016, guid: 1e89c22d20dc2d34ba48e12ead656253, type: 3}
 --- !u!4 &1148595759
 Transform:
   m_ObjectHideFlags: 0

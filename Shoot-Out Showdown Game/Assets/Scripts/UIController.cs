@@ -24,6 +24,7 @@ public class UIController : MonoBehaviour
 
     public PlayerItem[] PlayerItems;
 
+    public GameObject ASD;
 
     void OnEnable()
     {
@@ -100,6 +101,9 @@ public class UIController : MonoBehaviour
         // Add Score
         PlayerItems[index].Score++;
         PlayerScoreTexts[index].text = PlayerItems[index].Score.ToString("0");
+        GameObject gameObject1 = ObjectPooler.Instance.SpawnFromPool("player-1-score-effect", PlayerScoreTexts[index].transform.position, Quaternion.identity);
+        gameObject1.transform.localScale = Vector3.one;
+        //Instantiate();
         playerVictor = null;
 
         yield return new WaitForSeconds(2f);
