@@ -168,9 +168,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PlayerNames:
-  - dddddddddd
-  - dddddd
-  PlayerScores: 0000000000000000
+  - Drake
+  - Axel
+  MaxScore: 5
 --- !u!1 &1148595757
 GameObject:
   m_ObjectHideFlags: 0

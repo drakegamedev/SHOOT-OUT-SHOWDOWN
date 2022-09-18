@@ -8,6 +8,7 @@ public class EventManager : MonoBehaviour
     public static EventManager Instance;
 
     public Action PlayerDied;
+    public Action ResetMatch;
 
     #region Singleton
     void Awake()

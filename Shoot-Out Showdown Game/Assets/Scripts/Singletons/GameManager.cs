@@ -9,6 +9,8 @@ public class GameManager : MonoBehaviour
 {
     public enum GameStates
     {
+        SETTING_UP,
+        COUNTDOWN,
         ROUND_START,
         ROUND_OVER
     };
@@ -18,6 +20,7 @@ public class GameManager : MonoBehaviour
     [Header("References")]
     public GameObject Camera;                                                                       // Camera GameObject Reference
     public PlayerInputManager PlayerInputManager;                                                   // Player Input Manager Reference
+    public Color[] ArenaColors;                                                                     // Arena Color
     public GameObject[] PlayerPrefabs;                                                              // Player Prefabs Array
     public string[] ArenaIds;                                                                       // Arena ID's
     public GameStates CurrentGameState;                                                             // Current Game State
@@ -33,6 +36,7 @@ public class GameManager : MonoBehaviour
 
     // Private Variables
     private string currentSceneId;
+    private string currentArenaId;
 
     #region Singleton
     void Awake()
@@ -48,6 +52,15 @@ public class GameManager : MonoBehaviour
     }
     #endregion
 
+    void OnDisable()
+    {
+        EventManager.Instance.ResetMatch -= ReactivatePlayers;
+        EventManager.Instance.ResetMatch -= GenerateArena;
+
+        SceneManager.UnloadSceneAsync(currentArenaId);
+        SceneManager.UnloadSceneAsync("UIScene");
+    }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -60,6 +73,9 @@ public class GameManager : MonoBehaviour
 
         // Add UI Scene
         SceneManager.LoadSceneAsync("UIScene", LoadSceneMode.Additive);
+
+        EventManager.Instance.ResetMatch += ReactivatePlayers;
+        EventManager.Instance.ResetMatch += GenerateArena;
 
         // Initial Genration of Arena
         GenerateArena();
@@ -100,6 +116,10 @@ public class GameManager : MonoBehaviour
             // Reset Player Health
             PlayerHealth playerHealth = PlayerList[i].GetComponent<PlayerHealth>();
             playerHealth.ResetHealth();
+
+            // Reset Player Ammo
+            PlayerSetup playerSetup = PlayerList[i].GetComponent<PlayerSetup>();
+            playerSetup.Gun.ResetAmmo();
         }
     }
 
@@ -107,7 +127,16 @@ public class GameManager : MonoBehaviour
     public void GenerateArena()
     {
         int randomArena = UnityEngine.Random.Range(0, ArenaIds.Length);
+
+        while (ArenaIds[randomArena] == currentArenaId)
+        {
+            randomArena = UnityEngine.Random.Range(0, ArenaIds.Length);
+        }
         
+        currentArenaId = ArenaIds[randomArena];
+
+        Debug.Log(currentArenaId);
+
         StartCoroutine(InitializeArena(ArenaIds[randomArena]));
     }
 

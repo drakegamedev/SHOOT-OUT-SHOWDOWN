@@ -19,17 +19,14 @@ public class PlayerMovement : MonoBehaviour
         currentSpeed = Speed;
     }
 
-    // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
-        //currentSpeed = Speed;
+        playerSetup.Rb.velocity = moveInput * currentSpeed;
     }
 
     // Move Function
     public void Move(InputAction.CallbackContext context)
     {
         moveInput = context.ReadValue<Vector2>();
-
-        playerSetup.Rb.velocity = moveInput * currentSpeed;
     }
 }

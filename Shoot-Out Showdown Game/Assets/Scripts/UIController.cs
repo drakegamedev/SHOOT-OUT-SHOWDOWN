@@ -36,9 +36,16 @@ public class UIController : MonoBehaviour
         EventManager.Instance.PlayerDied -= SetScore;
     }
 
+    public void OnMainMenuButtonClicked()
+    {
+        SceneLoader.Instance.LoadScene("MainMenuScene");
+    }
+
     // Start is called before the first frame update
     void Start()
     {
+        PanelManager.Instance.ActivatePanel("score-board-panel");
+
         // Initialize Player Item Properties
         for (int i = 0; i < PlayerItems.Length; i++)
         {
@@ -101,18 +108,33 @@ public class UIController : MonoBehaviour
         // Add Score
         PlayerItems[index].Score++;
         PlayerScoreTexts[index].text = PlayerItems[index].Score.ToString("0");
-        GameObject gameObject1 = ObjectPooler.Instance.SpawnFromPool("player-1-score-effect", PlayerScoreTexts[index].transform.position, Quaternion.identity);
-        gameObject1.transform.localScale = Vector3.one;
-        //Instantiate();
+
+        // Nullify Player Victor
         playerVictor = null;
 
         yield return new WaitForSeconds(2f);
 
-        // Reset All Properties and Generate new Arena
-        GameManager.Instance.CurrentGameState = GameManager.GameStates.ROUND_START;
-        GameManager.Instance.PlayerSpawnPoints.Clear();
+        if (PlayerItems[index].Score >= PlayerData.Instance.MaxScore)
+        {
+            Debug.Log("There is now a winner!");
 
-        GameManager.Instance.ReactivatePlayers();
-        GameManager.Instance.GenerateArena();
+            for (int i = 0; i < GameManager.Instance.PlayerList.Count; i++)
+            {
+                Destroy(GameManager.Instance.PlayerList[i]);
+            }
+
+
+            PanelManager.Instance.ActivatePanel("results-panel");
+        }
+        else
+        {
+            // Reset All Properties and Generate new Arena
+            GameManager.Instance.CurrentGameState = GameManager.GameStates.ROUND_START;
+            GameManager.Instance.PlayerSpawnPoints.Clear();
+
+            EventManager.Instance.ResetMatch.Invoke();
+        }
+
+        
     }
 }

@@ -304,6 +304,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Camera: {fileID: 1506145636}
   PlayerInputManager: {fileID: 1060410814}
+  ArenaColors:
+  - {r: 1, g: 0, b: 0, a: 1}
+  - {r: 0, g: 0.6431373, b: 0, a: 1}
+  - {r: 0.09803922, g: 0.09803922, b: 0.6509804, a: 1}
+  - {r: 0.4433962, g: 0.4433962, b: 0.4433962, a: 1}
+  - {r: 0.7264151, g: 0, b: 0.7264151, a: 1}
+  - {r: 0.8113208, g: 0.74074095, b: 0.6077252, a: 1}
   PlayerPrefabs:
   - {fileID: 1757604487565575512, guid: 7be5e8558f697df4a96f4c39ad28c39e, type: 3}
   - {fileID: 2139089778301005592, guid: 9dfa850c5dd81ed4c84bea15decdef31, type: 3}

@@ -17,6 +17,12 @@ public class Gun : MonoBehaviour
     void OnEnable()
     {
         isReloading = false;
+        //EventManager.Instance.ResetMatch += ResetAmmo;
+    }
+
+    void OnDisable()
+    {
+        //EventManager.Instance.ResetMatch -= ResetAmmo;
     }
 
     // Start is called before the first frame update
@@ -82,5 +88,10 @@ public class Gun : MonoBehaviour
         
         currentAmmo = GunType.Ammo;
         isReloading = false;
+    }
+
+    public void ResetAmmo()
+    {
+        currentAmmo = GunType.Ammo;
     }
 }

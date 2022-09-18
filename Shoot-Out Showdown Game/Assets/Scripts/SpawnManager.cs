@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class SpawnManager : MonoBehaviour
 {
-    public Transform[] SpawnPoints;
+    public Transform[] SpawnPoints;                                                 // Spawn Points Array
     
     // Start is called before the first frame update
     void Start()

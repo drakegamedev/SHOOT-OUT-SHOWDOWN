@@ -8,7 +8,9 @@ public class PlayerData : MonoBehaviour
 
     public List<string> PlayerNames = new();
 
-    public int[] PlayerScores;
+    //public int[] PlayerScores;
+
+    public int MaxScore;
 
     #region Singleton
     void Awake()
@@ -23,16 +25,4 @@ public class PlayerData : MonoBehaviour
         }
     }
     #endregion
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }

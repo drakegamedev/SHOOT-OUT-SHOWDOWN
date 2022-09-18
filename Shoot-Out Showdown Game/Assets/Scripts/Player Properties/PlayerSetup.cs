@@ -10,16 +10,7 @@ public class PlayerSetup : MonoBehaviour
     public PlayerHealth PlayerHealth { get; private set; }
     public PlayerInput PlayerInput { get; private set; }
     public Animator Animator { get; private set; }
-
-    void OnEnable()
-    {
-        //EventManager.Instance.ResetProperties += ReactivatePlayer;
-    }
-
-    void OnDisable()
-    {
-        //EventManager.Instance.ResetProperties -= ReactivatePlayer;
-    }
+    public Gun Gun;
 
     // Start is called before the first frame update
     void Start()
