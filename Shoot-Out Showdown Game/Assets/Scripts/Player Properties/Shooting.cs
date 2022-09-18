@@ -6,9 +6,6 @@ using UnityEngine.InputSystem;
 // Executes Shooting Mechanic
 public class Shooting : MonoBehaviour
 {
-    // FIX SHOOTING BUG LATER
-    // WHEN GENERATING A NEW ARENA, SOME PLAYERS CAN'T SHOOT ANYMORE
-    
     public Gun CurrentGun;
 
     private Vector2 direction;
@@ -25,10 +22,17 @@ public class Shooting : MonoBehaviour
 
     void FixedUpdate()
     {
-        if (playerSetup.PlayerInput.currentControlScheme == "Keyboard&Mouse")
-            direction = aimInput - playerSetup.Rb.position;
-           
-        SetAngle();
+        if (playerSetup.CanMove())
+        {
+            if (playerSetup.PlayerInput.currentControlScheme == "Keyboard&Mouse")
+                direction = aimInput - playerSetup.Rb.position;
+
+            SetAngle();
+        }
+        else
+        {
+            transform.rotation = Quaternion.Euler(0f, 0f, 0f);
+        }
     }
 
     // Aim with Mouse
@@ -74,6 +78,6 @@ public class Shooting : MonoBehaviour
     {
         float rotate = (Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg) - 90f;
 
-        transform.rotation = Quaternion.Euler(0, 0, rotate);
+        transform.rotation = Quaternion.Euler(0f, 0f, rotate);
     }
 }

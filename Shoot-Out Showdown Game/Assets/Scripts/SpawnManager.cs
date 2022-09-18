@@ -17,7 +17,7 @@ public class SpawnManager : MonoBehaviour
 
         // Return players back to starting position
         // whenever a new arena has generated
-        if (GameManager.Instance.allPlayersPresent)
+        if (GameManager.Instance.AllPlayersPresent)
         {
             for (int i = 0; i < GameManager.Instance.PlayerList.Count; i++)
             {

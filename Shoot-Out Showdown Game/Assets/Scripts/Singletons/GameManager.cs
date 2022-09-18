@@ -32,7 +32,7 @@ public class GameManager : MonoBehaviour
     public List<GameObject> PlayerList { get; set; } = new();                                       // Player List
     public List<Transform> PlayerSpawnPoints { get; set; } = new();                                 // Player Spawn Points
 
-    public bool allPlayersPresent { get; private set; }                                             // Checks is all players are now present
+    public bool AllPlayersPresent { get; private set; }                                             // Checks is all players are now present
 
     // Private Variables
     private string currentSceneId;
@@ -65,11 +65,11 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         // Initialize Variables
-        CurrentGameState = GameStates.ROUND_START;
+        CurrentGameState = GameStates.SETTING_UP;
         GameCamera = Camera.GetComponent<Camera>();
         CameraController = Camera.GetComponent<CameraController>();
         PlayerInputManager.playerPrefab = PlayerPrefabs[0];
-        allPlayersPresent = false;
+        AllPlayersPresent = false;
 
         // Add UI Scene
         SceneManager.LoadSceneAsync("UIScene", LoadSceneMode.Additive);
@@ -84,16 +84,21 @@ public class GameManager : MonoBehaviour
     // On Player Joined Event
     public void Join()
     {
-        // Disable Joining if Maximum Players have been Reached
-        if (PlayerInputManager.playerCount == PlayerInputManager.maxPlayerCount)
-        {
-            PlayerInputManager.DisableJoining();
-            allPlayersPresent = true;
-        }
-        else
+        // Execute as long as not all players are present
+        if (PlayerInputManager.playerCount != PlayerInputManager.maxPlayerCount)
         {
             // Change Input Manager Prefab
             PlayerInputManager.playerPrefab = PlayerPrefabs[1];
+        }
+        // Disable Joining if Maximum Players have been Reached
+        else
+        {
+            PlayerInputManager.DisableJoining();
+            CurrentGameState = GameStates.COUNTDOWN;
+
+            EventManager.Instance.MatchStart.Invoke();
+
+            AllPlayersPresent = true;
         }
     }
 

@@ -6,11 +6,13 @@ using UnityEngine.InputSystem;
 public class PlayerSetup : MonoBehaviour
 {
     public int PlayerNumber;
+    public Gun Gun;
+
     public Rigidbody2D Rb { get; private set; }
     public PlayerHealth PlayerHealth { get; private set; }
     public PlayerInput PlayerInput { get; private set; }
     public Animator Animator { get; private set; }
-    public Gun Gun;
+    
 
     // Start is called before the first frame update
     void Start()
@@ -26,5 +28,11 @@ public class PlayerSetup : MonoBehaviour
 
         // Set Position
         transform.position = GameManager.Instance.PlayerSpawnPoints[PlayerNumber - 1].position;
+    }
+
+    public bool CanMove()
+    {
+        return GameManager.Instance.CurrentGameState == GameManager.GameStates.ROUND_START ||
+               GameManager.Instance.CurrentGameState == GameManager.GameStates.ROUND_OVER;
     }
 }

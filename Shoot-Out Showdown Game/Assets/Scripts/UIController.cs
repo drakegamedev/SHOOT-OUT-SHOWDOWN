@@ -24,7 +24,7 @@ public class UIController : MonoBehaviour
 
     public PlayerItem[] PlayerItems;
 
-    public GameObject ASD;
+    public TextMeshProUGUI CountdownText;
 
     void OnEnable()
     {
@@ -44,7 +44,7 @@ public class UIController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        PanelManager.Instance.ActivatePanel("score-board-panel");
+        PanelManager.Instance.ActivatePanel("setup-panel");
 
         // Initialize Player Item Properties
         for (int i = 0; i < PlayerItems.Length; i++)
@@ -123,7 +123,6 @@ public class UIController : MonoBehaviour
                 Destroy(GameManager.Instance.PlayerList[i]);
             }
 
-
             PanelManager.Instance.ActivatePanel("results-panel");
         }
         else
@@ -134,7 +133,5 @@ public class UIController : MonoBehaviour
 
             EventManager.Instance.ResetMatch.Invoke();
         }
-
-        
     }
 }

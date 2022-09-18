@@ -232,15 +232,23 @@ MonoBehaviour:
       m_SingletonActionBindings:
       - m_Name: 
         m_Id: 55d14aa2-1da3-4b42-982b-05393c048c75
-        m_Path: <Keyboard>/j
+        m_Path: <Keyboard>/enter
         m_Interactions: 
         m_Processors: 
         m_Groups: 
         m_Action: Join
         m_Flags: 0
       - m_Name: 
-        m_Id: 18cf741d-a952-465c-bf04-21d2b0ce9b10
-        m_Path: <Gamepad>/buttonSouth
+        m_Id: 9d773a85-6b40-4b3f-8930-7847d4023c50
+        m_Path: <Gamepad>/start
+        m_Interactions: 
+        m_Processors: 
+        m_Groups: 
+        m_Action: Join
+        m_Flags: 0
+      - m_Name: 
+        m_Id: 5dd2ed8e-009f-4007-ada4-5cc1c16c04ed
+        m_Path: <Keyboard>/numpadEnter
         m_Interactions: 
         m_Processors: 
         m_Groups: 

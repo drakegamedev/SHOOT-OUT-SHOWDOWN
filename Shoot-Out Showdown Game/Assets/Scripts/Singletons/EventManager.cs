@@ -9,6 +9,7 @@ public class EventManager : MonoBehaviour
 
     public Action PlayerDied;
     public Action ResetMatch;
+    public Action MatchStart;
 
     #region Singleton
     void Awake()

@@ -21,12 +21,21 @@ public class PlayerMovement : MonoBehaviour
 
     void FixedUpdate()
     {
-        playerSetup.Rb.velocity = moveInput * currentSpeed;
+        if (playerSetup.CanMove())
+        {
+            playerSetup.Rb.velocity = moveInput * currentSpeed;
+        }
+        else
+        {
+            playerSetup.Rb.velocity = new Vector2(0f, 0f);
+            moveInput = new Vector2(0f, 0f);
+        }
     }
 
     // Move Function
     public void Move(InputAction.CallbackContext context)
     {
-        moveInput = context.ReadValue<Vector2>();
+        if (playerSetup.CanMove())
+            moveInput = context.ReadValue<Vector2>();
     }
 }
