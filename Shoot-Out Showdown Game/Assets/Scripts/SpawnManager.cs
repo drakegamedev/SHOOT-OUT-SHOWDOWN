@@ -5,7 +5,8 @@ using UnityEngine;
 public class SpawnManager : MonoBehaviour
 {
     public Transform[] SpawnPoints;                                                 // Spawn Points Array
-    
+
+    #region Initialization Functions
     // Start is called before the first frame update
     void Start()
     {
@@ -17,7 +18,7 @@ public class SpawnManager : MonoBehaviour
 
         // Return players back to starting position
         // whenever a new arena has generated
-        if (GameManager.Instance.AllPlayersPresent)
+        if (PlayerManager.Instance.AllPlayersPresent)
         {
             for (int i = 0; i < GameManager.Instance.PlayerList.Count; i++)
             {
@@ -25,4 +26,5 @@ public class SpawnManager : MonoBehaviour
             }
         }
     }
+    #endregion
 }

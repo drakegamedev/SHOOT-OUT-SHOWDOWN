@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class CountdownManager : MonoBehaviour
 {
+    #region Enable/Disable Functions
     void OnEnable()
     {
         EventManager.Instance.MatchStart += StartCountdown;
@@ -13,15 +14,18 @@ public class CountdownManager : MonoBehaviour
     {
         EventManager.Instance.MatchStart -= StartCountdown;
     }
+    #endregion
 
+    #region Initialization Functions
     // Start is called before the first frame update
     void Start()
     {
-        if (GameManager.Instance.AllPlayersPresent)
+        if (PlayerManager.Instance.AllPlayersPresent)
         {
             StartCountdown();
         } 
     }
+    #endregion
 
     public void StartCountdown()
     {
@@ -36,12 +40,12 @@ public class CountdownManager : MonoBehaviour
 
         while (currentTime > 0f)
         {
-            GameManager.Instance.UiController.CountdownText.text = currentTime.ToString("0");
+            UIController.Instance.CountdownText.text = currentTime.ToString("0");
             yield return new WaitForSeconds(1f);
             currentTime--;
         }
 
-        GameManager.Instance.UiController.CountdownText.text = "GO";
+        UIController.Instance.CountdownText.text = "GO";
         yield return new WaitForSeconds(1f);
 
         GameManager.Instance.CurrentGameState = GameManager.GameStates.ROUND_START;

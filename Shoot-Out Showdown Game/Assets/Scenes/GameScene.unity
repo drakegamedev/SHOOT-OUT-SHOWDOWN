@@ -179,6 +179,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1060410815}
   - component: {fileID: 1060410814}
+  - component: {fileID: 1060410816}
   m_Layer: 0
   m_Name: PlayerManager
   m_TagString: Untagged
@@ -205,8 +206,8 @@ MonoBehaviour:
   m_PlayerJoinedEvent:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1123769174}
-        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+      - m_Target: {fileID: 1060410816}
+        m_TargetAssemblyTypeName: PlayerManager, Assembly-CSharp
         m_MethodName: Join
         m_Mode: 1
         m_Arguments:
@@ -231,14 +232,6 @@ MonoBehaviour:
       m_Interactions: 
       m_SingletonActionBindings:
       - m_Name: 
-        m_Id: 55d14aa2-1da3-4b42-982b-05393c048c75
-        m_Path: <Keyboard>/enter
-        m_Interactions: 
-        m_Processors: 
-        m_Groups: 
-        m_Action: Join
-        m_Flags: 0
-      - m_Name: 
         m_Id: 9d773a85-6b40-4b3f-8930-7847d4023c50
         m_Path: <Gamepad>/start
         m_Interactions: 
@@ -247,8 +240,8 @@ MonoBehaviour:
         m_Action: Join
         m_Flags: 0
       - m_Name: 
-        m_Id: 5dd2ed8e-009f-4007-ada4-5cc1c16c04ed
-        m_Path: <Keyboard>/numpadEnter
+        m_Id: 2c8c172f-d40a-4e05-990f-fbfde42f5aae
+        m_Path: <Keyboard>/j
         m_Interactions: 
         m_Processors: 
         m_Groups: 
@@ -281,6 +274,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1060410816
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1060410813}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a60f4f3c7a7be774b87f44c5817b85e0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1123769173
 GameObject:
   m_ObjectHideFlags: 0
@@ -311,7 +316,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Camera: {fileID: 1506145636}
-  PlayerInputManager: {fileID: 1060410814}
   ArenaColors:
   - {r: 1, g: 0, b: 0, a: 1}
   - {r: 0, g: 0.6431373, b: 0, a: 1}

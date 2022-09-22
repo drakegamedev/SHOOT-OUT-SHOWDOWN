@@ -38,7 +38,7 @@ public class Shooting : MonoBehaviour
     // Aim with Mouse
     public void MouseAim(InputAction.CallbackContext context)
     {
-        if (playerSetup.PlayerInput.currentControlScheme == "Keyboard&Mouse")
+        if (playerSetup.PlayerInput.currentControlScheme == "Keyboard&Mouse" && playerSetup.CanMove())
         {
             aimInput = cam.ScreenToWorldPoint(context.ReadValue<Vector2>());
             direction = aimInput - playerSetup.Rb.position;
@@ -48,7 +48,7 @@ public class Shooting : MonoBehaviour
     // Aim with Right Joystick
     public void ControllerAim(InputAction.CallbackContext context)
     {
-        if (playerSetup.PlayerInput.currentControlScheme == "Controller")
+        if (playerSetup.PlayerInput.currentControlScheme == "Controller" && playerSetup.CanMove())
         {
             aimInput = context.ReadValue<Vector2>();
 
@@ -65,12 +65,8 @@ public class Shooting : MonoBehaviour
     public void Shoot(InputAction.CallbackContext context)
     {
         if (GameManager.Instance.CurrentGameState == GameManager.GameStates.ROUND_START)
-        {
             if (context.started)
-            {
                 CurrentGun.Fire();
-            }
-        }
     }
 
     // Set Player Rotation

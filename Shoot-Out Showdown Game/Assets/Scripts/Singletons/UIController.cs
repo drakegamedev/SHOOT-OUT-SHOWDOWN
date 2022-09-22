@@ -15,10 +15,10 @@ public class UIController : MonoBehaviour
         public Color[] HPColors;
     }
 
-    public TextMeshProUGUI[] PlayerNameTexts;
-    public TextMeshProUGUI[] PlayerScoreTexts;
+    public static UIController Instance;
 
-    private GameObject playerVictor;
+    public TextMeshProUGUI[] PlayerNameTexts;
+    public GameObject[] PlayerScoreTexts;
 
     public int StartingScore;
 
@@ -26,6 +26,9 @@ public class UIController : MonoBehaviour
 
     public TextMeshProUGUI CountdownText;
 
+    private GameObject playerVictor;
+
+    #region Enable/Disable Functions
     void OnEnable()
     {
         EventManager.Instance.PlayerDied += SetScore;
@@ -35,12 +38,23 @@ public class UIController : MonoBehaviour
     {
         EventManager.Instance.PlayerDied -= SetScore;
     }
+    #endregion
 
-    public void OnMainMenuButtonClicked()
+    #region Singleton
+    void Awake()
     {
-        SceneLoader.Instance.LoadScene("MainMenuScene");
+        if (Instance == null)
+        {
+            Instance = this;
+        }
+        else
+        {
+            Destroy(this.gameObject);
+        }
     }
+    #endregion
 
+    #region Initialization Functions
     // Start is called before the first frame update
     void Start()
     {
@@ -55,7 +69,7 @@ public class UIController : MonoBehaviour
 
             // Initialize Score
             PlayerItems[i].Score = StartingScore;
-            PlayerScoreTexts[i].text = PlayerItems[i].Score.ToString("0");
+            PlayerScoreTexts[i].GetComponent<TextMeshProUGUI>().text = PlayerItems[i].Score.ToString("0");
 
             // Initialize HP Containers
             for (int j = 0; j < PlayerItems[i].HPCircle.Length; j++)
@@ -63,10 +77,15 @@ public class UIController : MonoBehaviour
                 PlayerItems[i].HPCircle[j].color = PlayerItems[i].HPColors[0];
             }
         }
-
-        // UI Controller Reference
-        GameManager.Instance.UiController = this;
     }
+    #endregion
+
+    #region UI Button Functions
+    public void OnMainMenuButtonClicked()
+    {
+        SceneLoader.Instance.LoadScene("MainMenuScene");
+    }
+    #endregion
 
     // Update Player Health Container
     public void UpdateHealth(int playerIndex, float playerHealth)
@@ -90,6 +109,7 @@ public class UIController : MonoBehaviour
         }
     }
 
+    #region Score Setting
     public void SetScore()
     {
         StartCoroutine(SetPlayerScore());
@@ -107,7 +127,8 @@ public class UIController : MonoBehaviour
 
         // Add Score
         PlayerItems[index].Score++;
-        PlayerScoreTexts[index].text = PlayerItems[index].Score.ToString("0");
+        PlayerScoreTexts[index].GetComponent<TextMeshProUGUI>().text = PlayerItems[index].Score.ToString("0");
+        PlayerScoreTexts[index].GetComponent<Animator>().SetTrigger("SetScore");
 
         // Nullify Player Victor
         playerVictor = null;
@@ -128,10 +149,9 @@ public class UIController : MonoBehaviour
         else
         {
             // Reset All Properties and Generate new Arena
-            GameManager.Instance.CurrentGameState = GameManager.GameStates.ROUND_START;
             GameManager.Instance.PlayerSpawnPoints.Clear();
-
             EventManager.Instance.ResetMatch.Invoke();
         }
     }
+    #endregion
 }

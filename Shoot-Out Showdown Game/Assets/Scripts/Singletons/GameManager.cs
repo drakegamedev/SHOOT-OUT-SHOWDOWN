@@ -14,17 +14,15 @@ public class GameManager : MonoBehaviour
         ROUND_START,
         ROUND_OVER
     };
-    
+
     public static GameManager Instance;
 
     [Header("References")]
     public GameObject Camera;                                                                       // Camera GameObject Reference
-    public PlayerInputManager PlayerInputManager;                                                   // Player Input Manager Reference
     public Color[] ArenaColors;                                                                     // Arena Color
     public GameObject[] PlayerPrefabs;                                                              // Player Prefabs Array
     public string[] ArenaIds;                                                                       // Arena ID's
     public GameStates CurrentGameState;                                                             // Current Game State
-    public UIController UiController { get; set; }                                                  // UI Controller Reference
     public Camera GameCamera { get; private set; }                                                  // Camera Component Reference
     public CameraController CameraController { get; private set; }                                  // Camera Controller Class Reference
 
@@ -32,11 +30,9 @@ public class GameManager : MonoBehaviour
     public List<GameObject> PlayerList { get; set; } = new();                                       // Player List
     public List<Transform> PlayerSpawnPoints { get; set; } = new();                                 // Player Spawn Points
 
-    public bool AllPlayersPresent { get; private set; }                                             // Checks is all players are now present
-
     // Private Variables
-    private string currentSceneId;
-    private string currentArenaId;
+    private string currentSceneId;                                                                  // Current Scene Id
+    private string currentArenaId;                                                                  // Current Arena Id
 
     #region Singleton
     void Awake()
@@ -52,64 +48,47 @@ public class GameManager : MonoBehaviour
     }
     #endregion
 
+    #region Enable/Disable Functions
     void OnDisable()
     {
+        // Unsubscribe to Events
         EventManager.Instance.ResetMatch -= ReactivatePlayers;
         EventManager.Instance.ResetMatch -= GenerateArena;
 
+        // Remove Additional Scenes
         SceneManager.UnloadSceneAsync(currentArenaId);
         SceneManager.UnloadSceneAsync("UIScene");
     }
+    #endregion
 
+    #region Initialization Functions
     // Start is called before the first frame update
     void Start()
     {
         // Initialize Variables
-        CurrentGameState = GameStates.SETTING_UP;
+        SetGameState(GameStates.SETTING_UP);
         GameCamera = Camera.GetComponent<Camera>();
         CameraController = Camera.GetComponent<CameraController>();
-        PlayerInputManager.playerPrefab = PlayerPrefabs[0];
-        AllPlayersPresent = false;
-
+        
         // Add UI Scene
         SceneManager.LoadSceneAsync("UIScene", LoadSceneMode.Additive);
 
+        // Subscribe to Events
         EventManager.Instance.ResetMatch += ReactivatePlayers;
         EventManager.Instance.ResetMatch += GenerateArena;
 
         // Initial Genration of Arena
         GenerateArena();
     }
-
-    // On Player Joined Event
-    public void Join()
-    {
-        // Execute as long as not all players are present
-        if (PlayerInputManager.playerCount != PlayerInputManager.maxPlayerCount)
-        {
-            // Change Input Manager Prefab
-            PlayerInputManager.playerPrefab = PlayerPrefabs[1];
-        }
-        // Disable Joining if Maximum Players have been Reached
-        else
-        {
-            PlayerInputManager.DisableJoining();
-            CurrentGameState = GameStates.COUNTDOWN;
-
-            EventManager.Instance.MatchStart.Invoke();
-
-            AllPlayersPresent = true;
-        }
-    }
+    #endregion
 
     public void SetGame()
     {
-        CurrentGameState = GameStates.ROUND_OVER;
+        SetGameState(GameStates.ROUND_OVER);
         CameraController.CameraShake();
         EventManager.Instance.PlayerDied.Invoke();
     }
 
-    
     // Reset Player Properties
     public void ReactivatePlayers()
     {
@@ -162,4 +141,9 @@ public class GameManager : MonoBehaviour
         currentSceneId = arenaId;
     }
     #endregion
+
+    public void SetGameState(GameStates state)
+    {
+        CurrentGameState = state;
+    }
 }

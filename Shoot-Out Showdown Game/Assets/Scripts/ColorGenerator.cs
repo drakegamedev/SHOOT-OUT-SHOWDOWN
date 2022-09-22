@@ -10,6 +10,7 @@ public class ColorGenerator : MonoBehaviour
     // Private Variables
     private int currentArenaColorIndex;
 
+    #region Initialization Functions
     void Awake()
     {
         // Find all Obstacle Objects Within the Arena
@@ -37,4 +38,5 @@ public class ColorGenerator : MonoBehaviour
             sr.color = GameManager.Instance.ArenaColors[currentArenaColorIndex];
         }
     }
+    #endregion
 }

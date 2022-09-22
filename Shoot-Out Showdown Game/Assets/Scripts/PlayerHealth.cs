@@ -20,7 +20,7 @@ public class PlayerHealth : Health
     {
         CurrentHealth -= damage;
 
-        GameManager.Instance.UiController.UpdateHealth(playerSetup.PlayerNumber, CurrentHealth);
+        UIController.Instance.UpdateHealth(playerSetup.PlayerNumber, CurrentHealth);
 
         if (CurrentHealth > 0f)
         {
@@ -39,7 +39,6 @@ public class PlayerHealth : Health
         DeathEffect();
     }
 
-
     void DeathEffect()
     {
         gameObject.SetActive(false);
@@ -49,6 +48,6 @@ public class PlayerHealth : Health
     public void ResetHealth()
     {
         CurrentHealth = DefaultHealth;
-        GameManager.Instance.UiController.UpdateHealth(playerSetup.PlayerNumber, CurrentHealth);
+        UIController.Instance.UpdateHealth(playerSetup.PlayerNumber, CurrentHealth);
     }
 }

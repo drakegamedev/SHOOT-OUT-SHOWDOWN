@@ -12,13 +12,16 @@ public class PlayerMovement : MonoBehaviour
     private float currentSpeed;
     private Vector2 moveInput;
 
+    #region Initialization Functions
     // Start is called before the first frame update
     void Start()
     {
         playerSetup = GetComponent<PlayerSetup>();
         currentSpeed = Speed;
     }
+    #endregion
 
+    #region Update Functions
     void FixedUpdate()
     {
         if (playerSetup.CanMove())
@@ -31,6 +34,7 @@ public class PlayerMovement : MonoBehaviour
             moveInput = new Vector2(0f, 0f);
         }
     }
+    #endregion
 
     // Move Function
     public void Move(InputAction.CallbackContext context)
