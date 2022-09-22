@@ -1,25 +1,26 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
 // Executes Shooting Mechanic
 public class Shooting : MonoBehaviour
 {
-    public Gun CurrentGun;
+    public Gun CurrentGun;                                                      // Current Gun Being Used
 
-    private Vector2 direction;
-    private Vector2 aimInput;
-    private PlayerSetup playerSetup;
-    private Camera cam;
+    private PlayerSetup playerSetup;                                            // PlayerSetup Class Reference
+    private Camera cam;                                                         // Camera Reference
+    private Vector2 direction;                                                  // Direction
+    private Vector2 aimInput;                                                   // Aim Input
 
+    #region Initialization Functions
     // Start is called before the first frame update
     void Start()
     {
         playerSetup = GetComponent<PlayerSetup>();
         cam = GameManager.Instance.GameCamera;
     }
+    #endregion
 
+    #region Update Functions
     void FixedUpdate()
     {
         if (playerSetup.CanMove())
@@ -34,14 +35,15 @@ public class Shooting : MonoBehaviour
             transform.rotation = Quaternion.Euler(0f, 0f, 0f);
         }
     }
+    #endregion
 
+    #region Player Input Events
     // Aim with Mouse
     public void MouseAim(InputAction.CallbackContext context)
     {
-        if (playerSetup.PlayerInput.currentControlScheme == "Keyboard&Mouse" && playerSetup.CanMove())
+        if (playerSetup.PlayerInput.currentControlScheme == "Keyboard&Mouse")
         {
             aimInput = cam.ScreenToWorldPoint(context.ReadValue<Vector2>());
-            direction = aimInput - playerSetup.Rb.position;
         }
     }
 
@@ -68,7 +70,9 @@ public class Shooting : MonoBehaviour
             if (context.started)
                 CurrentGun.Fire();
     }
+    #endregion
 
+    #region Public Functions
     // Set Player Rotation
     public void SetAngle()
     {
@@ -76,4 +80,5 @@ public class Shooting : MonoBehaviour
 
         transform.rotation = Quaternion.Euler(0f, 0f, rotate);
     }
+    #endregion
 }

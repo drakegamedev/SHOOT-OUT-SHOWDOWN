@@ -1,43 +1,44 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Gun : MonoBehaviour
 {
-    public GunData GunType;
-    public Transform FirePoint;
-    public string BulletId;
-    public float Force;
+    public GunData GunType;                                                 // Gun Type
+    public Transform FirePoint;                                             // Fire Point
+    public string BulletId;                                                 // Bullet ID
+    public float Force;                                                     // Bullet Force
 
-    private int currentAmmo;
-    private float reloadTime;
-    private float currentShootTime;
-    private bool isReloading;
+    private int currentAmmo;                                                // Current Ammo
+    private float reloadTime;                                               // Reload Time
+    private float currentShootTime;                                         // Current Shoot Time
+    private bool isReloading;                                               // Reloading Status Indicator
 
+    #region Enable/Disable Functions
     void OnEnable()
     {
         isReloading = false;
-        //EventManager.Instance.ResetMatch += ResetAmmo;
     }
+    #endregion
 
-    void OnDisable()
-    {
-        //EventManager.Instance.ResetMatch -= ResetAmmo;
-    }
-
+    #region Initialization Functions
     // Start is called before the first frame update
     void Start()
     {
+        // Initialize Variables
         currentAmmo = GunType.Ammo;
         reloadTime = GunType.ReloadTime;
         currentShootTime = GunType.Cooldown;
     }
+    #endregion
 
+    #region Update Functions
     void Update()
     {        
+        // Don't Execute if Player is Reloading
         if (isReloading)
             return;
         
+        // Reload if Out of Ammo
         if (currentAmmo <= 0)
         {
             Reload();
@@ -46,7 +47,32 @@ public class Gun : MonoBehaviour
 
         GunCooldown();
     }
+    #endregion
 
+    #region Reload System
+    // Start Reload
+    public void Reload()
+    {
+        StartCoroutine(Reloading());
+    }
+
+    IEnumerator Reloading()
+    {
+        // Set Status to Reloading
+        isReloading = true;
+
+        yield return new WaitForSeconds(reloadTime);
+
+        // Reload Ammo
+        currentAmmo = GunType.Ammo;
+
+        // Set Status to Default State
+        isReloading = false;
+    }
+    #endregion
+
+    #region Public Functions
+    // Gun Cooldown
     public void GunCooldown()
     {
         if (currentShootTime <= 0f)
@@ -59,6 +85,7 @@ public class Gun : MonoBehaviour
         }
     }
 
+    // Gun Fire
     public void Fire()
     {
         if (currentAmmo > 0 && currentShootTime <= 0f)
@@ -70,28 +97,18 @@ public class Gun : MonoBehaviour
             Rigidbody2D rigidBody = BulletPrefab.GetComponent<Rigidbody2D>();
             rigidBody.AddForce(FirePoint.up * Force, ForceMode2D.Impulse);
 
+            // Set Cooldown
             currentShootTime = GunType.Cooldown;
+            
+            // Decrease Ammo
             currentAmmo--;
         }
     }
 
-    public void Reload()
-    {
-        StartCoroutine(Reloading());
-    }
-
-    IEnumerator Reloading()
-    {
-        isReloading = true;
-        
-        yield return new WaitForSeconds(reloadTime);
-        
-        currentAmmo = GunType.Ammo;
-        isReloading = false;
-    }
-
+    // Reset Ammo
     public void ResetAmmo()
     {
         currentAmmo = GunType.Ammo;
     }
+    #endregion
 }

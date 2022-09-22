@@ -1,19 +1,18 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
+// Sets-Up Player Properties
 public class PlayerSetup : MonoBehaviour
 {
-    public int PlayerNumber;
-    public Gun Gun;
+    public int PlayerNumber;                                                    // Player Number
+    public Gun Gun;                                                             // Gun Reference
 
     public Rigidbody2D Rb { get; private set; }
     public PlayerHealth PlayerHealth { get; private set; }
     public PlayerInput PlayerInput { get; private set; }
     public Animator Animator { get; private set; }
-    
 
+    #region Initialization Functions
     // Start is called before the first frame update
     void Start()
     {
@@ -29,10 +28,14 @@ public class PlayerSetup : MonoBehaviour
         // Set Position
         transform.position = GameManager.Instance.PlayerSpawnPoints[PlayerNumber - 1].position;
     }
+    #endregion
 
+    #region Public Functions
+    // Checks if Player Can Move
     public bool CanMove()
     {
         return GameManager.Instance.CurrentGameState == GameManager.GameStates.ROUND_START ||
                GameManager.Instance.CurrentGameState == GameManager.GameStates.ROUND_OVER;
     }
+    #endregion
 }

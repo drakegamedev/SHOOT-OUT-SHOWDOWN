@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 using System;
 
@@ -25,6 +24,8 @@ public class GameManager : MonoBehaviour
     public GameStates CurrentGameState;                                                             // Current Game State
     public Camera GameCamera { get; private set; }                                                  // Camera Component Reference
     public CameraController CameraController { get; private set; }                                  // Camera Controller Class Reference
+    public int CurrentArenaColorIndex { get; set; }
+    public int RandomNumber { get; set; }
 
     // Lists
     public List<GameObject> PlayerList { get; set; } = new();                                       // Player List
@@ -33,7 +34,7 @@ public class GameManager : MonoBehaviour
     // Private Variables
     private string currentSceneId;                                                                  // Current Scene Id
     private string currentArenaId;                                                                  // Current Arena Id
-
+    
     #region Singleton
     void Awake()
     {
@@ -76,6 +77,8 @@ public class GameManager : MonoBehaviour
         // Subscribe to Events
         EventManager.Instance.ResetMatch += ReactivatePlayers;
         EventManager.Instance.ResetMatch += GenerateArena;
+
+        RandomNumber = UnityEngine.Random.Range(0, ArenaColors.Length);
 
         // Initial Genration of Arena
         GenerateArena();

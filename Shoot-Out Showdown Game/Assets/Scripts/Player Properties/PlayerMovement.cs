@@ -1,16 +1,15 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
 // Serves as Top Down Player Movement
 public class PlayerMovement : MonoBehaviour
 {
-    public float Speed;
+    public float Speed;                                                     // Player Default Speed
 
-    private PlayerSetup playerSetup;
-    private float currentSpeed;
-    private Vector2 moveInput;
+    // Private Variables
+    private PlayerSetup playerSetup;                                        // PlayerSetup Class Reference                                        
+    private float currentSpeed;                                             // Current Player Speed
+    private Vector2 moveInput;                                              // Move Inputs
 
     #region Initialization Functions
     // Start is called before the first frame update
@@ -36,10 +35,12 @@ public class PlayerMovement : MonoBehaviour
     }
     #endregion
 
+    #region Player Input Events
     // Move Function
     public void Move(InputAction.CallbackContext context)
     {
         if (playerSetup.CanMove())
             moveInput = context.ReadValue<Vector2>();
     }
+    #endregion
 }

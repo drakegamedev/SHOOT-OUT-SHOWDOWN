@@ -1,20 +1,24 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
 public class BulletHealth : Health
 {
-    private Poolable poolable;
-    
+    private Poolable poolable;                                               // Poolable Class Reference
+
+    #region Initialization Functions
+    // Start is called before the first frame update
     void Start()
     {
+        // Initialize Variables
         poolable = GetComponent<Poolable>();
     }
+    #endregion
 
+    #region HP System
+    // Take Damage
     public override void TakeDamage(float damage)
     {
+        // Set Current Health
         CurrentHealth -= damage;
 
+        // Call Death if HP is 0
         if (CurrentHealth <= 0f)
         {
             CurrentHealth = 0f;
@@ -22,8 +26,10 @@ public class BulletHealth : Health
         }
     }
 
+    // Death Function
     public override void OnDeath()
     {
         poolable.ReturnToPool();
     }
+    #endregion
 }

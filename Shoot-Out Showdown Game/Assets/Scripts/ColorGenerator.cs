@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 // Generates a Random Color
@@ -7,26 +5,21 @@ public class ColorGenerator : MonoBehaviour
 {
     public GameObject[] Obstacles;                              // Obstacles Array
 
-    // Private Variables
-    private int currentArenaColorIndex;
-
     #region Initialization Functions
     void Awake()
     {
         // Find all Obstacle Objects Within the Arena
         Obstacles = GameObject.FindGameObjectsWithTag("Obstacle");
 
-        // Generate a Random Number
-        int randomNumber = Random.Range(0, GameManager.Instance.ArenaColors.Length);
-
-        while (randomNumber == currentArenaColorIndex)
+        // Generate a Random Number Without Repetition
+        while (GameManager.Instance.RandomNumber == GameManager.Instance.CurrentArenaColorIndex)
         {
-            randomNumber = Random.Range(0, GameManager.Instance.ArenaColors.Length);
+            GameManager.Instance.RandomNumber = Random.Range(0, GameManager.Instance.ArenaColors.Length);
         }
 
-        currentArenaColorIndex = randomNumber;
+        GameManager.Instance.CurrentArenaColorIndex = GameManager.Instance.RandomNumber;
 
-        Debug.Log(currentArenaColorIndex);
+        Debug.Log(GameManager.Instance.CurrentArenaColorIndex);
 
         // Color Every Obstacle based on the Chosen Random Color
         foreach (GameObject go in Obstacles)
@@ -35,7 +28,7 @@ public class ColorGenerator : MonoBehaviour
             SpriteRenderer sr = go.GetComponent<SpriteRenderer>();
 
             // Color the Object
-            sr.color = GameManager.Instance.ArenaColors[currentArenaColorIndex];
+            sr.color = GameManager.Instance.ArenaColors[GameManager.Instance.CurrentArenaColorIndex];
         }
     }
     #endregion
