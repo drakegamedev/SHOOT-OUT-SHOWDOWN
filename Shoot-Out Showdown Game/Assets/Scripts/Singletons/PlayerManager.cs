@@ -1,15 +1,15 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
+// Manages Player Spawning and Joining
 public class PlayerManager : MonoBehaviour
 {
     public static PlayerManager Instance;
     
-    public bool AllPlayersPresent { get; private set; }                                             // Checks is all players are now present
+    public bool AllPlayersPresent { get; private set; }                                       // Checks if all players are now present
 
-    private PlayerInputManager playerInputManager;
+    // Private Variables
+    private PlayerInputManager playerInputManager;                                            // PlayerInputManager Component Reference
 
     #region Singleton
     void Awake()
@@ -29,12 +29,14 @@ public class PlayerManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        // Initialize Variables
         playerInputManager = GetComponent<PlayerInputManager>();
         playerInputManager.playerPrefab = GameManager.Instance.PlayerPrefabs[0];
         AllPlayersPresent = false;
     }
     #endregion
 
+    #region Player Events
     // On Player Joined Event
     public void Join()
     {
@@ -55,4 +57,5 @@ public class PlayerManager : MonoBehaviour
             AllPlayersPresent = true;
         }
     }
+    #endregion
 }

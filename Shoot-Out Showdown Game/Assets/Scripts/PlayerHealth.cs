@@ -35,7 +35,7 @@ public class PlayerHealth : Health
 
     public override void OnDeath()
     {
-        GameManager.Instance.SetGame();
+        GameManager.Instance.RoundOver();
         DeathEffect();
     }
 

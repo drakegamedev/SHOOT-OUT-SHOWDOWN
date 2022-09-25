@@ -11,7 +11,16 @@ public class ColorGenerator : MonoBehaviour
         // Find all Obstacle Objects Within the Arena
         Obstacles = GameObject.FindGameObjectsWithTag("Obstacle");
 
-        // Generate a Random Number Without Repetition
+        RandomNumberGenerator();
+        ColorObstacles();
+    }
+    #endregion
+
+    #region Private Functions
+    // Generates a Random Number
+    void RandomNumberGenerator()
+    {
+        // Make a Random Number Without Repetition
         while (GameManager.Instance.RandomNumber == GameManager.Instance.CurrentArenaColorIndex)
         {
             GameManager.Instance.RandomNumber = Random.Range(0, GameManager.Instance.ArenaColors.Length);
@@ -20,7 +29,11 @@ public class ColorGenerator : MonoBehaviour
         GameManager.Instance.CurrentArenaColorIndex = GameManager.Instance.RandomNumber;
 
         Debug.Log(GameManager.Instance.CurrentArenaColorIndex);
+    }
 
+    // Provides a Color to an Obstacle
+    void ColorObstacles()
+    {
         // Color Every Obstacle based on the Chosen Random Color
         foreach (GameObject go in Obstacles)
         {

@@ -24,8 +24,8 @@ public class GameManager : MonoBehaviour
     public GameStates CurrentGameState;                                                             // Current Game State
     public Camera GameCamera { get; private set; }                                                  // Camera Component Reference
     public CameraController CameraController { get; private set; }                                  // Camera Controller Class Reference
-    public int CurrentArenaColorIndex { get; set; }
-    public int RandomNumber { get; set; }
+    public int CurrentArenaColorIndex { get; set; }                                                 // Current Arena Color Index
+    public int RandomNumber { get; set; }                                                           // Random Number Index for Color Generation
 
     // Lists
     public List<GameObject> PlayerList { get; set; } = new();                                       // Player List
@@ -78,6 +78,7 @@ public class GameManager : MonoBehaviour
         EventManager.Instance.ResetMatch += ReactivatePlayers;
         EventManager.Instance.ResetMatch += GenerateArena;
 
+        // Randomized Number for Arena Color Generation
         RandomNumber = UnityEngine.Random.Range(0, ArenaColors.Length);
 
         // Initial Genration of Arena
@@ -85,12 +86,7 @@ public class GameManager : MonoBehaviour
     }
     #endregion
 
-    public void SetGame()
-    {
-        SetGameState(GameStates.ROUND_OVER);
-        CameraController.CameraShake();
-        EventManager.Instance.PlayerDied.Invoke();
-    }
+    
 
     // Reset Player Properties
     public void ReactivatePlayers()
@@ -145,8 +141,20 @@ public class GameManager : MonoBehaviour
     }
     #endregion
 
+    #region Public Functions
+    // Round is Over
+    // Declare Point
+    public void RoundOver()
+    {
+        SetGameState(GameStates.ROUND_OVER);
+        CameraController.CameraShake();
+        EventManager.Instance.PlayerDied.Invoke();
+    }
+
+    // Sets Game State
     public void SetGameState(GameStates state)
     {
         CurrentGameState = state;
     }
+    #endregion
 }

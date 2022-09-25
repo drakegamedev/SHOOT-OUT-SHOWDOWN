@@ -13,6 +13,9 @@ public class ObjectPooler : MonoBehaviour
         public GameObject Prefab;
     }
 
+    public List<Pool> Pools;
+    public Dictionary<string, List<GameObject>> PoolDictionary { get; } = new();
+
     #region Singleton
     void Awake()
     {
@@ -27,9 +30,7 @@ public class ObjectPooler : MonoBehaviour
     }
     #endregion
 
-    public List<Pool> Pools;
-    public Dictionary<string, List<GameObject>> PoolDictionary { get; } = new();
-
+    #region Initialization Functions
     // Start is called before the first frame update
     void Start()
     {
@@ -40,6 +41,7 @@ public class ObjectPooler : MonoBehaviour
             PoolDictionary.Add(pool.Id, objectPool);
         }
     }
+    #endregion
 
     // Spawns an Object from the Pool
     public GameObject SpawnFromPool(string id, Vector3 position, Quaternion rotation)

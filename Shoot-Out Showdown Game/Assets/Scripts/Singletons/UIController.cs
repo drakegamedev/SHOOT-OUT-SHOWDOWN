@@ -1,9 +1,9 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
+// Controls In-Game UI
 public class UIController : MonoBehaviour
 {
     [System.Serializable]
@@ -17,16 +17,14 @@ public class UIController : MonoBehaviour
 
     public static UIController Instance;
 
-    public TextMeshProUGUI[] PlayerNameTexts;
-    public GameObject[] PlayerScoreTexts;
+    public TextMeshProUGUI[] PlayerNameTexts;                                               // Player Names
+    public GameObject[] PlayerScoreTexts;                                                   // Player Score Object Reference 
+    public int StartingScore;                                                               // Starting Score for Both Players
+    public PlayerItem[] PlayerItems;                                                        // Player Items
+    public TextMeshProUGUI CountdownText;                                                   // Countdown Text
 
-    public int StartingScore;
-
-    public PlayerItem[] PlayerItems;
-
-    public TextMeshProUGUI CountdownText;
-
-    private GameObject playerVictor;
+    // Private Variables
+    private GameObject playerVictor;                                                        // Player Victor for the Round
 
     #region Enable/Disable Functions
     void OnEnable()
@@ -87,28 +85,6 @@ public class UIController : MonoBehaviour
     }
     #endregion
 
-    // Update Player Health Container
-    public void UpdateHealth(int playerIndex, float playerHealth)
-    {
-        // Health Container Reference
-        PlayerItem playerItem = PlayerItems[playerIndex - 1];
-
-        // Update Every HP Image
-        for (int i = 0; i < playerItem.HPCircle.Length; i++)
-        {
-            if (i < playerHealth)
-            {
-                // Set Transparency of that Image to 100%
-                playerItem.HPCircle[i].color = playerItem.HPColors[0];
-            }
-            else
-            {
-                // Set Transparency of that Image to 0%
-                playerItem.HPCircle[i].color = playerItem.HPColors[1];
-            }
-        }
-    }
-
     #region Score Setting
     public void SetScore()
     {
@@ -151,6 +127,30 @@ public class UIController : MonoBehaviour
             // Reset All Properties and Generate new Arena
             GameManager.Instance.PlayerSpawnPoints.Clear();
             EventManager.Instance.ResetMatch.Invoke();
+        }
+    }
+    #endregion
+
+    #region Public Functions
+    // Update Player Health Container
+    public void UpdateHealth(int playerIndex, float playerHealth)
+    {
+        // Health Container Reference
+        PlayerItem playerItem = PlayerItems[playerIndex - 1];
+
+        // Update Every HP Image
+        for (int i = 0; i < playerItem.HPCircle.Length; i++)
+        {
+            if (i < playerHealth)
+            {
+                // Set Transparency of that Image to 100%
+                playerItem.HPCircle[i].color = playerItem.HPColors[0];
+            }
+            else
+            {
+                // Set Transparency of that Image to 0%
+                playerItem.HPCircle[i].color = playerItem.HPColors[1];
+            }
         }
     }
     #endregion
