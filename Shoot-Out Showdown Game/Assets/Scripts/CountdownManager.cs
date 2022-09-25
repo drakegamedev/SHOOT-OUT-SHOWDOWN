@@ -1,9 +1,8 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class CountdownManager : MonoBehaviour
-{
+{    
     #region Enable/Disable Functions
     void OnEnable()
     {
@@ -27,6 +26,7 @@ public class CountdownManager : MonoBehaviour
     }
     #endregion
 
+    #region Countdown
     public void StartCountdown()
     {
         StartCoroutine(Countdown());
@@ -34,10 +34,12 @@ public class CountdownManager : MonoBehaviour
 
     IEnumerator Countdown()
     {
+        // Open Countdown Panel
         PanelManager.Instance.ActivatePanel("countdown-panel");
 
         float currentTime = 3f;
 
+        // Indicate Time Left in the Countdown Text
         while (currentTime > 0f)
         {
             UIController.Instance.CountdownText.text = currentTime.ToString("0");
@@ -48,7 +50,9 @@ public class CountdownManager : MonoBehaviour
         UIController.Instance.CountdownText.text = "GO";
         yield return new WaitForSeconds(1f);
 
+        // Start the Round
         GameManager.Instance.CurrentGameState = GameManager.GameStates.ROUND_START;
         PanelManager.Instance.ActivatePanel("score-board-panel");
     }
+    #endregion
 }

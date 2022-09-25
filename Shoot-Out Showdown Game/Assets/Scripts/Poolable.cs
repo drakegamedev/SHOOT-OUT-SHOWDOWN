@@ -3,16 +3,19 @@ using UnityEngine;
 // For Objects That Will Be Put in the Object Pooler
 public class Poolable : MonoBehaviour
 {
-    private void OnEnable()
+    #region Enable/Disable Functions
+    void OnEnable()
     {
         EventManager.Instance.PlayerDied += GameCleanUp;
     }
 
-    private void OnDisable()
+    void OnDisable()
     {
         EventManager.Instance.PlayerDied += GameCleanUp;
     }
+    #endregion
 
+    #region Public Functions
     // Returns Object back to the Object Pooler
     public void ReturnToPool()
     {
@@ -24,4 +27,5 @@ public class Poolable : MonoBehaviour
     {
         ReturnToPool();
     }
+    #endregion
 }

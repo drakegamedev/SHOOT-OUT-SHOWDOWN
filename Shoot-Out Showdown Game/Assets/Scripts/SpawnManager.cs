@@ -1,7 +1,6 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
+// Manages Player Spawning
 public class SpawnManager : MonoBehaviour
 {
     public Transform[] SpawnPoints;                                                 // Spawn Points Array
