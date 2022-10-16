@@ -5,7 +5,7 @@ public class PlayerData : MonoBehaviour
 {
     public static PlayerData Instance;
 
-    public List<string> PlayerNames = new();
+    public List<string> PlayerNames { get; set; } = new();
 
     public int MaxScore;
 

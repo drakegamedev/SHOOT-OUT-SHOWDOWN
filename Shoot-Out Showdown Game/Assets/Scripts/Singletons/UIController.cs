@@ -19,11 +19,12 @@ public class UIController : MonoBehaviour
 
     public TextMeshProUGUI[] PlayerNameTexts;                                               // Player Names
     public GameObject[] PlayerScoreTexts;                                                   // Player Score Object Reference 
-    public int StartingScore;                                                               // Starting Score for Both Players
+    
     public PlayerItem[] PlayerItems;                                                        // Player Items
     public TextMeshProUGUI CountdownText;                                                   // Countdown Text
 
     // Private Variables
+    private int startingScore;                                                              // Starting Score for Both Players
     private GameObject playerVictor;                                                        // Player Victor for the Round
 
     #region Enable/Disable Functions
@@ -58,6 +59,9 @@ public class UIController : MonoBehaviour
     {
         PanelManager.Instance.ActivatePanel("setup-panel");
 
+        // Setup Starting Score
+        startingScore = 0;
+
         // Initialize Player Item Properties
         for (int i = 0; i < PlayerItems.Length; i++)
         {
@@ -66,7 +70,7 @@ public class UIController : MonoBehaviour
             PlayerNameTexts[i].text = PlayerItems[i].Id;
 
             // Initialize Score
-            PlayerItems[i].Score = StartingScore;
+            PlayerItems[i].Score = startingScore;
             PlayerScoreTexts[i].GetComponent<TextMeshProUGUI>().text = PlayerItems[i].Score.ToString("0");
 
             // Initialize HP Containers
@@ -115,6 +119,7 @@ public class UIController : MonoBehaviour
         {
             Debug.Log("There is now a winner!");
 
+            // Destroy Every Player at End Game  
             for (int i = 0; i < GameManager.Instance.PlayerList.Count; i++)
             {
                 Destroy(GameManager.Instance.PlayerList[i]);
