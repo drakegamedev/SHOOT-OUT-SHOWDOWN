@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -50,10 +51,12 @@ public class PlayerManager : MonoBehaviour
         else
         {
             playerInputManager.DisableJoining();
-            GameManager.Instance.SetGameState(GameManager.GameStates.COUNTDOWN);
 
+            // Initiate Game Countdown
+            GameManager.Instance.SetGameState(GameManager.GameStates.COUNTDOWN);
             EventManager.Instance.MatchStart.Invoke();
 
+            // Declare all players present
             AllPlayersPresent = true;
         }
     }
