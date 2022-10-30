@@ -23,6 +23,8 @@ public class UIController : MonoBehaviour
     public PlayerItem[] PlayerItems;                                                        // Player Items
     public TextMeshProUGUI CountdownText;                                                   // Countdown Text
     public TextMeshProUGUI ObjectiveText;                                                   // Objective Text
+    public TextMeshProUGUI PlayerWinnerText;                                                // Player Winner Text
+    public Image PlayerWinnerImage;                                                         // Player Winner Image
 
     // Private Variables
     private int startingScore;                                                              // Starting Score for Both Players
@@ -87,6 +89,11 @@ public class UIController : MonoBehaviour
     #endregion
 
     #region UI Button Functions
+    public void OnRetryButtonClicked()
+    {
+        SceneLoader.Instance.LoadScene("GameScene");
+    }
+    
     public void OnMainMenuButtonClicked()
     {
         SceneLoader.Instance.LoadScene("MainMenuScene");
@@ -119,10 +126,15 @@ public class UIController : MonoBehaviour
 
         yield return new WaitForSeconds(2f);
 
-        // Game Set Match
+        // Game, Set, Match!
         if (PlayerItems[index].Score >= PlayerData.Instance.MaxScore)
         {
-            Debug.Log("There is now a winner!");
+            Debug.Log(PlayerNameTexts[index].text + " wins!");
+
+            // Announce the Overall Winner!
+            PlayerWinnerText.text = PlayerNameTexts[index].text + " wins!";
+            PlayerWinnerText.color = PlayerNameTexts[index].color;
+            PlayerWinnerImage.color = PlayerNameTexts[index].color;
 
             // Destroy Every Player at End Game  
             for (int i = 0; i < GameManager.Instance.PlayerList.Count; i++)
