@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class PlayerData : MonoBehaviour
 {
@@ -7,7 +8,8 @@ public class PlayerData : MonoBehaviour
 
     public List<string> PlayerNames { get; set; } = new();
 
-    public int MaxScore;
+    public List<int> PointsToWin = new();
+    public int MaxScore { get; set; }
 
     #region Singleton
     void Awake()

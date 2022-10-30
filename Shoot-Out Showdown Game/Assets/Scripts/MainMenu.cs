@@ -1,16 +1,21 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using TMPro;
 
 public class MainMenu : MonoBehaviour
 {
     public TMP_InputField[] PlayerNames;
+    public TMP_Dropdown PointsToWinDropdown;
     
     // Start is called before the first frame update
     void Start()
     {
         PanelManager.Instance.ActivatePanel("main-menu-panel");
+
+        PlayerData.Instance.MaxScore = PlayerData.Instance.PointsToWin[PointsToWinDropdown.value];
+        PlayerData.Instance.PlayerNames.Clear();
 
         for (int i = 0; i < PlayerNames.Length; i++)
         {
@@ -45,7 +50,13 @@ public class MainMenu : MonoBehaviour
                 return;
             }
         }
-        
+
         SceneLoader.Instance.LoadScene("GameScene");
+    }
+
+    public void DropdownInputData()
+    {
+        PlayerData.Instance.MaxScore = PlayerData.Instance.PointsToWin[PointsToWinDropdown.value];
+        Debug.Log("Max Score: " + PlayerData.Instance.MaxScore);
     }
 }

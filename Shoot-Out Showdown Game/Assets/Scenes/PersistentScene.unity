@@ -167,10 +167,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f60eabd3208fc3b4a8d80d288d95c7de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PlayerNames:
-  - Drake
-  - Axel
-  MaxScore: 5
+  PointsToWin: 030000000500000007000000090000000b000000
 --- !u!1 &1148595757
 GameObject:
   m_ObjectHideFlags: 0
