@@ -70,7 +70,10 @@ public class GameManager : MonoBehaviour
         SetGameState(GameStates.SETTING_UP);
         GameCamera = Camera.GetComponent<Camera>();
         CameraController = Camera.GetComponent<CameraController>();
-        
+
+        // Play BGM
+        AudioManager.Instance.Play("main-menu-bgm");
+
         // Add UI Scene
         SceneManager.LoadSceneAsync("UIScene", LoadSceneMode.Additive);
 

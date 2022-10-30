@@ -22,6 +22,7 @@ public class UIController : MonoBehaviour
     
     public PlayerItem[] PlayerItems;                                                        // Player Items
     public TextMeshProUGUI CountdownText;                                                   // Countdown Text
+    public TextMeshProUGUI ObjectiveText;                                                   // Objective Text
 
     // Private Variables
     private int startingScore;                                                              // Starting Score for Both Players
@@ -79,6 +80,9 @@ public class UIController : MonoBehaviour
                 PlayerItems[i].HPCircle[j].color = PlayerItems[i].HPColors[0];
             }
         }
+
+        // Set Objective Text
+        ObjectiveText.text = "First to " + PlayerData.Instance.MaxScore + " Kills Wins!";
     }
     #endregion
 
@@ -115,6 +119,7 @@ public class UIController : MonoBehaviour
 
         yield return new WaitForSeconds(2f);
 
+        // Game Set Match
         if (PlayerItems[index].Score >= PlayerData.Instance.MaxScore)
         {
             Debug.Log("There is now a winner!");
@@ -125,6 +130,10 @@ public class UIController : MonoBehaviour
                 Destroy(GameManager.Instance.PlayerList[i]);
             }
 
+            // Stop BGM
+            AudioManager.Instance.Stop("main-menu-bgm");
+
+            // Show Results
             PanelManager.Instance.ActivatePanel("results-panel");
         }
         else

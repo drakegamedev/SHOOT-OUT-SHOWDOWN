@@ -14,9 +14,11 @@ public class MainMenu : MonoBehaviour
     {
         PanelManager.Instance.ActivatePanel("main-menu-panel");
 
+        // Initialize Player Names and Max Score Value
         PlayerData.Instance.MaxScore = PlayerData.Instance.PointsToWin[PointsToWinDropdown.value];
         PlayerData.Instance.PlayerNames.Clear();
 
+        // Set Character Limit for PlayerImputs
         for (int i = 0; i < PlayerNames.Length; i++)
         {
             PlayerNames[i].characterLimit = 6;
@@ -26,6 +28,16 @@ public class MainMenu : MonoBehaviour
     public void OnPlayButtonClicked()
     {
         PanelManager.Instance.ActivatePanel("game-setup-panel");
+    }
+
+    public void OnHowToPlayButtonClicked()
+    {
+        PanelManager.Instance.ActivatePanel("tutorial-panel");
+    }
+
+    public void OnCreditsButtonClicked()
+    {
+        PanelManager.Instance.ActivatePanel("credits-panel");
     }
 
     public void OnReturnButtonClicked()
@@ -54,7 +66,7 @@ public class MainMenu : MonoBehaviour
         SceneLoader.Instance.LoadScene("GameScene");
     }
 
-    public void DropdownInputData()
+    public void SetMaxScore()
     {
         PlayerData.Instance.MaxScore = PlayerData.Instance.PointsToWin[PointsToWinDropdown.value];
         Debug.Log("Max Score: " + PlayerData.Instance.MaxScore);
