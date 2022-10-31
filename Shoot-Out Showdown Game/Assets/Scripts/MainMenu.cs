@@ -25,6 +25,7 @@ public class MainMenu : MonoBehaviour
         }
     }
 
+    #region UI Buttons
     public void OnPlayButtonClicked()
     {
         PanelManager.Instance.ActivatePanel("game-setup-panel");
@@ -38,6 +39,12 @@ public class MainMenu : MonoBehaviour
     public void OnCreditsButtonClicked()
     {
         PanelManager.Instance.ActivatePanel("credits-panel");
+    }
+
+    public void OnQuitButtonClicked()
+    {
+        Debug.Log("You have quit the game.");
+        Application.Quit();
     }
 
     public void OnReturnButtonClicked()
@@ -65,6 +72,7 @@ public class MainMenu : MonoBehaviour
 
         SceneLoader.Instance.LoadScene("GameScene");
     }
+    #endregion
 
     public void SetMaxScore()
     {
