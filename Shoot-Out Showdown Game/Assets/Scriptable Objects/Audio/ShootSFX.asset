@@ -10,14 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7da3075c31514804588cb71470a90dbf, type: 3}
-  m_Name: BGM
+  m_Name: ShootSFX
   m_EditorClassIdentifier: 
-  Id: main-menu-bgm
-  Clip: {fileID: 8300000, guid: b2ab139145e4f3d40b813fc7ef16680a, type: 3}
-  Type: 0
+  Id: shoot-sfx
+  Clip: {fileID: 8300000, guid: 5bc270261d3b65b4f98c60ee4b3258e8, type: 3}
+  Type: 1
   Priority: 0
   Volume: 1
   Pitch: 1
   PlayOnAwake: 0
-  Loop: 1
+  Loop: 0
   SpatialBlend: 0

@@ -45,7 +45,10 @@ public class PlayerHealth : Health
     {
         // Declare Round Over
         GameManager.Instance.RoundOver();
-        
+
+        // Play Explosion SFX
+        AudioManager.Instance.Play("explosion");
+
         // Activate Death VFX
         DeathEffect();
     }
