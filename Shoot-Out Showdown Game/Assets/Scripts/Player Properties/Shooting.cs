@@ -50,7 +50,7 @@ public class Shooting : MonoBehaviour
     // Aim with Right Joystick
     public void ControllerAim(InputAction.CallbackContext context)
     {
-        if (playerSetup.PlayerInput.currentControlScheme == "Controller" && playerSetup.CanMove())
+        if (playerSetup.PlayerInput.currentControlScheme == "Controller")
         {
             aimInput = context.ReadValue<Vector2>();
 
