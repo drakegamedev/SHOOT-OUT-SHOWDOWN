@@ -332,6 +332,8 @@ MonoBehaviour:
   - Arena3
   - Arena4
   - Arena5
+  - Arena6
+  - Arena7
   CurrentGameState: 0
 --- !u!4 &1123769175
 Transform:
