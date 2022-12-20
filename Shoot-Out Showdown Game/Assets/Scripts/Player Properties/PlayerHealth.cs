@@ -6,6 +6,7 @@ public class PlayerHealth : Health
 
     // Private Variables
     private PlayerSetup playerSetup;                                    // PlayerSetup Class Reference
+    private bool isAlive;                                               // Checks if Player is Alive or Dead
 
     #region Initialization Functions
     // Start is called before the first frame update
@@ -13,6 +14,7 @@ public class PlayerHealth : Health
     {
         playerSetup = GetComponent<PlayerSetup>();
         CurrentHealth = DefaultHealth;
+        isAlive = true;
     }
     #endregion
 
@@ -43,14 +45,23 @@ public class PlayerHealth : Health
     // Player Death
     public override void OnDeath()
     {
-        // Declare Round Over
-        GameManager.Instance.RoundOver();
+        if (isAlive)
+        {
+            // Declare Round Over
+            GameManager.Instance.RoundOver();
 
-        // Play Explosion SFX
-        AudioManager.Instance.Play("explosion");
+            // Play Explosion SFX
+            AudioManager.Instance.Play("explosion");
 
-        // Activate Death VFX
-        DeathEffect();
+            // Activate Death VFX
+            DeathEffect();
+
+            isAlive = false;
+        }
+        else
+        {
+            Debug.Log("This Player Is Already Dead!");
+        }
     }
     #endregion
 
@@ -66,6 +77,7 @@ public class PlayerHealth : Health
     public void ResetHealth()
     {
         CurrentHealth = DefaultHealth;
+        isAlive = true;
         UIController.Instance.UpdateHealth(playerSetup.PlayerNumber, CurrentHealth);
     }
     #endregion
