@@ -3,8 +3,8 @@ using UnityEngine;
 
 public class CountdownManager : MonoBehaviour
 {
-    private float countDownDelay;
-
+    // Private Variables
+    private float countDownDelay;                                           // Time Delay Before the Actual Countdown
 
     #region Enable/Disable Functions
     void OnEnable()
@@ -44,10 +44,11 @@ public class CountdownManager : MonoBehaviour
         {
             yield return new WaitForSeconds(0.5f);
 
+            AudioManager.Instance.Play("all-set");
             PanelManager.Instance.ActivatePanel("all-set-panel");
-
-            // Add 1 Second Delay to Indicate that Both Players are All Set
-            countDownDelay = 1f;
+            
+            // Add 1.5 Seconds Delay to Indicate that Both Players are All Set
+            countDownDelay = 1.5f;
         }
 
         yield return new WaitForSeconds(countDownDelay);
