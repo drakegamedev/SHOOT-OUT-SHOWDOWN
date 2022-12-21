@@ -12,11 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7da3075c31514804588cb71470a90dbf, type: 3}
   m_Name: GameBGM
   m_EditorClassIdentifier: 
-  Id: main-menu-bgm
-  Clip: {fileID: 8300000, guid: b2ab139145e4f3d40b813fc7ef16680a, type: 3}
+  Id: game-bgm
+  Clip: {fileID: 8300000, guid: 28b7e637c21685e409ccd81d2bce1e15, type: 3}
   Type: 0
   Priority: 0
-  Volume: 1
+  Volume: 0.75
   Pitch: 1
   PlayOnAwake: 0
   Loop: 1
