@@ -20,9 +20,7 @@ public class CountdownManager : MonoBehaviour
     void Start()
     {
         if (PlayerManager.Instance.AllPlayersPresent)
-        {
             StartCountdown();
-        }
     }
     #endregion
 
