@@ -491,7 +491,7 @@ Rigidbody2D:
   m_Material: {fileID: 6200000, guid: 0e14c8be003c4c64fa3ae7b2a79ff7bc, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 4
 --- !u!114 &3230428364668463874
 MonoBehaviour:
@@ -578,6 +578,22 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 34713f44-8724-4e23-93d5-a76d91a197e7
     m_ActionName: Player/Fire[/Mouse/leftButton,/XInputControllerWindows/buttonWest,/XInputControllerWindows/rightShoulder]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 3230428364668463933}
+        m_TargetAssemblyTypeName: PlayerMovement, Assembly-CSharp
+        m_MethodName: Dash
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 61195b57-cfc4-42b0-8875-e0810b1ddd68
+    m_ActionName: Player/Dash[/XInputControllerWindows/rightTrigger,/Mouse/rightButton]
   m_NeverAutoSwitchControlSchemes: 1
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
@@ -596,6 +612,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Speed: 20
+  DashSpeed: 75
 --- !u!114 &3230428364668463873
 MonoBehaviour:
   m_ObjectHideFlags: 0
