@@ -2,7 +2,10 @@ using System.Collections;
 using UnityEngine;
 
 public class CountdownManager : MonoBehaviour
-{    
+{
+    private float countDownDelay;
+
+
     #region Enable/Disable Functions
     void OnEnable()
     {
@@ -32,8 +35,22 @@ public class CountdownManager : MonoBehaviour
 
     IEnumerator Countdown()
     {
-        // Add a Small Delay to Process All the Values Before Initiating
-        yield return new WaitForSeconds(0.1f);
+        if (PlayerManager.Instance.IsAllSet)
+        {
+            // Add a Small Delay to Process All the Values Before Initiating
+            countDownDelay = 0.1f;
+        }
+        else
+        {
+            yield return new WaitForSeconds(0.5f);
+
+            PanelManager.Instance.ActivatePanel("all-set-panel");
+
+            // Add 1 Second Delay to Indicate that Both Players are All Set
+            countDownDelay = 1f;
+        }
+
+        yield return new WaitForSeconds(countDownDelay);
 
         // Open Countdown Panel
         PanelManager.Instance.ActivatePanel("countdown-panel");

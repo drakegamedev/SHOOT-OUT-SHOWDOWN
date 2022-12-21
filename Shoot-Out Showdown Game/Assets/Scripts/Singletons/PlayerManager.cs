@@ -7,7 +7,8 @@ public class PlayerManager : MonoBehaviour
 {
     public static PlayerManager Instance;
     
-    public bool AllPlayersPresent { get; private set; }                                       // Checks if all players are now present
+    public bool AllPlayersPresent { get; private set; }                                       // Checks if All Players are Now Present
+    public bool IsAllSet { get; set; }                                                        // Checks if All Players are All Set
 
     // Private Variables
     private PlayerInputManager playerInputManager;                                            // PlayerInputManager Component Reference
@@ -35,6 +36,7 @@ public class PlayerManager : MonoBehaviour
         playerInputManager = GetComponent<PlayerInputManager>();
         playerInputManager.playerPrefab = GameManager.Instance.PlayerPrefabs[0];
         AllPlayersPresent = false;
+        IsAllSet = false;
     }
     #endregion
 
@@ -59,6 +61,7 @@ public class PlayerManager : MonoBehaviour
 
             // Declare all players present
             AllPlayersPresent = true;
+            IsAllSet = true;
         }
     }
     #endregion
