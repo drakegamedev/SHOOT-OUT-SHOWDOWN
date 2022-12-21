@@ -11,6 +11,7 @@ public class PlayerManager : MonoBehaviour
 
     // Private Variables
     private PlayerInputManager playerInputManager;                                            // PlayerInputManager Component Reference
+    
 
     #region Singleton
     void Awake()

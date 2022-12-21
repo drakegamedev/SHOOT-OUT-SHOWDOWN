@@ -157,6 +157,10 @@ MonoBehaviour:
     - {fileID: 11400000, guid: e831af0439a3b28469d43c3e7a1c4b8d, type: 2}
     - {fileID: 11400000, guid: 3dfaaaa886c674a449ee029c534d21dc, type: 2}
     - {fileID: 11400000, guid: adfdfac54904f7e4487ce9343a2bc6d7, type: 2}
+    - {fileID: 11400000, guid: 0e8e864cb6168f74fa37e4fea3a9e4c4, type: 2}
+    - {fileID: 11400000, guid: aeec1ade210267549a1876709646b867, type: 2}
+    - {fileID: 11400000, guid: a375c39f85a05da4aaa32f79e2177e1b, type: 2}
+    - {fileID: 11400000, guid: ccb22a32aa0636742b684b9ed606c0ba, type: 2}
   MusicHolder: {fileID: 1953756302}
   SoundHolder: {fileID: 994092265}
 --- !u!4 &261453954

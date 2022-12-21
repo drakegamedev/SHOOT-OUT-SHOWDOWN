@@ -31,6 +31,9 @@ public class PlayerHealth : Health
         {
             // Visual Indicator of Player Taking Damage
             playerSetup.Animator.SetTrigger("hurt");
+
+            // Play Hurt SFX
+            AudioManager.Instance.Play("hurt");
         }
         else if (CurrentHealth <= 0f)
         {
@@ -45,23 +48,19 @@ public class PlayerHealth : Health
     // Player Death
     public override void OnDeath()
     {
-        if (isAlive)
-        {
-            // Declare Round Over
-            GameManager.Instance.RoundOver();
+        if (!isAlive)
+            return;
 
-            // Play Explosion SFX
-            AudioManager.Instance.Play("explosion");
+        // Declare Round Over
+        GameManager.Instance.RoundOver();
 
-            // Activate Death VFX
-            DeathEffect();
+        // Play Explosion SFX
+        AudioManager.Instance.Play("explosion");
 
-            isAlive = false;
-        }
-        else
-        {
-            Debug.Log("This Player Is Already Dead!");
-        }
+        // Activate Death VFX
+        DeathEffect();
+
+        isAlive = false;
     }
     #endregion
 

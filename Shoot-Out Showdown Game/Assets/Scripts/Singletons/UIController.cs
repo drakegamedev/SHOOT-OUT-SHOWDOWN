@@ -120,6 +120,7 @@ public class UIController : MonoBehaviour
         PlayerItems[index].Score++;
         PlayerScoreTexts[index].GetComponent<TextMeshProUGUI>().text = PlayerItems[index].Score.ToString("0");
         PlayerScoreTexts[index].GetComponent<Animator>().SetTrigger("SetScore");
+        AudioManager.Instance.Play("set-score");
 
         // Nullify Player Victor
         playerVictor = null;
