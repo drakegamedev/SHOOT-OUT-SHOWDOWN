@@ -81,7 +81,9 @@ public class GameManager : MonoBehaviour
         // Randomized Number for Arena Color Generation
         RandomNumber = UnityEngine.Random.Range(0, ArenaColors.Length);
 
-        // Initial Genration of Arena
+        AudioManager.Instance.Play("game-bgm");
+
+        // Initial Generation of Arena
         GenerateArena();
     }
     #endregion

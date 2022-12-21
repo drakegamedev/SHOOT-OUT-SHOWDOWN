@@ -144,7 +144,7 @@ public class UIController : MonoBehaviour
             }
 
             // Stop BGM
-            AudioManager.Instance.Stop("main-menu-bgm");
+            AudioManager.Instance.Stop("game-bgm");
 
             // Show Results
             PanelManager.Instance.ActivatePanel("results-panel");
