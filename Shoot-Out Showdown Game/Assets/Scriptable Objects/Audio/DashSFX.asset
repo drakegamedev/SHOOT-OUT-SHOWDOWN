@@ -13,11 +13,11 @@ MonoBehaviour:
   m_Name: DashSFX
   m_EditorClassIdentifier: 
   Id: dash
-  Clip: {fileID: 8300000, guid: d328bbf6343318441814b59c39420747, type: 3}
+  Clip: {fileID: 8300000, guid: fe18a31dda107be45a57520bf811da03, type: 3}
   Type: 1
   Priority: 0
   Volume: 1
-  Pitch: 1
+  Pitch: 3
   PlayOnAwake: 0
   Loop: 0
   SpatialBlend: 0

@@ -162,7 +162,6 @@ MonoBehaviour:
     - {fileID: 11400000, guid: a375c39f85a05da4aaa32f79e2177e1b, type: 2}
     - {fileID: 11400000, guid: ccb22a32aa0636742b684b9ed606c0ba, type: 2}
     - {fileID: 11400000, guid: f6a3dd37849d3054eb0dd7db6602a97b, type: 2}
-    - {fileID: 11400000, guid: 8fc74def8519b6b4b874fd3e7fa49c99, type: 2}
   MusicHolder: {fileID: 1953756302}
   SoundHolder: {fileID: 994092265}
 --- !u!4 &261453954

@@ -12,7 +12,6 @@ public class PlayerMovement : MonoBehaviour
     // Private Variables
     private PlayerSetup playerSetup;                                        // PlayerSetup Class Reference                                        
     private float currentSpeed;                                             // Current Player Speed
-    private bool isDashing;
     private Vector2 moveInput;                                              // Move Inputs
 
     #region Initialization Functions
@@ -21,7 +20,6 @@ public class PlayerMovement : MonoBehaviour
     {
         playerSetup = GetComponent<PlayerSetup>();
         currentSpeed = Speed;
-        isDashing = false;
     }
     #endregion
 
@@ -47,32 +45,5 @@ public class PlayerMovement : MonoBehaviour
         if (playerSetup.CanMove())
             moveInput = context.ReadValue<Vector2>();
     }
-
-    // Dash Function
-    public void Dash(InputAction.CallbackContext context)
-    {
-        if (!playerSetup.CanMove())
-            return;
-        
-        if (context.performed && !isDashing)
-            StartCoroutine(Dashing());
-    }
     #endregion
-
-    IEnumerator Dashing()
-    {
-        // Execute Dash
-        isDashing = true;
-        currentSpeed = DashSpeed;
-        AudioManager.Instance.Play("dash");
-
-        yield return new WaitForSeconds(0.05f);
-
-        currentSpeed = Speed;
-
-        // Dash Cooldown
-        yield return new WaitForSeconds(1.5f);
-
-        isDashing = false;
-    }
 }
