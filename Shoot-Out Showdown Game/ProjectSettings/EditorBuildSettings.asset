@@ -47,4 +47,34 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Arenas/Arena10.unity
     guid: 9187c7c5b89ef2a4aa0a12ccde7ead32
+  - enabled: 1
+    path: Assets/Scenes/Arenas/Arena11.unity
+    guid: ce3401ab92ccd28438dcd489103405df
+  - enabled: 1
+    path: Assets/Scenes/Arenas/Arena12.unity
+    guid: e348aefd79d2b08438f1e9db1c6c7b54
+  - enabled: 1
+    path: Assets/Scenes/Arenas/Arena13.unity
+    guid: c5e4e990fd09ea747b915bfc6c93cb06
+  - enabled: 1
+    path: Assets/Scenes/Arenas/Arena14.unity
+    guid: 79f522363e0e4d34894d6b523d26f3c9
+  - enabled: 1
+    path: Assets/Scenes/Arenas/Arena15.unity
+    guid: 36fbda08b1333da4eb2716a01b7c410e
+  - enabled: 1
+    path: Assets/Scenes/Arenas/Arena16.unity
+    guid: 8d67df77349a5b54aad200f6e478a18c
+  - enabled: 1
+    path: Assets/Scenes/Arenas/Arena17.unity
+    guid: d60756b98952bae44acef66c0c8e8d96
+  - enabled: 1
+    path: Assets/Scenes/Arenas/Arena18.unity
+    guid: 4d7a811e1dc383044a283765a9e5cccc
+  - enabled: 1
+    path: Assets/Scenes/Arenas/Arena19.unity
+    guid: 50f966700ae5ee047b8d2238ad7abab0
+  - enabled: 1
+    path: Assets/Scenes/Arenas/Arena20.unity
+    guid: 0bcee7b868b124c42b76492f93825047
   m_configObjects: {}
