@@ -327,8 +327,8 @@ MonoBehaviour:
   - {fileID: 1757604487565575512, guid: 7be5e8558f697df4a96f4c39ad28c39e, type: 3}
   - {fileID: 2139089778301005592, guid: 9dfa850c5dd81ed4c84bea15decdef31, type: 3}
   ArenaIds:
-  - Arena11
-  - Arena12
+  - Arena13
+  - Arena14
   CurrentGameState: 0
 --- !u!4 &1123769175
 Transform:
