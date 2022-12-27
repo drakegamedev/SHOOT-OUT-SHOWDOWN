@@ -118,7 +118,7 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 200}
   m_MaxSize: {x: 24288, y: 16192}
   vertical: 1
-  controlID: 17
+  controlID: 40
 --- !u!114 &6
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -143,7 +143,7 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 200}
   m_MaxSize: {x: 24288, y: 16192}
   vertical: 0
-  controlID: 18
+  controlID: 41
 --- !u!114 &7
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -168,7 +168,7 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 200}
   m_MaxSize: {x: 16192, y: 16192}
   vertical: 1
-  controlID: 19
+  controlID: 42
 --- !u!114 &8
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -193,7 +193,7 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 100}
   m_MaxSize: {x: 16192, y: 8096}
   vertical: 0
-  controlID: 20
+  controlID: 43
 --- !u!114 &9
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -295,8 +295,8 @@ MonoBehaviour:
     y: 0
     width: 355.19995
     height: 730.8
-  m_MinSize: {x: 275, y: 50}
-  m_MaxSize: {x: 4000, y: 4000}
+  m_MinSize: {x: 276, y: 71}
+  m_MaxSize: {x: 4001, y: 4021}
   m_ActualView: {fileID: 20}
   m_Panes:
   - {fileID: 20}
@@ -427,7 +427,7 @@ MonoBehaviour:
       scrollPos: {x: 0, y: 0}
       m_SelectedIDs: 
       m_LastClickedID: 0
-      m_ExpandedIDs: 16daffff50daffff8adaffffc4dafffffedaffff38dbffff72dbffffacdbffffe6dbffff20dcffff5adcffff94dcffffcedcffff08ddffff42ddffff7cddffffb6ddfffff0ddffff2adeffff64deffff9edeffffd8deffff12dfffff4cdfffff86dfffffc0dffffffadfffff34e0ffff6ee0ffffb8e1ffff62e2ffff9ce2ffffd6e2ffff10e3ffff4ae3ffff84e3ffffbee3fffff8e3ffff32e4ffff6ce4ffffa6e7ffffe0e7ffff1ae8ffffbee8ffffc6eaffff00ebffff3aebffff74ebffffaeebffffe8ebffff22ecffff5cecffff96ecffffd0ecffff0aedffff44edffff88f2ffffc2f2fffffef2ffffd4f3ffff0ef4ffff44f4ffff7ef4ffffb8f4fffff2f4ffff2cf5ffff66f5ffffa0f5ffffdaf5ffff14f6ffff4ef6ffff88f6ffffc2f6fffffef6ffff22fbffff668e0000928e0000b2940000ce940000da95000006960000ca970000de970000369d00004c9d0000109e0000449e000044ac000060ac0000
+      m_ExpandedIDs: f4daffff2edbffff68dbffffa2dbffffdcdbffff16dcffff50dcffff8adcffffc4dcfffffedcffff38ddffff72ddffffacddffffe6ddffff20deffff5edeffff98deffffd2deffff0cdfffff46dfffff80dfffffbadffffff4dfffff2ee0ffff68e0ffffb2e4ffffece4ffff28e5ffffdee5ffff18e6ffff52e6ffff8ce6ffffc6e6ffffd0e9ffff8aeaffffc4eafffffeeaffff38ebffff72ebffffacebffffe6ebffff20ecffff5aecffff94ecffffceecffff08edffff42edffff7cedffffb6edfffff0edffff2aeeffff60eeffff9aeeffffc6f1ffffe0f5ffff1af6ffff54f6ffff8ef6ffffc8f6ffff02f7ffff3cf7ffff76f7ffffb0f7ffffeaf7ffff24f8ffff5ef8ffff98f8ffffd2f8ffff0cf9ffff46f9ffff80f9ffffbaf9ffff22fbffffb4620000d0620000546c0000626c00007e6c0000809600008e96000082a2000090a20000bca20000
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -698,9 +698,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: -0.44132924, y: -2.8742585, z: 0.042806044}
+    m_Target: {x: 5.828887, y: -3.0337422, z: -0.12434378}
     speed: 2
-    m_Value: {x: -0.44132924, y: -2.8742585, z: 0.042806044}
+    m_Value: {x: 5.828887, y: -3.0337422, z: -0.12434378}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -751,9 +751,9 @@ MonoBehaviour:
     speed: 2
     m_Value: {x: 0, y: 0, z: 0, w: 1}
   m_Size:
-    m_Target: 15.108871
+    m_Target: 23.302666
     speed: 2
-    m_Value: 15.108871
+    m_Value: 23.302666
   m_Ortho:
     m_Target: 1
     speed: 2
@@ -917,13 +917,13 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Scenes/Arenas
+    - Assets/Scenes
     m_Globs: []
     m_OriginalText: 
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets/Scenes/Arenas
+  - Assets/Scenes
   m_LastFoldersGridSize: -1
   m_LastProjectPath: D:\Drake Gamedev Repositories\Shoot-Out Showdown Game\SHOOT-OUT-SHOWDOWN-GAME\Shoot-Out
     Showdown Game
@@ -931,9 +931,9 @@ MonoBehaviour:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 3}
-    m_SelectedIDs: e6630000
-    m_LastClickedID: 25574
-    m_ExpandedIDs: 000000008e630000dc63000000ca9a3b
+    m_SelectedIDs: 96630000
+    m_LastClickedID: 25494
+    m_ExpandedIDs: 000000004a6300009663000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -961,7 +961,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 000000008e630000
+    m_ExpandedIDs: 000000004a630000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -988,7 +988,7 @@ MonoBehaviour:
   m_ListAreaState:
     m_SelectedInstanceIDs: 
     m_LastClickedInstanceID: 0
-    m_HadKeyboardFocusLastEvent: 1
+    m_HadKeyboardFocusLastEvent: 0
     m_ExpandedInstanceIDs: c62300009e620000ea62000096650000fc62000004630000087b0000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
