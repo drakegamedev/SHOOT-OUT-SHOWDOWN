@@ -19,7 +19,7 @@ MonoBehaviour:
     width: 1536
     height: 780.8
   m_ShowMode: 4
-  m_Title: Hierarchy
+  m_Title: Project
   m_RootView: {fileID: 2}
   m_MinSize: {x: 875, y: 350}
   m_MaxSize: {x: 10000, y: 10000}
@@ -118,7 +118,7 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 200}
   m_MaxSize: {x: 24288, y: 16192}
   vertical: 1
-  controlID: 60
+  controlID: 91
 --- !u!114 &6
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -143,7 +143,7 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 200}
   m_MaxSize: {x: 24288, y: 16192}
   vertical: 0
-  controlID: 61
+  controlID: 92
 --- !u!114 &7
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -168,7 +168,7 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 200}
   m_MaxSize: {x: 16192, y: 16192}
   vertical: 1
-  controlID: 21
+  controlID: 93
 --- !u!114 &8
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -193,7 +193,7 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 100}
   m_MaxSize: {x: 16192, y: 8096}
   vertical: 0
-  controlID: 22
+  controlID: 94
 --- !u!114 &9
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -363,7 +363,7 @@ MonoBehaviour:
     m_HSlider: 0
     m_VSlider: 0
     m_IgnoreScrollWheelUntilClicked: 0
-    m_EnableMouseInput: 0
+    m_EnableMouseInput: 1
     m_EnableSliderZoomHorizontal: 0
     m_EnableSliderZoomVertical: 0
     m_UniformScale: 1
@@ -425,20 +425,20 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: 
+      m_SelectedIDs: dc630000
       m_LastClickedID: 0
-      m_ExpandedIDs: 3aa4ffff76a4ffffb4a7fffff0a7ffff2ca8ffff96a9ffff9cadffff30b4ffff9cb4ffffd8b4ffff46b5ffffb2b5ffffeeb5ffff2ab6ffff66b6ffffa2b6ffffdeb6ffff1ab7ffff56b7ffff8eb7ffffcab7ffff06b8ffff42b8ffff7eb8ffffbab8fffff6b8ffff32b9ffff6eb9ffffaab9ffffe6b9ffff22baffff5ebaffff9ebaffffdabaffff16bbffff52bbffff8ebbffffcabbffff06bcffff42bcffff7ebcffffbabcfffff6bcffff42beffffccc0ffff36c1ffff72c1ffffaec1ffffeac1ffff26c2ffff0cc5ffff48c5ffff84c5ffff96c9ffff02caffff7ecbffffbacbfffff8cbffffacccffffeaccffff2acdffffb6cdfffff8cdffff6ad2ffffa2d2ffffded2ffff10d8ffff7cd8ffffd2daffff0edbffff4adbffff86dbffffc2dbfffffedbffff3adcffff76dcffffb2dcffff10deffff4cdeffff88deffffc4deffff00dfffff3cdfffff78dfffffb4dffffff0dfffff2ce0ffff68e0ffffa4e0ffffe0e0ffff1ce1ffff5ce1ffff98e1ffffd4e1ffff10e2ffff4ce2ffff88e2ffffc4e2ffff00e3ffff3ce3ffff78e3ffffb4e3fffff0e3ffff2ce4ffff68e4ffffa0e4ffffdce4ffff0ae6ffff46e6ffff82e6ffffbee6fffffae6ffff36e7ffff72e7ffffaee7ffffeae7ffff26e8ffff62e8ffff9ee8ffffdae8ffff16e9ffff52e9ffff8ee9ffffcae9ffffb8f5fffff4f5ffff5cf6ffff98f6ffffd8f8ffff14f9ffff52f9ffffa6f9ffffe2f9ffff1efaffff22fbffff9a660000ae660000f8670000226800005a680000106900001c6900007a72000090720000ac720000fe8000002a8100004a8500005e85000084860000b6860000ca86000002870000108700002487000028ad000054ad0000faad00002cae000040ae000086ae00009aae00002cb9000048b9000096b90000acb9000076bb0000a2bb0000a6ca0000d8ca0000ecca000032cb000046cb0000eccb00001ecc000032cc00006acc000078cc00008ccc00006cd300008ed30000
+      m_ExpandedIDs: b69effff0aa1ffff50a1ffff92a1ffffeea2fffff6a2fffff8a2fffffea2ffff06a3ffff08a3ffff10a3ffff12a3ffff14a3ffffe2a3ffffe8a3ffffeea3fffff4a3fffffaa3ffffcaa4ffffd0a4ffffd6a4ffffdca4ffff20a5ffff5ca5ffff9ea5ffffe0a5ffff22a6ffff64a6ffffa0a6ffffdca6ffff2aa7ffff6ca7ffff76a7ffffb8a7fffffea7ffff40a8ffff82a8ffffbea8ffff00a9ffff06a9ffff0ca9ffff12a9ffff18a9ffff1ea9ffff26a9ffffdaa9ffff2eafffff96b0ffffd0b0ffffa8b1ffff8ab3ffffd8c2ffff14c3ffff50c3ffff8cc3ffffc8c3ffff04c4ffff40c4ffff7cc4ffffb8c4fffff4c4ffff30c5ffff6cc5ffffa8c5ffffe4c5ffff20c6ffff60c6ffff9cc6ffffd8c6ffff14c7ffff50c7ffff8cc7ffffc8c7ffff04c8ffff72cbfffff8cdffff18cfffff54cfffff90cfffffcccfffff08d0ffff44d0ffff80d0ffffbcd0fffff8d0ffff34d1ffff70d1ffffacd1ffffe8d1ffff24d2ffff60d2ffff9cd2ffff6cd6ffffccd6ffffa8d8ffffe4d8ffff20d9ffff5cd9ffff98d9ffffd4d9ffff10daffff4cdaffff88daffffc4daffff00dbffff3cdbffff78dbffffb4dbfffff0dbffff8cdcffffc8dcffff04ddffff4cddffff88ddffffc4ddffff04deffff40deffff7cdeffffb8defffff4deffff30dfffff6cdfffffa8dffffff4e0ffff32e1ffffe4e1ffff9ee3ffff8ee4ffffcae4ffff06e5ffff42e5ffffaee5ffffeae5ffff2ae6ffff66e6ffffa2e6ffffdee6ffff1ae7ffff56e7ffff92e7ffffcee7ffff0ae8ffff46e8ffff82e8ffffbee8fffffae8ffff36e9ffff72e9ffffb2e9ffffeee9ffff2aeaffff48ecffffb4ecffff96eeffffd2eeffff0eefffff4aefffff82efffffbeeffffffeefffff3af0ffff76f0ffffaef0ffffeaf0ffff26f1ffff62f1ffff9ef1ffffe6f1ffff22f2ffffc4f3ffff00f4ffff2ef4ffff0ef5ffffa2f9fffff4f9ffff22fbffff1c8500006087000084870000be8e0000ea8e00003a9000006c90000080900000c6900000da900000189b0000349b0000529d00007e9d0000b49d0000c29d0000de9d0000ce9f000000a700001ca70000ecad0000faad00000eae0000d6bc000002bd0000b8c20000cec20000fac2000080d5000094d70000d2d8000078dd0000beef000020f00000a2f000001cf100006ef3000000f400007af40000f2f4000098f5000008f9000062f9000042fa0000a4fa00001efb000090fb0000fafb000074fc0000
       m_RenameOverlay:
         m_UserAcceptedRename: 0
-        m_Name: UpperWall (2)
-        m_OriginalName: UpperWall (2)
+        m_Name: EventManager
+        m_OriginalName: EventManager
         m_EditFieldRect:
           serializedVersion: 2
           x: 0
           y: 0
           width: 0
           height: 0
-        m_UserData: -19746
+        m_UserData: 55390
         m_IsWaitingForDelay: 0
         m_IsRenaming: 0
         m_OriginalEventType: 0
@@ -698,9 +698,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 5.1181726, y: -4.6718054, z: -0.067114696}
+    m_Target: {x: -3.9113338, y: 1.4647593, z: -0.31055844}
     speed: 2
-    m_Value: {x: 5.1181726, y: -4.6718054, z: -0.067114696}
+    m_Value: {x: -6.3727818, y: 0.9818858, z: -0.29889697}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -751,9 +751,9 @@ MonoBehaviour:
     speed: 2
     m_Value: {x: 0, y: 0, z: 0, w: 1}
   m_Size:
-    m_Target: 21.749443
+    m_Target: 27.08036
     speed: 2
-    m_Value: 21.749443
+    m_Value: 25.91422
   m_Ortho:
     m_Target: 1
     speed: 2
@@ -917,13 +917,13 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Scenes/Arenas
+    - Assets/Scenes
     m_Globs: []
     m_OriginalText: 
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets/Scenes/Arenas
+  - Assets/Scenes
   m_LastFoldersGridSize: -1
   m_LastProjectPath: D:\Drake Gamedev Repositories\Shoot-Out Showdown Game\SHOOT-OUT-SHOWDOWN-GAME\Shoot-Out
     Showdown Game
@@ -931,9 +931,9 @@ MonoBehaviour:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 3}
-    m_SelectedIDs: 9a630000
-    m_LastClickedID: 25498
-    m_ExpandedIDs: 00000000426300009063000000ca9a3b
+    m_SelectedIDs: 66630000
+    m_LastClickedID: 25446
+    m_ExpandedIDs: 00000000566300006663000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -961,7 +961,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 0000000042630000
+    m_ExpandedIDs: 0000000056630000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
