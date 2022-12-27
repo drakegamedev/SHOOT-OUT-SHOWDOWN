@@ -23,7 +23,7 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 200}
   m_MaxSize: {x: 24288, y: 16192}
   vertical: 1
-  controlID: 104
+  controlID: 4341
 --- !u!114 &2
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -140,7 +140,7 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 200}
   m_MaxSize: {x: 24288, y: 16192}
   vertical: 0
-  controlID: 105
+  controlID: 4342
 --- !u!114 &4
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -165,7 +165,7 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 200}
   m_MaxSize: {x: 16192, y: 16192}
   vertical: 1
-  controlID: 106
+  controlID: 4343
 --- !u!114 &5
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -190,7 +190,7 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 100}
   m_MaxSize: {x: 16192, y: 8096}
   vertical: 0
-  controlID: 107
+  controlID: 4344
 --- !u!114 &6
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -248,9 +248,9 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: 
+      m_SelectedIDs: f0630000
       m_LastClickedID: 0
-      m_ExpandedIDs: 22fbffff
+      m_ExpandedIDs: 9ad7ffffbed8ffff28daffffc8daffff08dbffff48dbffff88dbffffc8dbffff08dcffff48dcffff88dcffffc8dcffff08ddffff48ddffff88ddffffc8ddffff08deffffa6deffff9cdfffffdcdfffff1ce0ffff5ce0ffff9ce0ffffdce0ffff1ce1ffff5ce1ffffe8e1ffffbce4ffffd0e5ffff14e6ffff54e6ffff9ce6ffffdce6ffff1ce7ffff5ce7ffff9ce7ffffdce7ffff1ce8ffff5ce8ffff9ce8ffffdce8ffff1ce9ffff58e9ffff98e9ffffd8e9ffff18eaffff58eaffff98eaffffd8eaffff18ebffff0aecffff4aecffffe0ecffff22edffff5cedffff9cedffff0eeeffff4eeeffff8eeeffffcaeeffff0eefffff4eefffff8eefffffccefffff12f0ffff4cf0ffff06f1ffff46f1ffff86f1ffffc6f1ffff06f2ffff46f2ffffe2f2ffff8af3ffff20f4ffff6af4ffffa4f4ffffe4f4ffff24f5ffff64f5ffffa4f5ffffe4f5ffff24f6ffff22fbffff5c860000de860000b68700000c930000609300009c940000a697000032980000ca9d0000fcac000010ae0000c4b00000aab8000060ba0000
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -549,9 +549,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 866.3828, y: 554.4881, z: 4.149303}
+    m_Target: {x: 960.3182, y: 999.7147, z: -0.07721957}
     speed: 2
-    m_Value: {x: 866.3828, y: 554.4881, z: 4.149303}
+    m_Value: {x: 960.3182, y: 999.7147, z: -0.07721957}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -602,9 +602,9 @@ MonoBehaviour:
     speed: 2
     m_Value: {x: 0, y: 0, z: 0, w: 1}
   m_Size:
-    m_Target: 633.8795
+    m_Target: 17.72196
     speed: 2
-    m_Value: 633.8795
+    m_Value: 17.72196
   m_Ortho:
     m_Target: 1
     speed: 2
@@ -796,23 +796,23 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Scriptable Objects/Audio
+    - Assets/Scenes
     m_Globs: []
     m_OriginalText: 
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets/Scriptable Objects/Audio
+  - Assets/Scenes
   m_LastFoldersGridSize: -1
   m_LastProjectPath: D:\Drake Gamedev Repositories\Shoot-Out Showdown Game\SHOOT-OUT-SHOWDOWN-GAME\Shoot-Out
     Showdown Game
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
-    scrollPos: {x: 0, y: 19}
-    m_SelectedIDs: aa630000
-    m_LastClickedID: 25514
-    m_ExpandedIDs: 0000000092630000a263000000ca9a3b
+    scrollPos: {x: 0, y: 3}
+    m_SelectedIDs: 94630000
+    m_LastClickedID: 25492
+    m_ExpandedIDs: 00000000926300009463000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -840,7 +840,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 0000000092630000
+    m_ExpandedIDs: 00000000926300009463000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -865,8 +865,8 @@ MonoBehaviour:
       m_Icon: {fileID: 0}
       m_ResourceFile: 
   m_ListAreaState:
-    m_SelectedInstanceIDs: 
-    m_LastClickedInstanceID: 0
+    m_SelectedInstanceIDs: f0630000
+    m_LastClickedInstanceID: 25584
     m_HadKeyboardFocusLastEvent: 0
     m_ExpandedInstanceIDs: c62300009e620000ea62000096650000fc62000004630000087b0000
     m_RenameOverlay:
@@ -884,7 +884,7 @@ MonoBehaviour:
       m_IsRenaming: 0
       m_OriginalEventType: 11
       m_IsRenamingFilename: 1
-      m_ClientGUIView: {fileID: 15}
+      m_ClientGUIView: {fileID: 11}
     m_CreateAssetUtility:
       m_EndAction: {fileID: 0}
       m_InstanceID: 0
@@ -954,7 +954,7 @@ MonoBehaviour:
     m_SaveData: []
   m_LockTracker:
     m_IsLocked: 0
-  m_LastSelectedObjectID: 28750
+  m_LastSelectedObjectID: -7564
 --- !u!114 &15
 MonoBehaviour:
   m_ObjectHideFlags: 52
