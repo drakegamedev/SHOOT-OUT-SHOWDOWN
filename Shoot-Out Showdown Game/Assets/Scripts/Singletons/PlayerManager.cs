@@ -49,6 +49,9 @@ public class PlayerManager : MonoBehaviour
         {
             // Change Input Manager Prefab
             playerInputManager.playerPrefab = GameManager.Instance.PlayerPrefabs[1];
+
+            // Indicate 1st Player as Ready
+            UIController.Instance.PlayerIsReady(playerInputManager.playerCount - 1);
         }
         // Disable Joining if Maximum Players have been Reached
         else
@@ -58,6 +61,11 @@ public class PlayerManager : MonoBehaviour
             // Initiate Game Countdown
             GameManager.Instance.SetGameState(GameManager.GameStates.COUNTDOWN);
             EventManager.Instance.MatchStart.Invoke();
+
+            // Indicate 2nd Player as Ready
+            // Call Only Once
+            if (!AllPlayersPresent)
+                UIController.Instance.PlayerIsReady(playerInputManager.playerCount - 1);
 
             // Declare all players present
             AllPlayersPresent = true;

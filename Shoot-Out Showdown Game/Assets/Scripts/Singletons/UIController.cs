@@ -19,7 +19,8 @@ public class UIController : MonoBehaviour
 
     public TextMeshProUGUI[] PlayerNameTexts;                                               // Player Names
     public GameObject[] PlayerScoreTexts;                                                   // Player Score Object Reference 
-    
+    public GameObject[] PlayerReadyItems;                                                   // Player Ready Item Object Reference
+
     public PlayerItem[] PlayerItems;                                                        // Player Items
     public TextMeshProUGUI CountdownText;                                                   // Countdown Text
     public TextMeshProUGUI ObjectiveText;                                                   // Objective Text
@@ -179,6 +180,18 @@ public class UIController : MonoBehaviour
                 playerItem.HPCircle[i].color = playerItem.HPColors[1];
             }
         }
+    }
+
+    // Visual Indication that a Player has Successfully
+    // Joined the Game and is Ready
+    public void PlayerIsReady(int count)
+    {
+        Animator readyItemAnimator = PlayerReadyItems[count].GetComponent<Animator>();
+        PlayerReadyItem playerReadyItem = PlayerReadyItems[count].GetComponent<PlayerReadyItem>();
+
+        // Indicate Player Ready
+        readyItemAnimator.SetBool("isReady", true);
+        playerReadyItem.Ready();
     }
     #endregion
 }

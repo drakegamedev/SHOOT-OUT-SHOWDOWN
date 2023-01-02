@@ -42,7 +42,7 @@ public class CountdownManager : MonoBehaviour
         }
         else
         {
-            yield return new WaitForSeconds(0.5f);
+            yield return new WaitForSeconds(0.75f);
 
             AudioManager.Instance.Play("all-set");
             PanelManager.Instance.ActivatePanel("all-set-panel");
