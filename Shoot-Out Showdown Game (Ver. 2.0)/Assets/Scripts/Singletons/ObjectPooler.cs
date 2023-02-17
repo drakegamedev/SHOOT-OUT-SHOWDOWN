@@ -13,8 +13,8 @@ public class ObjectPooler : MonoBehaviour
         public GameObject Prefab;
     }
 
-    [SerializeField] private List<Pool> pools;                                                                       // List of Pool Groups
-    public Dictionary<string, List<GameObject>> PoolDictionary { get; private set; } = new();                        // Dictionary of Pool Groups
+    [SerializeField] private List<Pool> pools;                                                  // List of Pool Groups
+    private Dictionary<string, List<GameObject>> poolDictionary = new();                        // Dictionary of Pool Groups
 
     #region Singleton
     private void Awake()
@@ -37,21 +37,21 @@ public class ObjectPooler : MonoBehaviour
         foreach (Pool pool in pools)
         {
             List<GameObject> objectPool = new();
-            PoolDictionary.Add(pool.Id, objectPool);
+            poolDictionary.Add(pool.Id, objectPool);
         }
     }
 
     // Spawns an Object from the Pool
     public GameObject SpawnFromPool(string id, Vector3 position, Quaternion rotation)
     {
-        if (!PoolDictionary.ContainsKey(id))
+        if (!poolDictionary.ContainsKey(id))
         {
             Debug.LogWarning("Pool with tag " + id + " doesn't exist.");
             return null;
         }
 
         // Recycle Object
-        foreach (GameObject go in PoolDictionary[id])
+        foreach (GameObject go in poolDictionary[id])
         {
             if (!go.activeInHierarchy)
             {
@@ -80,12 +80,12 @@ public class ObjectPooler : MonoBehaviour
                 newObject.transform.rotation = rotation;
 
                 // Add Gameobject to List
-                PoolDictionary[id].Add(newObject);
+                poolDictionary[id].Add(newObject);
 
                 newObject.transform.parent = null;
 
                 // Initialize Name
-                newObject.transform.name = newObject.transform.name + PoolDictionary[id].Count.ToString();
+                newObject.transform.name = newObject.transform.name + poolDictionary[id].Count.ToString();
 
                 return newObject;
             }
