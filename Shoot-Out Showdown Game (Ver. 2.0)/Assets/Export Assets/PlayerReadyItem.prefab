@@ -148,7 +148,7 @@ GameObject:
   - component: {fileID: 6904042448690366720}
   - component: {fileID: 6904042448690366721}
   - component: {fileID: 6904042448690366722}
-  - component: {fileID: 6904042448690366749}
+  - component: {fileID: 2537382310979651052}
   m_Layer: 5
   m_Name: PlayerReadyItem
   m_TagString: Untagged
@@ -233,7 +233,7 @@ MonoBehaviour:
   m_UseGraphicAlpha: 1
 --- !u!95 &6904042448690366722
 Animator:
-  serializedVersion: 4
+  serializedVersion: 5
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -250,8 +250,8 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &6904042448690366749
+  m_KeepAnimatorStateOnDisable: 0
+--- !u!114 &2537382310979651052
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -260,12 +260,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 6904042448690366727}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0e2ad706a979bf64eb49cf19769c220a, type: 3}
+  m_Script: {fileID: 11500000, guid: 27fe0e4365cf24f44a398978e83c1c71, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ReadyColor: {r: 1, g: 1, b: 1, a: 1}
-  PlayerText: {fileID: 6904042449119410939}
-  ReadyText: {fileID: 6904042448503016917}
+  readyColor: {r: 1, g: 1, b: 1, a: 1}
+  playerText: {fileID: 6904042449119410939}
+  readyText: {fileID: 6904042448503016917}
 --- !u!1 &6904042449119410937
 GameObject:
   m_ObjectHideFlags: 0

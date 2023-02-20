@@ -19,7 +19,7 @@ MonoBehaviour:
     width: 1536
     height: 780.8
   m_ShowMode: 4
-  m_Title: Hierarchy
+  m_Title: Game
   m_RootView: {fileID: 2}
   m_MinSize: {x: 875, y: 350}
   m_MaxSize: {x: 10000, y: 10000}
@@ -118,7 +118,7 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 200}
   m_MaxSize: {x: 24288, y: 16192}
   vertical: 1
-  controlID: 28240
+  controlID: 101
 --- !u!114 &6
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -143,7 +143,7 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 200}
   m_MaxSize: {x: 24288, y: 16192}
   vertical: 0
-  controlID: 28241
+  controlID: 102
 --- !u!114 &7
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -168,7 +168,7 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 200}
   m_MaxSize: {x: 16192, y: 16192}
   vertical: 1
-  controlID: 28242
+  controlID: 103
 --- !u!114 &8
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -193,7 +193,7 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 100}
   m_MaxSize: {x: 16192, y: 8096}
   vertical: 0
-  controlID: 28243
+  controlID: 104
 --- !u!114 &9
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -427,7 +427,7 @@ MonoBehaviour:
       scrollPos: {x: 0, y: 0}
       m_SelectedIDs: 
       m_LastClickedID: 0
-      m_ExpandedIDs: 4e3dffff9c3dffff3c3fffff4a3fffff583fffff663fffff743fffff823fffff903fffff9e3fffffac3fffffba3fffffc83fffffd63fffffe43ffffff23fffff0040ffff0e40ffff1c40ffff2a40ffff3840ffff4e40ffffb640ffffca40ffff4641ffff4e41ffffec5ffffff85fffffb667ffffaa72ffffe472ffff4c75ffffcc77ffff387affffb488ffff9a89ffff428dffff6093ffff34a6ffffc6a6ffff04a7ffffb0a7ffff10aaffff1eb2ffff0ec7ffff64c9ffffa4c9ffff9ad9ffffdad9ffff68daffff12dcffffd8f5ffff56f6ffff98f6ffffa8f9ffffeef9ffff1cfbffffe6660000ee6600001a6b0000fc6b00009c910000949200003e9700006a970000629800006a98000002c10000f6c80000f6c9000058d0000084d0000050d1000058d1000074dd000058de00002aeb00000eec000090f50000f80a0100
+      m_ExpandedIDs: 02f8ffffd6f8ffff22fbffff
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -484,8 +484,8 @@ MonoBehaviour:
       floating: 0
       collapsed: 0
       displayed: 1
-      snapOffset: {x: -100, y: -25.600006}
-      snapOffsetDelta: {x: 0, y: 0}
+      snapOffset: {x: 0, y: 0}
+      snapOffsetDelta: {x: -100, y: -25.600006}
       snapCorner: 3
       id: Tool Settings
       index: 0
@@ -495,7 +495,7 @@ MonoBehaviour:
       floating: 0
       collapsed: 0
       displayed: 1
-      snapOffset: {x: 0, y: 24.8}
+      snapOffset: {x: 0, y: 0}
       snapOffsetDelta: {x: 0, y: 0}
       snapCorner: 0
       id: unity-scene-view-toolbar
@@ -698,9 +698,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: -0.21040003, y: 2.0172057, z: 0.15811059}
+    m_Target: {x: 1275.8889, y: 550.3894, z: -13.065242}
     speed: 2
-    m_Value: {x: -0.4387502, y: 1.7086544, z: 0.16884875}
+    m_Value: {x: 1275.8889, y: 550.3894, z: -13.065242}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -751,9 +751,9 @@ MonoBehaviour:
     speed: 2
     m_Value: {x: 0, y: 0, z: 0, w: 1}
   m_Size:
-    m_Target: 24.936071
+    m_Target: 904.5253
     speed: 2
-    m_Value: 23.862268
+    m_Value: 904.5253
   m_Ortho:
     m_Target: 1
     speed: 2
@@ -934,37 +934,37 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Scripts/Bullets
+    - Assets/Scenes
     m_Globs: []
     m_OriginalText: 
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets/Scripts/Bullets
+  - Assets/Scenes
   m_LastFoldersGridSize: -1
-  m_LastProjectPath: D:\Drake Gamedev Repositories\Shoot-Out Showdown Game\SHOOT-OUT-SHOWDOWN-GAME\Shoot-Out
+  m_LastProjectPath: D:\Drake Gamedev Repositories\SHOOT-OUT-SHOWDOWN-GAME\Shoot-Out
     Showdown Game
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
-    scrollPos: {x: 0, y: 18.200012}
-    m_SelectedIDs: 206c0000
-    m_LastClickedID: 27680
-    m_ExpandedIDs: 00000000a0630000a2630000f463000000ca9a3b
+    scrollPos: {x: 0, y: 0}
+    m_SelectedIDs: 2c650000
+    m_LastClickedID: 25900
+    m_ExpandedIDs: 00000000286500002c6500004265000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
-      m_Name: 
-      m_OriginalName: 
+      m_Name: Bullets
+      m_OriginalName: Bullets
       m_EditFieldRect:
         serializedVersion: 2
         x: 0
         y: 0
         width: 0
         height: 0
-      m_UserData: 0
+      m_UserData: 25930
       m_IsWaitingForDelay: 0
       m_IsRenaming: 0
-      m_OriginalEventType: 11
+      m_OriginalEventType: 0
       m_IsRenamingFilename: 1
       m_ClientGUIView: {fileID: 11}
     m_SearchString: 
@@ -978,7 +978,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 00000000a0630000a263000000ca9a3b
+    m_ExpandedIDs: 00000000286500002a6500002c650000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -1003,8 +1003,8 @@ MonoBehaviour:
       m_Icon: {fileID: 0}
       m_ResourceFile: 
   m_ListAreaState:
-    m_SelectedInstanceIDs: 60170000
-    m_LastClickedInstanceID: 5984
+    m_SelectedInstanceIDs: de650000
+    m_LastClickedInstanceID: 26078
     m_HadKeyboardFocusLastEvent: 1
     m_ExpandedInstanceIDs: c62300009e620000ea62000096650000fc62000004630000087b0000
     m_RenameOverlay:
