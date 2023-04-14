@@ -14,15 +14,15 @@ public class MainMenu : MonoBehaviour
     {
         PanelManager.Instance.ActivatePanel("main-menu-panel");
 
+        AudioManager.Instance.Play("main-menu-bgm");
+
         // Initialize Player Names and Max Score Value
         PlayerData.Instance.MaxScore = PlayerData.Instance.PointsToWin[PointsToWinDropdown.value];
         PlayerData.Instance.PlayerNames.Clear();
 
         // Set Character Limit for PlayerImputs
         for (int i = 0; i < PlayerNames.Length; i++)
-        {
             PlayerNames[i].characterLimit = 6;
-        }
     }
 
     #region UI Buttons

@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: GameBGM
   m_EditorClassIdentifier: 
   Id: game-bgm
-  Clip: {fileID: 8300000, guid: 28b7e637c21685e409ccd81d2bce1e15, type: 3}
+  Clip: {fileID: 8300000, guid: 20feaeeff95ffac40b3426e6c3e0ba5c, type: 3}
   Type: 0
   Priority: 0
   Volume: 0.75
