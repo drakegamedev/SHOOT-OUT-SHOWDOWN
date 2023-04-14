@@ -153,6 +153,7 @@ public class UIController : MonoBehaviour
         else
         {
             // Reset All Properties and Generate new Arena
+            PanelManager.Instance.ActivatePanel("black-panel");
             GameManager.Instance.PlayerSpawnPoints.Clear();
             EventManager.Instance.ResetMatch.Invoke();
         }

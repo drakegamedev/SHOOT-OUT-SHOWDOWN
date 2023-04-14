@@ -1,11 +1,9 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 using TMPro;
 
 public class MainMenu : MonoBehaviour
 {
+    public int CharacterLimit;
     public TMP_InputField[] PlayerNames;
     public TMP_Dropdown PointsToWinDropdown;
     
@@ -20,9 +18,9 @@ public class MainMenu : MonoBehaviour
         PlayerData.Instance.MaxScore = PlayerData.Instance.PointsToWin[PointsToWinDropdown.value];
         PlayerData.Instance.PlayerNames.Clear();
 
-        // Set Character Limit for PlayerImputs
+        // Set Character Limit for PlayerInputs
         for (int i = 0; i < PlayerNames.Length; i++)
-            PlayerNames[i].characterLimit = 6;
+            PlayerNames[i].characterLimit = CharacterLimit;
     }
 
     #region UI Buttons

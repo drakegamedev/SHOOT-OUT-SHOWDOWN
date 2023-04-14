@@ -7243,6 +7243,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1e998487470490a42a2054961f4cf0de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  CharacterLimit: 6
   PlayerNames:
   - {fileID: 700793978}
   - {fileID: 968960283}

@@ -126,7 +126,7 @@ public class GameManager : MonoBehaviour
     }
 
     IEnumerator InitializeArena(string arenaId)
-    {
+    {        
         if (currentSceneId != null)
             yield return SceneManager.UnloadSceneAsync(currentSceneId);
 
