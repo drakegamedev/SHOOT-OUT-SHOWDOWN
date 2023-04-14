@@ -151,6 +151,9 @@ public class UIController : MonoBehaviour
 
             // Show Results
             PanelManager.Instance.ActivatePanel("results-panel");
+
+            // Play Victory Jingle
+            AudioManager.Instance.Play("victory");
         }
         else
         {
