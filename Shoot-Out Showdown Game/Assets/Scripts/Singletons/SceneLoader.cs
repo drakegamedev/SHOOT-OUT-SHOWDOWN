@@ -43,19 +43,7 @@ public class SceneLoader : MonoBehaviour
 
     IEnumerator LoadSceneSequence(string sceneId)
     {
-        /*if (currentSceneId != null)
-        {
-            AdditionalSceneLoader additionalScene = AdditionalSceneLoader.Instance;
-
-            if (additionalScene)
-            {
-                yield return additionalScene.UnloadScenes();
-            }
-
-            yield return SceneManager.UnloadSceneAsync(currentSceneId);
-            currentSceneId = null;
-        }*/
-
+        
         // Unload Current Scene if There are Any
         if (currentSceneId != null)
             yield return SceneManager.UnloadSceneAsync(currentSceneId);

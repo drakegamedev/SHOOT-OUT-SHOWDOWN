@@ -92,11 +92,13 @@ public class UIController : MonoBehaviour
     #region UI Button Functions
     public void OnRetryButtonClicked()
     {
+        AudioManager.Instance.PlayOneShot("on-button-pressed");
         SceneLoader.Instance.LoadScene("GameScene");
     }
     
     public void OnMainMenuButtonClicked()
     {
+        AudioManager.Instance.PlayOneShot("on-button-pressed");
         SceneLoader.Instance.LoadScene("MainMenuScene");
     }
     #endregion

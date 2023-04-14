@@ -13,7 +13,6 @@ public class PlayerManager : MonoBehaviour
     // Private Variables
     private PlayerInputManager playerInputManager;                                            // PlayerInputManager Component Reference
     
-
     #region Singleton
     void Awake()
     {
@@ -28,7 +27,6 @@ public class PlayerManager : MonoBehaviour
     }
     #endregion
 
-    #region Initialization Functions
     // Start is called before the first frame update
     void Start()
     {
@@ -38,7 +36,6 @@ public class PlayerManager : MonoBehaviour
         AllPlayersPresent = false;
         IsAllSet = false;
     }
-    #endregion
 
     #region Player Events
     // On Player Joined Event
@@ -52,6 +49,8 @@ public class PlayerManager : MonoBehaviour
 
             // Indicate 1st Player as Ready
             UIController.Instance.PlayerIsReady(playerInputManager.playerCount - 1);
+
+            AudioManager.Instance.PlayOneShot("ready");
         }
         // Disable Joining if Maximum Players have been Reached
         else
@@ -65,12 +64,17 @@ public class PlayerManager : MonoBehaviour
             // Indicate 2nd Player as Ready
             // Call Only Once
             if (!AllPlayersPresent)
+            {
                 UIController.Instance.PlayerIsReady(playerInputManager.playerCount - 1);
+                AudioManager.Instance.PlayOneShot("ready");
+            }
 
             // Declare all players present
             AllPlayersPresent = true;
             IsAllSet = true;
         }
+            
+        
     }
     #endregion
 }

@@ -76,6 +76,29 @@ public class AudioManager : MonoBehaviour
         return;
     }
 
+    // Play Audio
+    public void PlayOneShot(string id)
+    {
+        // Find Audio in Audio Collections
+        foreach (AudioDataCollection collectionData in AudioCollections)
+        {
+            // Check within AudioData Types
+            foreach (AudioData audioData in collectionData.Audios)
+            {
+                // Audio Found
+                if (id == audioData.Id)
+                {
+                    audioData.Source.PlayOneShot(audioData.Source.clip);
+                    return;
+                }
+            }
+        }
+
+        // Audio Not Found
+        Debug.LogWarning("Audio " + id + " cannot be found!");
+        return;
+    }
+
     // Stop Audio
     public void Stop(string id)
     {

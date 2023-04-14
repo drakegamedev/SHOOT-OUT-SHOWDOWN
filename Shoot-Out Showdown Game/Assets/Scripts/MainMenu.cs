@@ -26,27 +26,32 @@ public class MainMenu : MonoBehaviour
     #region UI Buttons
     public void OnPlayButtonClicked()
     {
+        AudioManager.Instance.PlayOneShot("on-button-pressed");
         PanelManager.Instance.ActivatePanel("game-setup-panel");
     }
 
     public void OnHowToPlayButtonClicked()
     {
+        AudioManager.Instance.PlayOneShot("on-button-pressed");
         PanelManager.Instance.ActivatePanel("tutorial-panel");
     }
 
     public void OnCreditsButtonClicked()
     {
+        AudioManager.Instance.PlayOneShot("on-button-pressed");
         PanelManager.Instance.ActivatePanel("credits-panel");
     }
 
     public void OnQuitButtonClicked()
     {
         Debug.Log("You have quit the game.");
+        AudioManager.Instance.PlayOneShot("on-button-pressed");
         Application.Quit();
     }
 
     public void OnReturnButtonClicked()
     {
+        AudioManager.Instance.PlayOneShot("on-button-pressed");
         PanelManager.Instance.ActivatePanel("main-menu-panel");
     }
 
@@ -58,11 +63,13 @@ public class MainMenu : MonoBehaviour
 
             if (!string.IsNullOrEmpty(name))
             {
+                AudioManager.Instance.PlayOneShot("on-button-pressed");
                 PlayerData.Instance.PlayerNames.Add(name);
             }
             else
             {
                 Debug.Log("Invalid Player Inputs");
+                AudioManager.Instance.PlayOneShot("invalid");
                 PlayerData.Instance.PlayerNames.Clear();
                 return;
             }

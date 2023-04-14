@@ -88,8 +88,6 @@ public class GameManager : MonoBehaviour
     }
     #endregion
 
-    
-
     // Reset Player Properties
     public void ReactivatePlayers()
     {
@@ -114,10 +112,8 @@ public class GameManager : MonoBehaviour
         int randomArena = UnityEngine.Random.Range(0, ArenaIds.Length);
 
         while (ArenaIds[randomArena] == currentArenaId)
-        {
             randomArena = UnityEngine.Random.Range(0, ArenaIds.Length);
-        }
-        
+
         currentArenaId = ArenaIds[randomArena];
 
         Debug.Log(currentArenaId);
