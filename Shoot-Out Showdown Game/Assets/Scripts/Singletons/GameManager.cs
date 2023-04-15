@@ -53,8 +53,8 @@ public class GameManager : MonoBehaviour
     void OnDisable()
     {
         // Unsubscribe to Events
-        EventManager.Instance.ResetMatch -= ReactivatePlayers;
-        EventManager.Instance.ResetMatch -= GenerateArena;
+        EventManager.Instance.MatchReset -= ReactivatePlayers;
+        EventManager.Instance.MatchReset -= GenerateArena;
 
         // Remove Additional Scenes
         SceneManager.UnloadSceneAsync(currentArenaId);
@@ -75,8 +75,8 @@ public class GameManager : MonoBehaviour
         SceneManager.LoadSceneAsync("UIScene", LoadSceneMode.Additive);
 
         // Subscribe to Events
-        EventManager.Instance.ResetMatch += ReactivatePlayers;
-        EventManager.Instance.ResetMatch += GenerateArena;
+        EventManager.Instance.MatchReset += ReactivatePlayers;
+        EventManager.Instance.MatchReset += GenerateArena;
 
         // Randomized Number for Arena Color Generation
         RandomNumber = UnityEngine.Random.Range(0, ArenaColors.Length);

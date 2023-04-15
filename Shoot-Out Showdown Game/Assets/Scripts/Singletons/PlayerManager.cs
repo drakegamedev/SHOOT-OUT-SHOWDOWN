@@ -1,4 +1,3 @@
-using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -50,6 +49,7 @@ public class PlayerManager : MonoBehaviour
             // Indicate 1st Player as Ready
             UIController.Instance.PlayerIsReady(playerInputManager.playerCount - 1);
 
+            // Play Ready SFX
             AudioManager.Instance.PlayOneShot("ready");
         }
         // Disable Joining if Maximum Players have been Reached
@@ -66,6 +66,8 @@ public class PlayerManager : MonoBehaviour
             if (!AllPlayersPresent)
             {
                 UIController.Instance.PlayerIsReady(playerInputManager.playerCount - 1);
+
+                // Play Ready SFX
                 AudioManager.Instance.PlayOneShot("ready");
             }
 
@@ -73,8 +75,6 @@ public class PlayerManager : MonoBehaviour
             AllPlayersPresent = true;
             IsAllSet = true;
         }
-            
-        
     }
     #endregion
 }

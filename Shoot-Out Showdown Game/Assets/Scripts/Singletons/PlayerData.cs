@@ -1,15 +1,14 @@
 using System.Collections.Generic;
 using UnityEngine;
-using TMPro;
 
 public class PlayerData : MonoBehaviour
 {
     public static PlayerData Instance;
 
-    public List<string> PlayerNames { get; set; } = new();
+    public List<string> PlayerNames { get; set; } = new();                                  // Player Name List
 
-    public List<int> PointsToWin = new();
-    public int MaxScore { get; set; }
+    public List<int> PointsToWin = new();                                                   // Winning Point List
+    public int MaxScore { get; set; }                                                       // Maximum Score Value
 
     #region Singleton
     void Awake()

@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using System;
 
@@ -7,9 +5,9 @@ public class EventManager : MonoBehaviour
 {
     public static EventManager Instance;
 
-    public Action PlayerDied;
-    public Action ResetMatch;
-    public Action MatchStart;
+    public Action PlayerDied;                       // Player Death Event
+    public Action MatchReset;                       // Match Reset Event
+    public Action MatchStart;                       // Match Start Event
 
     #region Singleton
     void Awake()
