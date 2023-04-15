@@ -75,7 +75,9 @@ public class MainMenu : MonoBehaviour
             }
         }
 
-        SceneLoader.Instance.LoadScene("GameScene");
+        string[] scenes = { "GameScene" };
+
+        SceneLoader.Instance.LoadScene(scenes);
     }
     #endregion
 

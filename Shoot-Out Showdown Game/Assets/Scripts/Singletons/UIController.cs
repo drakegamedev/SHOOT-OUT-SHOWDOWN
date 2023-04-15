@@ -93,13 +93,19 @@ public class UIController : MonoBehaviour
     public void OnRetryButtonClicked()
     {
         AudioManager.Instance.PlayOneShot("on-button-pressed");
-        SceneLoader.Instance.LoadScene("GameScene");
+
+        string[] scenes = { "GameScene" };
+
+        SceneLoader.Instance.LoadScene(scenes);
     }
     
     public void OnMainMenuButtonClicked()
     {
         AudioManager.Instance.PlayOneShot("on-button-pressed");
-        SceneLoader.Instance.LoadScene("MainMenuScene");
+
+        string[] scenes = { "MainMenuScene" };
+
+        SceneLoader.Instance.LoadScene(scenes);
     }
     #endregion
 

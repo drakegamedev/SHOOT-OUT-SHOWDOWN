@@ -7,12 +7,12 @@ public class SceneLoader : MonoBehaviour
 {
     public static SceneLoader Instance;
     
-    [Header("Configuration")]
-    public string FirstSceneId;                                                 // First Scene ID
+    [Header("Configurations")]
+    [SerializeField] private string firstSceneId;                                                 // First Scene ID
     [SerializeField] private LoadingScreen loadingScreen;
 
     // Private Variables
-    private string currentSceneId;                                              // Current Scene ID
+    private string[] currentSceneIds;                                                             // Current Scene IDs
 
     #region Singleton
     void Awake()
@@ -28,29 +28,40 @@ public class SceneLoader : MonoBehaviour
     }
     #endregion
 
-    #region Initialization Functions
     // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
-        LoadScene(FirstSceneId);
-    }
-    #endregion
+        string[] scenes = { firstSceneId };
 
-    #region Loading Scene Sequence
-    public void LoadScene(string sceneId)
-    {
-        StartCoroutine(LoadSceneSequence(sceneId));
+        LoadScene(scenes);
     }
 
-    IEnumerator LoadSceneSequence(string sceneId)
+    /// <summary>
+    /// Call Load Scene
+    /// </summary>
+    /// <param name="sceneIds"></param>
+    public void LoadScene(string[] sceneIds)
+    {
+        StartCoroutine(LoadSceneSequence(sceneIds));
+    }
+
+    /// <summary>
+    /// Initiate Loading Sequence
+    /// </summary>
+    /// <param name="sceneIds"></param>
+    /// <returns></returns>
+    IEnumerator LoadSceneSequence(string[] sceneIds)
     {
         // Activate Loading Screen
         loadingScreen.SetLoading(true);
 
-        // Unload Current Scene if There are Any
-        if (currentSceneId != null)
-            yield return SceneManager.UnloadSceneAsync(currentSceneId);
-        
+        // Unload Current Scenes if There are Any
+        if (currentSceneIds != null)
+        {
+            foreach (string id in currentSceneIds)
+                yield return SceneManager.UnloadSceneAsync(id);
+        }
+
         // Unload Unused Assets
         Resources.UnloadUnusedAssets();
         yield return null;
@@ -59,14 +70,14 @@ public class SceneLoader : MonoBehaviour
         GC.Collect();
         yield return null;
 
-        // Load the Scene
-        yield return SceneManager.LoadSceneAsync(sceneId, LoadSceneMode.Additive);
+        // Load the Scenes
+        foreach (string id in sceneIds)
+            yield return SceneManager.LoadSceneAsync(id, LoadSceneMode.Additive);
 
         // Activate Loading Screen
         loadingScreen.SetLoading(false);
 
         // Set Loaded Scene to Current Scene
-        currentSceneId = sceneId;
+        currentSceneIds = sceneIds;
     }
-    #endregion
 }

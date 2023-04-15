@@ -410,7 +410,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5e872cc1bfabd14a8522da012d68e33, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  FirstSceneId: MainMenuScene
+  firstSceneId: MainMenuScene
   loadingScreen: {fileID: 310947252}
 --- !u!4 &1247637515
 Transform:
