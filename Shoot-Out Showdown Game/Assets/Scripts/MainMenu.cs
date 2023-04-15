@@ -4,11 +4,11 @@ using TMPro;
 public class MainMenu : MonoBehaviour
 {
     [Header("Properties")]
-    [SerializeField] private int characterLimit;
+    [SerializeField] private int characterLimit;                                          // Character Limit Amount
 
     [Header("References")]
-    [SerializeField] private TMP_InputField[] playerNames;
-    [SerializeField] private TMP_Dropdown pointsToWinDropdown;
+    [SerializeField] private TMP_InputField[] playerNames;                                // Player Name Input Field References
+    [SerializeField] private TMP_Dropdown pointsToWinDropdown;                            // Dropdown Menu Reference
     
     // Start is called before the first frame update
     void Start()
@@ -27,24 +27,36 @@ public class MainMenu : MonoBehaviour
     }
 
     #region UI Buttons
+    /// <summary>
+    /// Play Button
+    /// </summary>
     public void OnPlayButtonClicked()
     {
         AudioManager.Instance.PlayOneShot("on-button-pressed");
         PanelManager.Instance.ActivatePanel("game-setup-panel");
     }
 
+    /// <summary>
+    /// Tutorial Button
+    /// </summary>
     public void OnHowToPlayButtonClicked()
     {
         AudioManager.Instance.PlayOneShot("on-button-pressed");
         PanelManager.Instance.ActivatePanel("tutorial-panel");
     }
 
+    /// <summary>
+    /// Credits Button
+    /// </summary>
     public void OnCreditsButtonClicked()
     {
         AudioManager.Instance.PlayOneShot("on-button-pressed");
         PanelManager.Instance.ActivatePanel("credits-panel");
     }
 
+    /// <summary>
+    /// Quit Button
+    /// </summary>
     public void OnQuitButtonClicked()
     {
         Debug.Log("You have quit the game.");
@@ -52,23 +64,32 @@ public class MainMenu : MonoBehaviour
         Application.Quit();
     }
 
+    /// <summary>
+    /// Return Button
+    /// </summary>
     public void OnReturnButtonClicked()
     {
         AudioManager.Instance.PlayOneShot("on-button-pressed");
         PanelManager.Instance.ActivatePanel("main-menu-panel");
     }
 
+    /// <summary>
+    /// Start Game Button
+    /// </summary>
     public void OnStartButtonClicked()
     {
+        // Check if all Player Name Inputs Have Been Filled Out
         for (int i = 0; i < playerNames.Length; i++)
         {
             string name = playerNames[i].text;
 
+            // Add this Name to the List
             if (!string.IsNullOrEmpty(name))
             {
                 AudioManager.Instance.PlayOneShot("on-button-pressed");
                 PlayerData.Instance.PlayerNames.Add(name);
             }
+            // Declare Void
             else
             {
                 Debug.Log("Invalid Player Inputs");
@@ -84,6 +105,9 @@ public class MainMenu : MonoBehaviour
     }
     #endregion
 
+    /// <summary>
+    /// Sets the Maximum Score
+    /// </summary>
     public void SetMaxScore()
     {
         PlayerData.Instance.MaxScore = PlayerData.Instance.PointsToWin[pointsToWinDropdown.value];
