@@ -31,17 +31,15 @@ public class UIController : MonoBehaviour
     private int startingScore;                                                              // Starting Score for Both Players
     private GameObject playerVictor;                                                        // Player Victor for the Round
 
-    #region Enable/Disable Functions
-    void OnEnable()
+    private void OnEnable()
     {
         EventManager.Instance.PlayerDied += SetScore;
     }
 
-    void OnDisable()
+    private void OnDisable()
     {
         EventManager.Instance.PlayerDied -= SetScore;
     }
-    #endregion
 
     #region Singleton
     void Awake()
@@ -57,7 +55,6 @@ public class UIController : MonoBehaviour
     }
     #endregion
 
-    #region Initialization Functions
     // Start is called before the first frame update
     void Start()
     {
@@ -79,17 +76,17 @@ public class UIController : MonoBehaviour
 
             // Initialize HP Containers
             for (int j = 0; j < PlayerItems[i].HPCircle.Length; j++)
-            {
                 PlayerItems[i].HPCircle[j].color = PlayerItems[i].HPColors[0];
-            }
         }
 
         // Set Objective Text
         ObjectiveText.text = "First to " + PlayerData.Instance.MaxScore + " Kills Wins!";
     }
-    #endregion
 
     #region UI Button Functions
+    /// <summary>
+    /// Restarts the Game
+    /// </summary>
     public void OnRetryButtonClicked()
     {
         AudioManager.Instance.PlayOneShot("on-button-pressed");
@@ -99,6 +96,9 @@ public class UIController : MonoBehaviour
         SceneLoader.Instance.LoadScene(scenes);
     }
     
+    /// <summary>
+    /// Redirects to MainMenuScene
+    /// </summary>
     public void OnMainMenuButtonClicked()
     {
         AudioManager.Instance.PlayOneShot("on-button-pressed");
@@ -148,9 +148,7 @@ public class UIController : MonoBehaviour
 
             // Destroy Every Player at End Game  
             for (int i = 0; i < GameManager.Instance.PlayerList.Count; i++)
-            {
                 Destroy(GameManager.Instance.PlayerList[i]);
-            }
 
             // Stop BGM
             AudioManager.Instance.Stop("game-bgm");
@@ -171,8 +169,11 @@ public class UIController : MonoBehaviour
     }
     #endregion
 
-    #region Public Functions
-    // Update Player Health Container
+    /// <summary>
+    /// Update Player Health Container
+    /// </summary>
+    /// <param name="playerIndex"></param>
+    /// <param name="playerHealth"></param>
     public void UpdateHealth(int playerIndex, float playerHealth)
     {
         // Health Container Reference
@@ -194,8 +195,11 @@ public class UIController : MonoBehaviour
         }
     }
 
-    // Visual Indication that a Player has Successfully
-    // Joined the Game and is Ready
+    /// <summary>
+    /// Visual Indication that a Player has Successfully
+    /// Joined the Game and is Ready
+    /// </summary>
+    /// <param name="count"></param>
     public void PlayerIsReady(int count)
     {
         Animator readyItemAnimator = PlayerReadyItems[count].GetComponent<Animator>();
@@ -205,5 +209,4 @@ public class UIController : MonoBehaviour
         readyItemAnimator.SetBool("isReady", true);
         playerReadyItem.Ready();
     }
-    #endregion
 }
