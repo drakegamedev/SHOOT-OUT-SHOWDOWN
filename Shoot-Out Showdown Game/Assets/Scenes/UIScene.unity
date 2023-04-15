@@ -1209,7 +1209,7 @@ MonoBehaviour:
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 0
+  m_fontStyle: 1
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 512
   m_textAlignment: 65535
@@ -2198,23 +2198,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b7b1b4c579ce85a49b7c505b16e312a5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PlayerNameTexts:
+  playerNameTexts:
   - {fileID: 545309687}
   - {fileID: 146924808}
-  PlayerScoreTexts:
+  playerScoreTexts:
   - {fileID: 1552120261}
   - {fileID: 1815610232}
-  PlayerReadyItems:
+  playerReadyItems:
   - {fileID: 6904042448530668942}
   - {fileID: 752841358}
-  PlayerItems:
+  playerItems:
   - HPCircle:
     - {fileID: 1608424525}
     - {fileID: 585671693}
     - {fileID: 808945027}
     - {fileID: 1305988536}
     - {fileID: 1492428780}
-    Score: 0
     HPColors:
     - {r: 1, g: 1, b: 0, a: 1}
     - {r: 1, g: 1, b: 0, a: 0}
@@ -2224,14 +2223,13 @@ MonoBehaviour:
     - {fileID: 522432410}
     - {fileID: 416121009}
     - {fileID: 1184094568}
-    Score: 0
     HPColors:
     - {r: 0.77254903, g: 0.7058824, b: 0.8901961, a: 1}
     - {r: 0.77254903, g: 0.7058824, b: 0.8901961, a: 0}
   CountdownText: {fileID: 925604145}
-  ObjectiveText: {fileID: 1296059848}
-  PlayerWinnerText: {fileID: 1085989835}
-  PlayerWinnerImage: {fileID: 1751786327}
+  objectiveText: {fileID: 1296059848}
+  playerWinnerText: {fileID: 1085989835}
+  playerWinnerImage: {fileID: 1751786327}
 --- !u!1 &1030411226
 GameObject:
   m_ObjectHideFlags: 0

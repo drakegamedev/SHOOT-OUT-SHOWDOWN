@@ -11,21 +11,22 @@ public class UIController : MonoBehaviour
     {
         public string Id { get; set; }
         public Image[] HPCircle;
-        public int Score;
+        public int Score { get; set; }
         public Color[] HPColors;
     }
 
     public static UIController Instance;
 
-    public TextMeshProUGUI[] PlayerNameTexts;                                               // Player Names
-    public GameObject[] PlayerScoreTexts;                                                   // Player Score Object Reference 
-    public GameObject[] PlayerReadyItems;                                                   // Player Ready Item Object Reference
+    [Header("References")]
+    [SerializeField] private TextMeshProUGUI[] playerNameTexts;                             // Player Names
+    [SerializeField] private GameObject[] playerScoreTexts;                                 // Player Score Object Reference 
+    [SerializeField] private GameObject[] playerReadyItems;                                 // Player Ready Item Object Reference
 
-    public PlayerItem[] PlayerItems;                                                        // Player Items
+    [SerializeField] private PlayerItem[] playerItems;                                      // Player Items
     public TextMeshProUGUI CountdownText;                                                   // Countdown Text
-    public TextMeshProUGUI ObjectiveText;                                                   // Objective Text
-    public TextMeshProUGUI PlayerWinnerText;                                                // Player Winner Text
-    public Image PlayerWinnerImage;                                                         // Player Winner Image
+    [SerializeField] private TextMeshProUGUI objectiveText;                                 // Objective Text
+    [SerializeField] private TextMeshProUGUI playerWinnerText;                              // Player Winner Text
+    [SerializeField] private Image playerWinnerImage;                                       // Player Winner Image
 
     // Private Variables
     private int startingScore;                                                              // Starting Score for Both Players
@@ -64,23 +65,23 @@ public class UIController : MonoBehaviour
         startingScore = 0;
 
         // Initialize Player Item Properties
-        for (int i = 0; i < PlayerItems.Length; i++)
+        for (int i = 0; i < playerItems.Length; i++)
         {
             // Initialize Names
-            PlayerItems[i].Id = PlayerData.Instance.PlayerNames[i];
-            PlayerNameTexts[i].text = PlayerItems[i].Id;
+            playerItems[i].Id = PlayerData.Instance.PlayerNames[i];
+            playerNameTexts[i].text = playerItems[i].Id;
 
             // Initialize Score
-            PlayerItems[i].Score = startingScore;
-            PlayerScoreTexts[i].GetComponent<TextMeshProUGUI>().text = PlayerItems[i].Score.ToString("0");
+            playerItems[i].Score = startingScore;
+            playerScoreTexts[i].GetComponent<TextMeshProUGUI>().text = playerItems[i].Score.ToString("0");
 
             // Initialize HP Containers
-            for (int j = 0; j < PlayerItems[i].HPCircle.Length; j++)
-                PlayerItems[i].HPCircle[j].color = PlayerItems[i].HPColors[0];
+            for (int j = 0; j < playerItems[i].HPCircle.Length; j++)
+                playerItems[i].HPCircle[j].color = playerItems[i].HPColors[0];
         }
 
         // Set Objective Text
-        ObjectiveText.text = "First to " + PlayerData.Instance.MaxScore + " Kills Wins!";
+        objectiveText.text = "First to " + PlayerData.Instance.MaxScore + " Kills Wins!";
     }
 
     #region UI Button Functions
@@ -126,9 +127,9 @@ public class UIController : MonoBehaviour
         int index = playerSetup.PlayerNumber - 1;
 
         // Add Score
-        PlayerItems[index].Score++;
-        PlayerScoreTexts[index].GetComponent<TextMeshProUGUI>().text = PlayerItems[index].Score.ToString("0");
-        PlayerScoreTexts[index].GetComponent<Animator>().SetTrigger("SetScore");
+        playerItems[index].Score++;
+        playerScoreTexts[index].GetComponent<TextMeshProUGUI>().text = playerItems[index].Score.ToString("0");
+        playerScoreTexts[index].GetComponent<Animator>().SetTrigger("SetScore");
         AudioManager.Instance.Play("set-score");
 
         // Nullify Player Victor
@@ -137,14 +138,14 @@ public class UIController : MonoBehaviour
         yield return new WaitForSeconds(2f);
 
         // Game, Set, Match!
-        if (PlayerItems[index].Score >= PlayerData.Instance.MaxScore)
+        if (playerItems[index].Score >= PlayerData.Instance.MaxScore)
         {
-            Debug.Log(PlayerNameTexts[index].text + " wins!");
+            Debug.Log(playerNameTexts[index].text + " wins!");
 
             // Announce the Overall Winner!
-            PlayerWinnerText.text = PlayerNameTexts[index].text + " wins!";
-            PlayerWinnerText.color = PlayerNameTexts[index].color;
-            PlayerWinnerImage.color = PlayerNameTexts[index].color;
+            playerWinnerText.text = playerNameTexts[index].text + " wins!";
+            playerWinnerText.color = playerNameTexts[index].color;
+            playerWinnerImage.color = playerNameTexts[index].color;
 
             // Destroy Every Player at End Game  
             for (int i = 0; i < GameManager.Instance.PlayerList.Count; i++)
@@ -177,7 +178,7 @@ public class UIController : MonoBehaviour
     public void UpdateHealth(int playerIndex, float playerHealth)
     {
         // Health Container Reference
-        PlayerItem playerItem = PlayerItems[playerIndex - 1];
+        PlayerItem playerItem = playerItems[playerIndex - 1];
 
         // Update Every HP Image
         for (int i = 0; i < playerItem.HPCircle.Length; i++)
@@ -202,8 +203,8 @@ public class UIController : MonoBehaviour
     /// <param name="count"></param>
     public void PlayerIsReady(int count)
     {
-        Animator readyItemAnimator = PlayerReadyItems[count].GetComponent<Animator>();
-        PlayerReadyItem playerReadyItem = PlayerReadyItems[count].GetComponent<PlayerReadyItem>();
+        Animator readyItemAnimator = playerReadyItems[count].GetComponent<Animator>();
+        PlayerReadyItem playerReadyItem = playerReadyItems[count].GetComponent<PlayerReadyItem>();
 
         // Indicate Player Ready
         readyItemAnimator.SetBool("isReady", true);
