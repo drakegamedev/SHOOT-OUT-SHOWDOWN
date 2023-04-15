@@ -7272,11 +7272,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1e998487470490a42a2054961f4cf0de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CharacterLimit: 6
-  PlayerNames:
+  characterLimit: 6
+  playerNames:
   - {fileID: 700793978}
   - {fileID: 968960283}
-  PointsToWinDropdown: {fileID: 661003120}
+  pointsToWinDropdown: {fileID: 661003120}
 --- !u!1 &1752679962
 GameObject:
   m_ObjectHideFlags: 0
