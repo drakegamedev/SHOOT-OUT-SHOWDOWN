@@ -9,6 +9,7 @@ public class SceneLoader : MonoBehaviour
     
     [Header("Configuration")]
     public string FirstSceneId;                                                 // First Scene ID
+    [SerializeField] private LoadingScreen loadingScreen;
 
     // Private Variables
     private string currentSceneId;                                              // Current Scene ID
@@ -43,7 +44,9 @@ public class SceneLoader : MonoBehaviour
 
     IEnumerator LoadSceneSequence(string sceneId)
     {
-        
+        // Activate Loading Screen
+        loadingScreen.SetLoading(true);
+
         // Unload Current Scene if There are Any
         if (currentSceneId != null)
             yield return SceneManager.UnloadSceneAsync(currentSceneId);
@@ -58,6 +61,9 @@ public class SceneLoader : MonoBehaviour
 
         // Load the Scene
         yield return SceneManager.LoadSceneAsync(sceneId, LoadSceneMode.Additive);
+
+        // Activate Loading Screen
+        loadingScreen.SetLoading(false);
 
         // Set Loaded Scene to Current Scene
         currentSceneId = sceneId;
