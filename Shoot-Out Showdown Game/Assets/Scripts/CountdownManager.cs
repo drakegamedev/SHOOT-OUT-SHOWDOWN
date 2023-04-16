@@ -75,7 +75,7 @@ public class CountdownManager : MonoBehaviour
         yield return new WaitForSeconds(1f);
 
         // Start the Round
-        GameManager.Instance.CurrentGameState = GameManager.GameStates.ROUND_START;
+        GameManager.Instance.SetGameState(GameManager.GameStates.ROUND_START);
         PanelManager.Instance.ActivatePanel("score-board-panel");
     }
     #endregion

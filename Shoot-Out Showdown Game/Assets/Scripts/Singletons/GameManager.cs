@@ -17,11 +17,14 @@ public class GameManager : MonoBehaviour
     public static GameManager Instance;
 
     [Header("References")]
-    public GameObject Camera;                                                                       // Camera GameObject Reference
-    public Color[] ArenaColors;                                                                     // Arena Color
+    [SerializeField] private GameObject mainCamera;                                                 // Camera GameObject Reference
     public GameObject[] PlayerPrefabs;                                                              // Player Prefabs Array
-    public string[] ArenaIds;                                                                       // Arena ID's
-    public GameStates CurrentGameState;                                                             // Current Game State
+    
+    [Header("Properties")]
+    public Color[] ArenaColors;                                                                     // Arena Color
+    [SerializeField] private string[] arenaIds;                                                     // Arena ID's
+
+    public GameStates CurrentGameState { get; private set; }                                        // Current Game State
     public Camera GameCamera { get; private set; }                                                  // Camera Component Reference
     public CameraController CameraController { get; private set; }                                  // Camera Controller Class Reference
     public int CurrentArenaColorIndex { get; set; }                                                 // Current Arena Color Index
@@ -49,8 +52,7 @@ public class GameManager : MonoBehaviour
     }
     #endregion
 
-    #region Enable/Disable Functions
-    void OnDisable()
+    private void OnDisable()
     {
         // Unsubscribe to Events
         EventManager.Instance.MatchReset -= ReactivatePlayers;
@@ -60,16 +62,14 @@ public class GameManager : MonoBehaviour
         SceneManager.UnloadSceneAsync(currentArenaId);
         SceneManager.UnloadSceneAsync("UIScene");
     }
-    #endregion
 
-    #region Initialization Functions
     // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
         // Initialize Variables
         SetGameState(GameStates.SETTING_UP);
-        GameCamera = Camera.GetComponent<Camera>();
-        CameraController = Camera.GetComponent<CameraController>();
+        GameCamera = mainCamera.GetComponent<Camera>();
+        CameraController = mainCamera.GetComponent<CameraController>();
 
         // Add UI Scene
         SceneManager.LoadSceneAsync("UIScene", LoadSceneMode.Additive);
@@ -86,9 +86,10 @@ public class GameManager : MonoBehaviour
         // Initial Generation of Arena
         GenerateArena();
     }
-    #endregion
 
-    // Reset Player Properties
+    /// <summary>
+    /// Reset Player Properties
+    /// </summary>
     public void ReactivatePlayers()
     {
         for (int i = 0; i < PlayerList.Count; i++)
@@ -107,21 +108,31 @@ public class GameManager : MonoBehaviour
     }
 
     #region Level Generation
+    /// <summary>
+    /// Randomly Generates an Arena
+    /// </summary>
     public void GenerateArena()
     {
-        int randomArena = UnityEngine.Random.Range(0, ArenaIds.Length);
+        // Randomize Arena Index
+        int randomArena = UnityEngine.Random.Range(0, arenaIds.Length);
 
-        while (ArenaIds[randomArena] == currentArenaId)
-            randomArena = UnityEngine.Random.Range(0, ArenaIds.Length);
+        // Ensure that Next Generated Arena will not be the Same as the Previous One
+        while (arenaIds[randomArena] == currentArenaId)
+            randomArena = UnityEngine.Random.Range(0, arenaIds.Length);
 
-        currentArenaId = ArenaIds[randomArena];
+        currentArenaId = arenaIds[randomArena];
 
         Debug.Log(currentArenaId);
 
-        StartCoroutine(InitializeArena(ArenaIds[randomArena]));
+        StartCoroutine(InitializeArena(arenaIds[randomArena]));
     }
 
-    IEnumerator InitializeArena(string arenaId)
+    /// <summary>
+    /// Initializes All Arena Properties
+    /// </summary>
+    /// <param name="arenaId"></param>
+    /// <returns></returns>
+    private IEnumerator InitializeArena(string arenaId)
     {        
         if (currentSceneId != null)
             yield return SceneManager.UnloadSceneAsync(currentSceneId);
@@ -137,9 +148,10 @@ public class GameManager : MonoBehaviour
     }
     #endregion
 
-    #region Public Functions
-    // Round is Over
-    // Declare Point
+    /// <summary>
+    /// Round is Over
+    /// Declare Point
+    /// </summary>
     public void RoundOver()
     {
         SetGameState(GameStates.ROUND_OVER);
@@ -147,10 +159,12 @@ public class GameManager : MonoBehaviour
         EventManager.Instance.PlayerDied.Invoke();
     }
 
-    // Sets Game State
+    /// <summary>
+    /// Sets Game State
+    /// </summary>
+    /// <param name="state"></param>
     public void SetGameState(GameStates state)
     {
         CurrentGameState = state;
     }
-    #endregion
 }
