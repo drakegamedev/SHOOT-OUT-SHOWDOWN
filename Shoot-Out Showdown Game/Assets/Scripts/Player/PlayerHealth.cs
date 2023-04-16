@@ -19,6 +19,9 @@ public class PlayerHealth : Health
     #region HP System
     public override void TakeDamage(float damage)
     {
+        if (!isAlive)
+            return;
+
         // Decrease HP
         currentHealth -= damage;
 
