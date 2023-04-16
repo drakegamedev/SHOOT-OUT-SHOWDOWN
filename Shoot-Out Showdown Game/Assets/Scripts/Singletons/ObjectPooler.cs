@@ -7,14 +7,15 @@ public class ObjectPooler : MonoBehaviour
     public static ObjectPooler Instance;
 
     [System.Serializable]
-    public struct Pool
+    struct Pool
     {
         public string Id;
         public GameObject Prefab;
     }
 
-    public List<Pool> Pools;
-    public Dictionary<string, List<GameObject>> PoolDictionary { get; } = new();
+    [Header("Properties")]
+    [SerializeField] private List<Pool> pools;                                                          // Pool List
+    public Dictionary<string, List<GameObject>> PoolDictionary { get; private set; } = new();           // Pool Dictionary
 
     #region Singleton
     void Awake()
@@ -30,18 +31,16 @@ public class ObjectPooler : MonoBehaviour
     }
     #endregion
 
-    #region Initialization Functions
     // Start is called before the first frame update
     void Start()
     {
         // Initialize Pools
-        foreach (Pool pool in Pools)
+        foreach (Pool pool in pools)
         {
             List<GameObject> objectPool = new();
             PoolDictionary.Add(pool.Id, objectPool);
         }
     }
-    #endregion
 
     // Spawns an Object from the Pool
     public GameObject SpawnFromPool(string id, Vector3 position, Quaternion rotation)
@@ -70,7 +69,7 @@ public class ObjectPooler : MonoBehaviour
         }
 
         // Spawn New Object
-        foreach (Pool objPool in Pools)
+        foreach (Pool objPool in pools)
         {
             if (objPool.Id == id)
             {

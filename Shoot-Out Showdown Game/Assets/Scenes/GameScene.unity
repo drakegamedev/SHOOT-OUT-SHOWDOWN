@@ -329,7 +329,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1b296aa55410e14bb8627da3b66af0e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Pools:
+  pools:
   - Id: player-1-bullet
     Prefab: {fileID: 3717425062094744406, guid: 78a18f76949da864bbe6b43db0f8a3a3, type: 3}
   - Id: player-2-bullet
@@ -338,10 +338,6 @@ MonoBehaviour:
     Prefab: {fileID: 3067304273114788706, guid: 848ade33face9284bba09ec7f976981d, type: 3}
   - Id: player-2-death-effect
     Prefab: {fileID: 6217531797937891066, guid: 92278c4fa51823c4b868bb41dfdaa809, type: 3}
-  - Id: player-1-score-effect
-    Prefab: {fileID: 3318068301619798016, guid: 1e89c22d20dc2d34ba48e12ead656253, type: 3}
-  - Id: player-2-score-effect
-    Prefab: {fileID: 3318068301619798016, guid: 1e89c22d20dc2d34ba48e12ead656253, type: 3}
 --- !u!4 &1148595759
 Transform:
   m_ObjectHideFlags: 0
