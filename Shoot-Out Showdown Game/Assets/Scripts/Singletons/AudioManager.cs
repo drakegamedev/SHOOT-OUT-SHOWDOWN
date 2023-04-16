@@ -8,17 +8,17 @@ public class AudioManager : MonoBehaviour
 
     // Collects AudioData
     [System.Serializable]
-    public struct AudioDataCollection
+    struct AudioDataCollection
     {
         public AudioData[] Audios;
     }
 
-    [Header("References")]
-    public AudioDataCollection[] AudioCollections;
+    [Header("Properties")]
+    [SerializeField] private AudioDataCollection[] audioCollections;                    // Audio Collection Array
 
-    [Space]
-    public GameObject MusicHolder;
-    public GameObject SoundHolder;
+    [Header("References")]
+    [SerializeField] private GameObject musicHolder;                                    // Music Holder
+    [SerializeField] private GameObject soundHolder;                                    // SFX Holder
 
     #region Singleton
     void Awake()
@@ -33,18 +33,18 @@ public class AudioManager : MonoBehaviour
         }
 
         // Initialize Audio Collections
-        foreach (AudioDataCollection collectionData in AudioCollections)
+        foreach (AudioDataCollection collectionData in audioCollections)
         {
             foreach (AudioData audioData in collectionData.Audios)
             {
                 switch (audioData.Type)
                 {
                     case AudioData.AudioType.BGM:
-                        audioData.Initialize(MusicHolder);
+                        audioData.Initialize(musicHolder);
                         break;
 
                     case AudioData.AudioType.SFX:
-                        audioData.Initialize(SoundHolder);
+                        audioData.Initialize(soundHolder);
                         break;
                 };
             }
@@ -57,7 +57,7 @@ public class AudioManager : MonoBehaviour
     public void Play(string id)
     {
         // Find Audio in Audio Collections
-        foreach (AudioDataCollection collectionData in AudioCollections)
+        foreach (AudioDataCollection collectionData in audioCollections)
         {
             // Check within AudioData Types
             foreach (AudioData audioData in collectionData.Audios)
@@ -80,7 +80,7 @@ public class AudioManager : MonoBehaviour
     public void PlayOneShot(string id)
     {
         // Find Audio in Audio Collections
-        foreach (AudioDataCollection collectionData in AudioCollections)
+        foreach (AudioDataCollection collectionData in audioCollections)
         {
             // Check within AudioData Types
             foreach (AudioData audioData in collectionData.Audios)
@@ -103,7 +103,7 @@ public class AudioManager : MonoBehaviour
     public void Stop(string id)
     {
         // Find Audio in Audio Collections
-        foreach (AudioDataCollection collectionData in AudioCollections)
+        foreach (AudioDataCollection collectionData in audioCollections)
         {
             // Check within AudioData Types
             foreach (AudioData audioData in collectionData.Audios)
@@ -126,7 +126,7 @@ public class AudioManager : MonoBehaviour
     public void ModifyPitch(string id, float amount)
     {
         // Find Audio in Audio Collections
-        foreach (AudioDataCollection collectionData in AudioCollections)
+        foreach (AudioDataCollection collectionData in audioCollections)
         {
             // Check within AudioData Types
             foreach (AudioData audioData in collectionData.Audios)

@@ -97,7 +97,7 @@ public class Gun : MonoBehaviour
             currentShootTime = gunType.Cooldown;
 
             // Play Fire SFX
-            AudioManager.Instance.Play("shoot-sfx");
+            AudioManager.Instance.PlayOneShot("shoot-sfx");
 
             // Decrease Ammo
             currentAmmo--;

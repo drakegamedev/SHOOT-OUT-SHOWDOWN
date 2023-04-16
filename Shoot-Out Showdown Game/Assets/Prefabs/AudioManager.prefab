@@ -78,8 +78,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   AudioCollections: []
-  MusicHolder: {fileID: 1623544120915172293}
-  SoundHolder: {fileID: 1623544121838914466}
+  musicHolder: {fileID: 1623544120915172293}
+  soundHolder: {fileID: 1623544121838914466}
 --- !u!1 &1623544121838914466
 GameObject:
   m_ObjectHideFlags: 0
