@@ -10,23 +10,24 @@ public class AudioData : ScriptableObject
         SFX
     };
 
-    public string Id;
-    public AudioClip Clip;
-    public AudioType Type;
+    public string Id;                                                   // Audio ID
+    public AudioClip Clip;                                              // Audio Clip
+    public AudioType Type;                                              // Audio Type Indicator
 
-    [Range(0, 256)] public int Priority;
-    [Range(0f, 1f)] public float Volume;
-    [Range(0f, 3f)] public float Pitch;
-    public bool PlayOnAwake;
-    public bool Loop;
-    [Range(0f, 3f)] public float SpatialBlend;
+    [Range(0, 256)] public int Priority;                                // Priority Level
+    [Range(0f, 1f)] public float Volume;                                // Volume Amount
+    [Range(0f, 3f)] public float Pitch;                                 // Pitch Value
+    public bool PlayOnAwake;                                            // Checks if Audio Will be Playerd Upon Activation
+    public bool Loop;                                                   // Checks if Audio Will be Looped
+    [Range(0f, 3f)] public float SpatialBlend;                          // Spatial Blend Value
+    public AudioSource Source { get; private set; }                     // Audio Source Component
 
-    // Audio Source
-    public AudioSource Source { get; private set; }
+    public bool IsInitialized => Source;                                // Indicates if Audio has been Initialized
 
-    public bool IsInitialized => Source;
-
-    // Initialize Audio Data Properties
+    /// <summary>
+    /// Initialize Audio Data Properties
+    /// </summary>
+    /// <param name="audioSourceContainer"></param>
     public void Initialize(GameObject audioSourceContainer)
     {
         Source = audioSourceContainer.AddComponent<AudioSource>();
