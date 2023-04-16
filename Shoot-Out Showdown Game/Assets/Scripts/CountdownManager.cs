@@ -6,34 +6,33 @@ public class CountdownManager : MonoBehaviour
     // Private Variables
     private float countDownDelay;                                           // Time Delay Before the Actual Countdown
 
-    #region Enable/Disable Functions
-    void OnEnable()
+    private void OnEnable()
     {
         EventManager.Instance.MatchStart += StartCountdown;
     }
 
-    void OnDisable()
+    private void OnDisable()
     {
         EventManager.Instance.MatchStart -= StartCountdown;
     }
-    #endregion
 
-    #region Initialization Functions
     // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
         if (PlayerManager.Instance.AllPlayersPresent)
             StartCountdown();
     }
-    #endregion
 
     #region Countdown
+    /// <summary>
+    /// Initiates Countdown
+    /// </summary>
     public void StartCountdown()
     {
         StartCoroutine(Countdown());
     }
 
-    IEnumerator Countdown()
+    private IEnumerator Countdown()
     {
         if (PlayerManager.Instance.IsAllSet)
         {
