@@ -1,30 +1,24 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-// Serves as Top Down Player Movement
+// Serves as Top-Down Player Movement
 public class PlayerMovement : MonoBehaviour
 {
-    public float Speed;                                                     // Player Default Speed
-    public float DashSpeed;                                                 // Dash Speed Value
+    [SerializeField] private float defaultSpeed;                            // Player Default Speed
 
     // Private Variables
     private PlayerSetup playerSetup;                                        // PlayerSetup Class Reference                                        
     private float currentSpeed;                                             // Current Player Speed
     private Vector2 moveInput;                                              // Move Inputs
 
-    #region Initialization Functions
     // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
         playerSetup = GetComponent<PlayerSetup>();
-        currentSpeed = Speed;
+        currentSpeed = defaultSpeed;
     }
-    #endregion
 
-    #region Update Functions
-    void FixedUpdate()
+    private void FixedUpdate()
     {
         if (playerSetup.CanMove())
         {
@@ -36,7 +30,6 @@ public class PlayerMovement : MonoBehaviour
             moveInput = new Vector2(0f, 0f);
         }
     }
-    #endregion
 
     #region Player Input Events
     // Move Function

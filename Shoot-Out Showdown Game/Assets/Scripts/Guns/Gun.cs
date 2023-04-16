@@ -6,7 +6,7 @@ public class Gun : MonoBehaviour
     [SerializeField] private GunData gunType;                               // Gun Type
     [SerializeField] private Transform firePoint;                           // Fire Point
     [SerializeField] private string bulletId;                               // Bullet ID
-    [SerializeField] private float force;                                                     // Bullet Force
+    [SerializeField] private float force;                                   // Bullet Force
 
     private int currentAmmo;                                                // Current Ammo
     private float reloadTime;                                               // Reload Time
@@ -67,9 +67,9 @@ public class Gun : MonoBehaviour
     }
     #endregion
 
-    #region Public Functions
+    #region Gun System
     /// <summary>
-    /// Gun Cooldown
+    /// A Timer for When the Player Would be Able to Shoot Again
     /// </summary>
     public void GunCooldown()
     {
@@ -80,7 +80,7 @@ public class Gun : MonoBehaviour
     }
 
     /// <summary>
-    /// Gun Fire
+    /// Fires an Ammo
     /// </summary>
     public void Fire()
     {
@@ -105,7 +105,7 @@ public class Gun : MonoBehaviour
     }
 
     /// <summary>
-    /// Reset Ammo
+    /// Reset Ammo Amount
     /// </summary>
     public void ResetAmmo()
     {

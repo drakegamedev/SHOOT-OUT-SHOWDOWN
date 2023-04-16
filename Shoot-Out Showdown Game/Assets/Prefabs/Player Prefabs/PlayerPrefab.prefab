@@ -595,8 +595,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 385b40a5cc5ddae4fbed32a62adfb1a7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Speed: 20
-  DashSpeed: 75
+  defaultSpeed: 20
 --- !u!114 &3230428364668463873
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -609,7 +608,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2cd2c3ef25219ba47936acdd99c3bdd3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CurrentGun: {fileID: 3230428363100200991}
 --- !u!58 &3230428364668463878
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -639,7 +637,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   defaultHealth: 5
-  deathEffectId: 
+  deathEffectId: player-1-death-effect
 --- !u!114 &3230428364668463876
 MonoBehaviour:
   m_ObjectHideFlags: 0
