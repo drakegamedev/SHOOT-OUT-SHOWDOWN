@@ -335,9 +335,9 @@ MonoBehaviour:
   - Id: player-2-bullet
     Prefab: {fileID: 219475285256101854, guid: 7a3331e5f4179cf42ac356d4e5843d31, type: 3}
   - Id: player-1-death-effect
-    Prefab: {fileID: 227043704485283423, guid: b757e223ed18d884a8c2738244120671, type: 3}
+    Prefab: {fileID: 3067304273114788706, guid: 848ade33face9284bba09ec7f976981d, type: 3}
   - Id: player-2-death-effect
-    Prefab: {fileID: 227043704485283423, guid: c6aa72a27a0759e49a7a6ba9c4063182, type: 3}
+    Prefab: {fileID: 6217531797937891066, guid: 92278c4fa51823c4b868bb41dfdaa809, type: 3}
   - Id: player-1-score-effect
     Prefab: {fileID: 3318068301619798016, guid: 1e89c22d20dc2d34ba48e12ead656253, type: 3}
   - Id: player-2-score-effect
@@ -680,3 +680,60 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b87d801023d0964419c4e80caee3d550, type: 3}
+--- !u!1001 &6800102131266598801
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 6217531797937891065, guid: 92278c4fa51823c4b868bb41dfdaa809, type: 3}
+      propertyPath: m_RootOrder
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 6217531797937891065, guid: 92278c4fa51823c4b868bb41dfdaa809, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6217531797937891065, guid: 92278c4fa51823c4b868bb41dfdaa809, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6217531797937891065, guid: 92278c4fa51823c4b868bb41dfdaa809, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6217531797937891065, guid: 92278c4fa51823c4b868bb41dfdaa809, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6217531797937891065, guid: 92278c4fa51823c4b868bb41dfdaa809, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6217531797937891065, guid: 92278c4fa51823c4b868bb41dfdaa809, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6217531797937891065, guid: 92278c4fa51823c4b868bb41dfdaa809, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6217531797937891065, guid: 92278c4fa51823c4b868bb41dfdaa809, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6217531797937891065, guid: 92278c4fa51823c4b868bb41dfdaa809, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6217531797937891065, guid: 92278c4fa51823c4b868bb41dfdaa809, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6217531797937891066, guid: 92278c4fa51823c4b868bb41dfdaa809, type: 3}
+      propertyPath: m_Name
+      value: DeathEffect
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 92278c4fa51823c4b868bb41dfdaa809, type: 3}

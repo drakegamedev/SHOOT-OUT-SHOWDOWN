@@ -12,7 +12,7 @@ public class PanelManager : MonoBehaviour
         public GameObject PanelObject;
     }
 
-    [Header("References")]
+    [Header("Properties")]
     public PanelData[] Panels;
 
     #region Singleton
