@@ -283,8 +283,6 @@ MonoBehaviour:
   arenaIds:
   - Arena1
   - Arena2
-  - Arena3
-  - Arena4
 --- !u!4 &1123769175
 Transform:
   m_ObjectHideFlags: 0

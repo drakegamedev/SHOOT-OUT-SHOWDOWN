@@ -3,46 +3,44 @@ using UnityEngine;
 // Generates a Random Color
 public class ColorGenerator : MonoBehaviour
 {
-    public GameObject[] Obstacles;                              // Obstacles Array
+    [Header("References")]
+    [SerializeField] private Transform walls;                              // Wall Holder Reference
+    [SerializeField] private Transform obstacles;                          // Obstacle Holder Reference
 
-    #region Initialization Functions
     void Awake()
     {
-        // Find all Obstacle Objects Within the Arena
-        Obstacles = GameObject.FindGameObjectsWithTag("Obstacle");
-
         RandomNumberGenerator();
-        ColorObstacles();
+        Coloring();
     }
-    #endregion
 
-    #region Private Functions
-    // Generates a Random Number
-    void RandomNumberGenerator()
+    /// <summary>
+    /// Generates a Random Number
+    /// </summary>
+    private void RandomNumberGenerator()
     {
         // Make a Random Number Without Repetition
         while (GameManager.Instance.RandomNumber == GameManager.Instance.CurrentArenaColorIndex)
-        {
             GameManager.Instance.RandomNumber = Random.Range(0, GameManager.Instance.ArenaColors.Length);
-        }
 
         GameManager.Instance.CurrentArenaColorIndex = GameManager.Instance.RandomNumber;
 
         Debug.Log(GameManager.Instance.CurrentArenaColorIndex);
     }
 
-    // Provides a Color to an Obstacle
-    void ColorObstacles()
+    /// <summary>
+    /// Provides a Color to the Walls and Obstacles
+    /// </summary>
+    private void Coloring()
     {
-        // Color Every Obstacle based on the Chosen Random Color
-        foreach (GameObject go in Obstacles)
-        {
-            // Get Sprite Renderer Component
-            SpriteRenderer sr = go.GetComponent<SpriteRenderer>();
+        SpriteRenderer[] wallSprites = walls.GetComponentsInChildren<SpriteRenderer>();
+        SpriteRenderer[] obstacleSprites = obstacles.GetComponentsInChildren<SpriteRenderer>();
 
-            // Color the Object
+        // Color Every Wall based on the Chosen Random Color
+        foreach (SpriteRenderer sr in wallSprites)
             sr.color = GameManager.Instance.ArenaColors[GameManager.Instance.CurrentArenaColorIndex];
-        }
+
+        // Color Every Obstacle based on the Chosen Random Color
+        foreach (SpriteRenderer sr in obstacleSprites)
+            sr.color = GameManager.Instance.ArenaColors[GameManager.Instance.CurrentArenaColorIndex];
     }
-    #endregion
 }
