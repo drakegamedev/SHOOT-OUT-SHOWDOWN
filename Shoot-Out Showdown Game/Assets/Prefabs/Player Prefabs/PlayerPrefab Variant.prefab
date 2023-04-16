@@ -64,6 +64,10 @@ PrefabInstance:
       value: 0.9622642
       objectReference: {fileID: 0}
     - target: {fileID: 3230428364668463879, guid: b49054bcc3d31c54bb3d1147249e6f6a, type: 3}
+      propertyPath: deathEffectId
+      value: player-1-death-effect
+      objectReference: {fileID: 0}
+    - target: {fileID: 3230428364668463879, guid: b49054bcc3d31c54bb3d1147249e6f6a, type: 3}
       propertyPath: DefaultColor.a
       value: 1
       objectReference: {fileID: 0}

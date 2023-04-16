@@ -331,9 +331,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Pools:
   - Id: player-1-bullet
-    Prefab: {fileID: 6320688948031940134, guid: 3699e7cd924314a4f9188d0e51f5169d, type: 3}
+    Prefab: {fileID: 3717425062094744406, guid: 78a18f76949da864bbe6b43db0f8a3a3, type: 3}
   - Id: player-2-bullet
-    Prefab: {fileID: 6320688948031940134, guid: 68620f4a4d4079349b164846416c969d, type: 3}
+    Prefab: {fileID: 219475285256101854, guid: 7a3331e5f4179cf42ac356d4e5843d31, type: 3}
   - Id: player-1-death-effect
     Prefab: {fileID: 227043704485283423, guid: b757e223ed18d884a8c2738244120671, type: 3}
   - Id: player-2-death-effect

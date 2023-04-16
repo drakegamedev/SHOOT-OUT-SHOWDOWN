@@ -578,22 +578,6 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 34713f44-8724-4e23-93d5-a76d91a197e7
     m_ActionName: Player/Fire[/Mouse/leftButton,/XInputControllerWindows/buttonWest,/XInputControllerWindows/rightShoulder]
-  - m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 3230428364668463933}
-        m_TargetAssemblyTypeName: PlayerMovement, Assembly-CSharp
-        m_MethodName: Dash
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-    m_ActionId: 61195b57-cfc4-42b0-8875-e0810b1ddd68
-    m_ActionName: Player/Dash[/XInputControllerWindows/rightTrigger,/Mouse/rightButton]
   m_NeverAutoSwitchControlSchemes: 1
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
@@ -654,7 +638,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 804e73f91daf3dd41bba3e2558b9960d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DefaultHealth: 5
+  defaultHealth: 5
   DeathEffectId: player-1-death-effect
 --- !u!114 &3230428364668463876
 MonoBehaviour:

@@ -2,32 +2,30 @@ using UnityEngine;
 
 public class PlayerHealth : Health
 {
-    public string DeathEffectId;                                        // Death Effect ID
+    [SerializeField] private string deathEffectId;                      // Death Effect ID
 
     // Private Variables
     private PlayerSetup playerSetup;                                    // PlayerSetup Class Reference
     private bool isAlive;                                               // Checks if Player is Alive or Dead
 
-    #region Initialization Functions
     // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
         playerSetup = GetComponent<PlayerSetup>();
-        CurrentHealth = DefaultHealth;
+        currentHealth = defaultHealth;
         isAlive = true;
     }
-    #endregion
 
     #region HP System
     public override void TakeDamage(float damage)
     {
         // Decrease HP
-        CurrentHealth -= damage;
+        currentHealth -= damage;
 
         // Update HP on UI
-        UIController.Instance.UpdateHealth(playerSetup.PlayerNumber, CurrentHealth);
+        UIController.Instance.UpdateHealth(playerSetup.PlayerNumber, currentHealth);
 
-        if (CurrentHealth > 0f)
+        if (currentHealth > 0f)
         {
             // Visual Indicator of Player Taking Damage
             playerSetup.Animator.SetTrigger("hurt");
@@ -35,10 +33,10 @@ public class PlayerHealth : Health
             // Play Hurt SFX
             AudioManager.Instance.Play("hurt");
         }
-        else if (CurrentHealth <= 0f)
+        else if (currentHealth <= 0f)
         {
             // Clamp HP to 0
-            CurrentHealth = 0f;
+            currentHealth = 0f;
             
             // Kill This Player
             OnDeath();
@@ -65,19 +63,23 @@ public class PlayerHealth : Health
     #endregion
 
     #region Death VFX
-    void DeathEffect()
+    /// <summary>
+    /// Creates a Visual Indication that the Player has Died
+    /// </summary>
+    private void DeathEffect()
     {
         gameObject.SetActive(false);
-        ObjectPooler.Instance.SpawnFromPool(DeathEffectId, transform.position, Quaternion.identity);
+        ObjectPooler.Instance.SpawnFromPool(deathEffectId, transform.position, Quaternion.identity);
     }
     #endregion
 
-    #region Public Functions
+    /// <summary>
+    /// Resets HP Properties
+    /// </summary>
     public void ResetHealth()
     {
-        CurrentHealth = DefaultHealth;
+        currentHealth = defaultHealth;
         isAlive = true;
-        UIController.Instance.UpdateHealth(playerSetup.PlayerNumber, CurrentHealth);
+        UIController.Instance.UpdateHealth(playerSetup.PlayerNumber, currentHealth);
     }
-    #endregion
 }
