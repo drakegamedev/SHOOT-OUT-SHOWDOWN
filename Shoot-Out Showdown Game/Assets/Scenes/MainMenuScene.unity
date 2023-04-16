@@ -5252,7 +5252,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e5aa286cce181d247a62572b71657110, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Panels:
+  panels:
   - Id: main-menu-panel
     PanelObject: {fileID: 1352046622}
   - Id: game-setup-panel

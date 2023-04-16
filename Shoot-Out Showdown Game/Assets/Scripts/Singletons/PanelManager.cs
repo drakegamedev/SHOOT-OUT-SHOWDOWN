@@ -6,14 +6,14 @@ public class PanelManager : MonoBehaviour
     public static PanelManager Instance;
 
     [System.Serializable]
-    public struct PanelData
+    private struct PanelData
     {
         public string Id;
         public GameObject PanelObject;
     }
 
     [Header("Properties")]
-    public PanelData[] Panels;
+    [SerializeField] private PanelData[] panels;
 
     #region Singleton
     void Awake()
@@ -29,12 +29,15 @@ public class PanelManager : MonoBehaviour
     }
     #endregion
 
-    // Activate Selected Panel
+    /// <summary>
+    /// Activate Selected Panel
+    /// </summary>
+    /// <param name="id"></param>
     public void ActivatePanel(string id)
     {
-        for (int i = 0; i < Panels.Length; i++)
+        for (int i = 0; i < panels.Length; i++)
         {
-            Panels[i].PanelObject.SetActive(Panels[i].Id == id);
+            panels[i].PanelObject.SetActive(panels[i].Id == id);
         }
     }
 }

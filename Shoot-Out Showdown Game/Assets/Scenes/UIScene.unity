@@ -152,17 +152,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e5aa286cce181d247a62572b71657110, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Panels:
+  panels:
   - Id: setup-panel
     PanelObject: {fileID: 1970415254}
+  - Id: all-set-panel
+    PanelObject: {fileID: 1845958695}
   - Id: countdown-panel
     PanelObject: {fileID: 628427230}
   - Id: score-board-panel
     PanelObject: {fileID: 1216563742}
   - Id: results-panel
     PanelObject: {fileID: 1968187194}
-  - Id: all-set-panel
-    PanelObject: {fileID: 1845958695}
   - Id: black-panel
     PanelObject: {fileID: 679811319}
 --- !u!4 &67031145
