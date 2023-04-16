@@ -129,10 +129,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e8a12d96fa1f3a047a797ab380daecf1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GunType: {fileID: 11400000, guid: 3a016644bb35e6949a5d66588c56524a, type: 2}
-  FirePoint: {fileID: 3230428364136949670}
-  BulletId: player-1-bullet
-  Force: 40
+  gunType: {fileID: 11400000, guid: 3a016644bb35e6949a5d66588c56524a, type: 2}
+  firePoint: {fileID: 3230428364136949670}
+  bulletId: player-1-bullet
+  force: 40
 --- !u!1 &3230428363143413388
 GameObject:
   m_ObjectHideFlags: 0
@@ -639,7 +639,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   defaultHealth: 5
-  DeathEffectId: player-1-death-effect
+  deathEffectId: 
 --- !u!114 &3230428364668463876
 MonoBehaviour:
   m_ObjectHideFlags: 0
