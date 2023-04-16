@@ -263,9 +263,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0e2ad706a979bf64eb49cf19769c220a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ReadyColor: {r: 1, g: 1, b: 1, a: 1}
-  PlayerText: {fileID: 6904042449119410939}
-  ReadyText: {fileID: 6904042448503016917}
+  readyColor: {r: 1, g: 1, b: 1, a: 1}
+  playerText: {fileID: 6904042449119410939}
+  readyText: {fileID: 6904042448503016917}
 --- !u!1 &6904042449119410937
 GameObject:
   m_ObjectHideFlags: 0

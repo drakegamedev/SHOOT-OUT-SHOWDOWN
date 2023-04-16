@@ -1582,6 +1582,18 @@ PrefabInstance:
       propertyPath: ReadyColor.r
       value: 0.77254903
       objectReference: {fileID: 0}
+    - target: {fileID: 6904042448690366749, guid: 5858824682016034190ab4a21cfa341f, type: 3}
+      propertyPath: readyColor.b
+      value: 0.8901961
+      objectReference: {fileID: 0}
+    - target: {fileID: 6904042448690366749, guid: 5858824682016034190ab4a21cfa341f, type: 3}
+      propertyPath: readyColor.g
+      value: 0.7058824
+      objectReference: {fileID: 0}
+    - target: {fileID: 6904042448690366749, guid: 5858824682016034190ab4a21cfa341f, type: 3}
+      propertyPath: readyColor.r
+      value: 0.77254903
+      objectReference: {fileID: 0}
     - target: {fileID: 6904042449119410939, guid: 5858824682016034190ab4a21cfa341f, type: 3}
       propertyPath: m_text
       value: Player 2
@@ -5417,6 +5429,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6904042448690366749, guid: 5858824682016034190ab4a21cfa341f, type: 3}
       propertyPath: ReadyColor.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6904042448690366749, guid: 5858824682016034190ab4a21cfa341f, type: 3}
+      propertyPath: readyColor.b
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
