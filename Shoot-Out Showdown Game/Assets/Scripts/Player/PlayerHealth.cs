@@ -84,5 +84,6 @@ public class PlayerHealth : Health
         currentHealth = defaultHealth;
         isAlive = true;
         UIController.Instance.UpdateHealth(playerSetup.PlayerNumber, currentHealth);
+        playerSetup.Animator.SetTrigger("idle");
     }
 }
