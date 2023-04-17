@@ -22,6 +22,7 @@ public class ColorGenerator : MonoBehaviour
         while (GameManager.Instance.RandomNumber == GameManager.Instance.CurrentArenaColorIndex)
             GameManager.Instance.RandomNumber = Random.Range(0, GameManager.Instance.ArenaColors.Length);
 
+        // Set Current Arena Color Index
         GameManager.Instance.CurrentArenaColorIndex = GameManager.Instance.RandomNumber;
 
         Debug.Log(GameManager.Instance.CurrentArenaColorIndex);
@@ -32,6 +33,7 @@ public class ColorGenerator : MonoBehaviour
     /// </summary>
     private void Coloring()
     {
+        // Gett All Walls and Obstacles from the Children
         SpriteRenderer[] wallSprites = walls.GetComponentsInChildren<SpriteRenderer>();
         SpriteRenderer[] obstacleSprites = obstacles.GetComponentsInChildren<SpriteRenderer>();
 
