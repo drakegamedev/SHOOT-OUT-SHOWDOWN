@@ -69,8 +69,10 @@ public class Shooting : MonoBehaviour
     public void Shoot(InputAction.CallbackContext context)
     {
         if (GameManager.Instance.CurrentGameState == GameManager.GameStates.ROUND_START)
+        {
             if (context.started)
                 currentGun.Fire();
+        }   
     }
     #endregion
 
